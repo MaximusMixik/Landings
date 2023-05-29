@@ -688,6 +688,7 @@ h6 {
 }
 
 .product__container {
+  max-width: 82rem;
   position: relative;
 }
 
@@ -728,6 +729,12 @@ h6 {
   -webkit-filter: blur(300px);
           filter: blur(300px);
   z-index: 1;
+}
+
+.price__title {
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.171875;
 }
 
 .price__body {
@@ -987,11 +994,11 @@ h6 {
   }
 
   .advanced__container {
-    padding-top: 13.6875rem;
+    padding-top: 12.5rem;
   }
 
   .advanced__container {
-    padding-bottom: 13.6875rem;
+    padding-bottom: 12.5rem;
   }
 
   .body-advanced__text {
@@ -999,19 +1006,27 @@ h6 {
   }
 
   .product__container {
-    padding-top: 13.6875rem;
+    padding-top: 12.5rem;
   }
 
   .product__container {
-    padding-bottom: 13.6875rem;
+    padding-bottom: 12.5rem;
   }
 
   .price__container {
-    padding-top: 16.25rem;
+    padding-top: 12.5rem;
   }
 
   .price__container {
-    padding-bottom: 12.25rem;
+    padding-bottom: 12.5rem;
+  }
+
+  .price__title {
+    font-size: 4rem;
+  }
+
+  .price__title {
+    margin-bottom: 6.25rem;
   }
 
   .price__body {
@@ -1112,6 +1127,14 @@ h6 {
 
   .price__container {
     padding-bottom: 1.875rem;
+  }
+
+  .price__title {
+    font-size: 2rem;
+  }
+
+  .price__title {
+    margin-bottom: 1.875rem;
   }
 
   .price__body {
@@ -1509,27 +1532,27 @@ h6 {
     }
 }
 
-@supports (padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .advanced__container {
-      padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem );
+      padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports not (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .advanced__container {
-      padding-top: calc(1.875rem + 11.8125 * (100vw - 20rem) / 86.25);
+      padding-top: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
     }
 }
 
-@supports (padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .advanced__container {
-      padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem );
+      padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports not (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .advanced__container {
-      padding-bottom: calc(1.875rem + 11.8125 * (100vw - 20rem) / 86.25);
+      padding-bottom: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
     }
 }
 
@@ -1545,51 +1568,75 @@ h6 {
     }
 }
 
-@supports (padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .product__container {
-      padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem );
+      padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-top: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports not (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .product__container {
-      padding-top: calc(1.875rem + 11.8125 * (100vw - 20rem) / 86.25);
+      padding-top: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
     }
 }
 
-@supports (padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .product__container {
-      padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem );
+      padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 1.875rem , -0.8641304348rem  +  13.6956521739vw , 13.6875rem )) {
+@supports not (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .product__container {
-      padding-bottom: calc(1.875rem + 11.8125 * (100vw - 20rem) / 86.25);
+      padding-bottom: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
     }
 }
 
-@supports (padding-top: clamp( 1.875rem , -1.4583333333rem  +  16.6666666667vw , 16.25rem )) {
+@supports (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .price__container {
-      padding-top: clamp( 1.875rem , -1.4583333333rem  +  16.6666666667vw , 16.25rem );
+      padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-top: clamp( 1.875rem , -1.4583333333rem  +  16.6666666667vw , 16.25rem )) {
+@supports not (padding-top: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .price__container {
-      padding-top: calc(1.875rem + 14.375 * (100vw - 20rem) / 86.25);
+      padding-top: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
     }
 }
 
-@supports (padding-bottom: clamp( 1.875rem , -0.5307971014rem  +  12.0289855072vw , 12.25rem )) {
+@supports (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .price__container {
-      padding-bottom: clamp( 1.875rem , -0.5307971014rem  +  12.0289855072vw , 12.25rem );
+      padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 1.875rem , -0.5307971014rem  +  12.0289855072vw , 12.25rem )) {
+@supports not (padding-bottom: clamp( 1.875rem , -0.5887681159rem  +  12.3188405797vw , 12.5rem )) {
     .price__container {
-      padding-bottom: calc(1.875rem + 10.375 * (100vw - 20rem) / 86.25);
+      padding-bottom: calc(1.875rem + 10.625 * (100vw - 20rem) / 86.25);
+    }
+}
+
+@supports (font-size: clamp( 2rem , 1.5362318841rem  +  2.3188405797vw , 4rem )) {
+    .price__title {
+      font-size: clamp( 2rem , 1.5362318841rem  +  2.3188405797vw , 4rem );
+    }
+}
+
+@supports not (font-size: clamp( 2rem , 1.5362318841rem  +  2.3188405797vw , 4rem )) {
+    .price__title {
+      font-size: calc(2rem + 2 * (100vw - 20rem) / 86.25);
+    }
+}
+
+@supports (margin-bottom: clamp( 1.875rem , 0.8605072464rem  +  5.0724637681vw , 6.25rem )) {
+    .price__title {
+      margin-bottom: clamp( 1.875rem , 0.8605072464rem  +  5.0724637681vw , 6.25rem );
+    }
+}
+
+@supports not (margin-bottom: clamp( 1.875rem , 0.8605072464rem  +  5.0724637681vw , 6.25rem )) {
+    .price__title {
+      margin-bottom: calc(1.875rem + 4.375 * (100vw - 20rem) / 86.25);
     }
 }
 

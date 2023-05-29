@@ -200,35 +200,38 @@
         }
     }), 0);
     "use strict";
-    window.addEventListener("load", windowLoad);
-    function windowLoad() {
-        if (document.querySelector("[data-glow]")) {
-            document.documentElement.addEventListener("mouseover", buttonActions);
-            document.documentElement.addEventListener("mouseout", buttonActions);
-            document.documentElement.addEventListener("mousemove", buttonActions);
-            let bGlow, bGlowColor, bGlowSize;
-            function buttonActions(e) {
-                const button = e.target.closest("[data-glow]");
-                if (!button) return;
-                if (e.type === "mouseover") {
-                    button.insertAdjacentHTML("beforeend", `\n        \t\t\t<span class="button__glow">\n\t\t\t\t\t\t<span class="button__color"></span>\n\t\t\t\t\t</span>\n        `);
-                    bGlow = button.querySelector(".button__glow");
-                    bGlowColor = button.querySelector(".button__color");
-                    bGlowSize = Math.min(button.offsetWidth, button.offsetHeight);
-                    bGlow.style.width = bGlow.style.height = `${bGlowSize}px`;
-                    bGlowColor.style.width = `${button.offsetWidth}px`;
-                    bGlowColor.style.height = `${button.offsetHeight}px`;
-                }
-                if (e.type === "mouseout") button.querySelector(".button__glow").remove();
-                if (e.type === "mousemove") {
-                    const posX = e.pageX - (button.getBoundingClientRect().left - scrollX);
-                    const posY = e.pageY - (button.getBoundingClientRect().top - scrollY);
-                    bGlow.style.left = `${posX - bGlowSize / 3}px`;
-                    bGlow.style.top = `${posY - bGlowSize / 3}px`;
-                }
+    window.addEventListener("DOMContentLoaded", (function() {
+        const buttons = document.querySelectorAll("[data-glow]");
+        buttons.forEach((button => {
+            button.addEventListener("mouseover", buttonActions);
+            button.addEventListener("mouseout", buttonActions);
+            button.addEventListener("mousemove", buttonActions);
+        }));
+        function buttonActions(e) {
+            const button = e.currentTarget;
+            let bGlow = button.querySelector(".button__glow");
+            if (e.type === "mouseover") if (!bGlow) {
+                bGlow = document.createElement("span");
+                bGlow.className = "button__glow";
+                button.appendChild(bGlow);
+                const bGlowColor = document.createElement("span");
+                bGlowColor.className = "button__color";
+                bGlow.appendChild(bGlowColor);
+                const bGlowSize = Math.min(button.offsetWidth, button.offsetHeight);
+                bGlow.style.width = bGlow.style.height = `${bGlowSize}px`;
+                bGlowColor.style.width = `${button.offsetWidth}px`;
+                bGlowColor.style.height = `${button.offsetHeight}px`;
+            }
+            if (e.type === "mouseout") if (bGlow) button.removeChild(bGlow);
+            if (e.type === "mousemove") {
+                const bGlowSize = parseInt(bGlow.style.width);
+                const posX = e.pageX - (button.getBoundingClientRect().left + window.scrollX);
+                const posY = e.pageY - (button.getBoundingClientRect().top + window.scrollY);
+                bGlow.style.left = `${posX - bGlowSize / 3}px`;
+                bGlow.style.top = `${posY - bGlowSize / 3}px`;
             }
         }
-    }
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();

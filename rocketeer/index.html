@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230530122947">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230603141422">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,26 +14,31 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-scroll-show class="header">
 			<div class="header__container">
 				<a href="#" class="header__logo">Rocketeer</a>
 				<div class="header__menu menu">
 					<button type="button" class="menu__icon icon-menu"><span></span></button>
 					<nav class="menu__body">
 						<ul class="menu__list">
-							<li class="menu__item"><a href="#" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">About us</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">View Product</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">Pricing</a></li>
+							<li class="menu__item"><a href="#" data-goto="#main" data-goto-top="300px" class="menu__link active">Home</a>
+							</li>
+							<li class="menu__item"><a href="#" data-goto="#about" data-goto-top="-50px" class="menu__link">About
+									us</a></li>
+							<li class="menu__item"><a href="#" data-goto="#product" data-goto-top="-60px" class="menu__link">View
+									Product</a>
+							</li>
+							<li class="menu__item"><a href="#" data-goto="#price" data-goto-header class="menu__link">Pricing</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</header>
 		<main class="page">
-			<section class="page__main main">
+			<section data-watch class="page__main main">
 				<div class="main__container">
-					<div class="main__content main-content">
+					<div id="main" data-watch="navigator" class="main__content main-content">
 						<h1 class="main-content__title">The future
 							is <span>now</span> </h1>
 						<div class="main-content__text">Rocketeer helmets is a visionary enterprise that is trying to improve your
@@ -53,8 +58,8 @@
 
 			</section>
 			<section class="page__about about ">
-				<div class="about__container">
-					<div class="about__body">
+				<div data-watch="navigator" id="about" class="about__container">
+					<div data-watch data-watch-once data-watch-threshold="0.2" class="about__body">
 						<picture><source srcset="img/about/about_content-bg.webp" type="image/webp"><img src="img/about/about_content-bg.jpg" alt="background"></picture>
 						<div class="about__content">
 							<h2 class="about__title">About us</h2>
@@ -78,44 +83,47 @@
 				</div>
 
 			</section>
-			<section class="page__advanced advanced">
-				<div class="advanced__container">
-					<div class="advanced__body body-advanced">
-						<div data-watch class="body-advanced__image"><picture><source srcset="img/advanced/advanced_img.webp" type="image/webp"><img src="img/advanced/advanced_img.jpg" alt="advanced"></picture></div>
-						<div data-watch class="body-advanced__content">
-							<h3 class="body-advanced__title">Advanced communications system</h3>
-							<div class="body-advanced__text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-									et dolore magna
-									aliqua. Justo eget magna fermentum iaculis eu non diam phasellus.</p>
+			<div class="product" id="product" data-watch="navigator">
+				<section class="page__advanced advanced">
+					<div class="advanced__container">
+						<div class="advanced__body body-advanced">
+							<div data-watch-threshold="0.6" data-watch data-watch-once class="body-advanced__image"><picture><source srcset="img/advanced/advanced_img.webp" type="image/webp"><img src="img/advanced/advanced_img.jpg" alt="advanced"></picture>
 							</div>
-							<a href="#" class="body-advanced__button btn">Buy now</a>
+							<div data-watch-threshold="0.6" data-watch data-watch-once class="body-advanced__content">
+								<h3 class="body-advanced__title">Advanced communications system</h3>
+								<div class="body-advanced__text">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+										et dolore magna
+										aliqua. Justo eget magna fermentum iaculis eu non diam phasellus.</p>
+								</div>
+								<a href="#" class="body-advanced__button btn">Buy now</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section class="page__product product">
-				<div class="product__container">
-					<div class="product__body body-advanced body-advanced_revers">
-						<div data-watch class="body-advanced__content">
-							<h3 class="body-advanced__title">Improved ventilation system</h3>
-							<div class="body-advanced__text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-									et dolore magna
-									aliqua. Justo eget magna fermentum iaculis eu non diam phasellus.</p>
+				</section>
+				<section class="page__product product">
+					<div class="product__container">
+						<div class="product__body body-advanced body-advanced_revers">
+							<div data-watch-threshold="0.6" data-watch data-watch-once class="body-advanced__content">
+								<h3 class="body-advanced__title">Improved ventilation system</h3>
+								<div class="body-advanced__text">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+										et dolore magna
+										aliqua. Justo eget magna fermentum iaculis eu non diam phasellus.</p>
+								</div>
+								<a href="#" class="body-advanced__button btn">Buy now</a>
 							</div>
-							<a href="#" class="body-advanced__button btn">Buy now</a>
-						</div>
-						<div data-watch class="body-advanced__image"><picture><source srcset="img/product/product.webp" type="image/webp"><img src="img/product/product.jpg" alt="product"></picture></div>
+							<div data-watch-threshold="0.6" data-watch data-watch-once class="body-advanced__image"><picture><source srcset="img/product/product.webp" type="image/webp"><img src="img/product/product.jpg" alt="product"></picture></div>
 
+						</div>
 					</div>
-				</div>
-			</section>
-			<section data-watch class="page__price price">
+				</section>
+			</div>
+			<section class="page__price price">
 				<div class="price__container">
-					<h2 class="price__title">Our rates</h2>
-					<div class="price__body">
-						<a data-watch href="#" class="price__column price-column">
+					<h2 data-watch="navigator" id="price" class="price__title">Our rates</h2>
+					<div data-watch-threshold="0.5" data-watch data-watch-once class="price__body">
+						<a data-watch data-watch-once href="#" class="price__column price-column">
 							<h3 class="price-column__title">Basic</h3>
 							<ul class="price-column__list">
 								<li class="price-column__item">diam maecenas ultricies mi</li>
@@ -127,7 +135,7 @@
 							<div class="price-column__value">$230</div>
 
 						</a>
-						<a data-watch href="#" class="price__column price-column">
+						<a data-watch data-watch-once href="#" class="price__column price-column">
 							<h3 class="price-column__title">Premium</h3>
 							<ul class="price-column__list">
 								<li class="price-column__item">diam maecenas ultricies mi</li>
@@ -139,7 +147,7 @@
 							<div class="price-column__value">$500</div>
 
 						</a>
-						<a data-watch href="#" class="price__column price-column">
+						<a data-watch data-watch-once href="#" class="price__column price-column">
 							<h3 class="price-column__title">Pro</h3>
 							<ul class="price-column__list">
 								<li class="price-column__item">diam maecenas ultricies mi</li>
@@ -166,7 +174,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230530122947"></script>
+	<script src="js/app.min.js?_v=20230603141422"></script>
 </body>
 
 </html>

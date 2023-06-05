@@ -1001,6 +1001,7 @@ h6 {
   .main__container::after {
     content: "";
     position: absolute;
+    opacity: 1;
     top: 0;
     left: 0;
     border-radius: 50%;

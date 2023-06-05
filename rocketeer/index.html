@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230603141422">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230605100931">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,9 +23,9 @@
 						<ul class="menu__list">
 							<li class="menu__item"><a href="#" data-goto="#main" data-goto-top="300px" class="menu__link active">Home</a>
 							</li>
-							<li class="menu__item"><a href="#" data-goto="#about" data-goto-top="-50px" class="menu__link">About
+							<li class="menu__item"><a href="#" data-goto="#about" data-goto-top="50px" class="menu__link">About
 									us</a></li>
-							<li class="menu__item"><a href="#" data-goto="#product" data-goto-top="-60px" class="menu__link">View
+							<li class="menu__item"><a href="#" data-goto="#product" data-goto-header class="menu__link">View
 									Product</a>
 							</li>
 							<li class="menu__item"><a href="#" data-goto="#price" data-goto-header class="menu__link">Pricing</a>
@@ -36,10 +36,11 @@
 			</div>
 		</header>
 		<main class="page">
-			<section data-watch class="page__main main">
+			<!-- data-watch data-watch-once -->
+			<section class="page__main main">
 				<div class="main__container">
-					<div id="main" data-watch="navigator" class="main__content main-content">
-						<h1 class="main-content__title">The future
+					<div class="main__content main-content">
+						<h1 id="main" data-watch="navigator" class="main-content__title">The future
 							is <span>now</span> </h1>
 						<div class="main-content__text">Rocketeer helmets is a visionary enterprise that is trying to improve your
 							health by building modern and comfortable
@@ -58,11 +59,11 @@
 
 			</section>
 			<section class="page__about about ">
-				<div data-watch="navigator" id="about" class="about__container">
+				<div class="about__container">
 					<div data-watch data-watch-once data-watch-threshold="0.2" class="about__body">
 						<picture><source srcset="img/about/about_content-bg.webp" type="image/webp"><img src="img/about/about_content-bg.jpg" alt="background"></picture>
 						<div class="about__content">
-							<h2 class="about__title">About us</h2>
+							<h2 data-watch="navigator" id="about" class="about__title">About us</h2>
 							<div class="about__sub-title">Our mission is change the way you explore the space</div>
 							<div class="about__text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -83,7 +84,7 @@
 				</div>
 
 			</section>
-			<div class="product" id="product" data-watch="navigator">
+			<div id="product" data-watch="navigator" class="product">
 				<section class="page__advanced advanced">
 					<div class="advanced__container">
 						<div class="advanced__body body-advanced">
@@ -174,7 +175,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230603141422"></script>
+	<script src="js/app.min.js?_v=20230605100931"></script>
 </body>
 
 </html>

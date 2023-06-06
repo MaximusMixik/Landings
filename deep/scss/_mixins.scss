@@ -1,0 +1,39 @@
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+%main-button {
+	font-weight: 500;
+	font-size: rem(14);
+	line-height: 1.5;
+	min-height: rem(49);
+	padding: rem(12) rem(8);
+	width: 100%;
+	display: block;
+	text-align: center;
+	transition: all 500ms ease-out;
+}
+@mixin button($bgColor: $colorBlue, $borderColor: $colorGray, $textColor: $colorWhite, $maxWidth: rem(142)) {
+	color: $textColor;
+	background-color: $bgColor;
+	border: 1px solid $borderColor;
+	max-width: $maxWidth;
+	@extend %main-button;
+
+	@media (max-width: em(447.98)) {
+		max-width: rem(120);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $colorWhite;
+			color: $colorBlue;
+		}
+	}
+}

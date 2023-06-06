@@ -1,0 +1,43 @@
+@use "sass:math";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:regular,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Overpass:700&display=swap");
+
+@import "_mixins";
+@import "_reset";
+@import "_common";
+
+body {
+	font-family: "Open Sans", serif;
+	font-size: rem(20);
+	line-height: 1.6;
+	color: $cOpacityBlue;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main {
+	flex-grow: 1;
+}
+[class*="__container"] {
+	margin: 0 auto;
+	padding: 0 rem(85);
+	@media (max-width: em(1200)) {
+		padding: 0 rem(15);
+	}
+}
+
+@import "_header";
+@import "_main";
+@import "_about";
+@import "_services";
+@import "_portfolio";
+@import "_team";
+@import "_contact";
+@import "_footer";

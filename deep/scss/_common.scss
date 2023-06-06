@@ -1,0 +1,93 @@
+$cWhite: #fff;
+$cOpacityWhite: rgba(255, 255, 255, 0.8);
+$cBlue: #6257fe;
+$cDarkBlue: #100c46;
+$cOpacityBlue: rgba(16, 12, 70, 0.8);
+$cLightBlue: #f4f3ff;
+
+.title {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-size: rem(56);
+  line-height: 1.27;
+  color: $cDarkBlue;
+  &_white {
+    color: $cWhite;
+  }
+  &_blue {
+    color: $cBlue;
+  }
+  @media (max-width: em(991.98)) {
+    font-size: rem(56);
+  }
+  @media (max-width: em(767.98)) {
+    font-size: rem(40);
+  }
+  @media (max-width: em(447.98)) {
+    font-size: rem(30);
+  }
+}
+.sub-title {
+  font-size: rem(16);
+  line-height: 1.37;
+  color: $cBlue;
+  &_white {
+    color: $cWhite;
+  }
+}
+
+.btn {
+  border-radius: rem(3);
+  background-color: $cWhite;
+  padding: rem(19);
+  min-width: rem(192);
+  text-align: center;
+  display: inline-block;
+  font-size: rem(18);
+  line-height: 1.77;
+  font-weight: 600;
+  box-shadow: rem(10) rem(10) rem(50) rgba(0, 0, 0, 0.3);
+  transition: all 400ms ease;
+
+  &_blue {
+    background-color: $cBlue;
+    color: $cWhite;
+    box-shadow: rem(10) rem(10) rem(30) rgba(98, 87, 254, 0.3);
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $cWhite;
+        color: $cDarkBlue;
+      }
+    }
+  }
+  @media (max-width: em(767.98)) {
+    font-size: rem(16);
+    padding: rem(11);
+    min-width: rem(150);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $cDarkBlue;
+      color: $cWhite;
+    }
+  }
+}
+.text {
+  color: $cWhite;
+  &_light {
+    color: $cOpacityWhite;
+  }
+  &_blue {
+    color: $cOpacityBlue;
+  }
+  & p:not(:last-child) {
+    margin-bottom: rem(35);
+  }
+  @media (max-width: em(767.98)) {
+    font-size: rem(16);
+  }
+  @media (max-width: em(447.98)) {
+    font-size: rem(14);
+  }
+}

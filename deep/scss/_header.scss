@@ -1,0 +1,62 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    padding: rem(17) 0 rem(17) rem(20);
+  }
+
+  &__social {
+    display: flex;
+    background-color: $cBlue;
+    align-self: flex-start;
+    gap: rem(25);
+    padding: rem(23);
+    & a {
+      display: flex;
+      @media (any-hover: hover) {
+        &:hover img {
+          transform: scale(1.2);
+        }
+      }
+
+      & img {
+        flex: 0 0 auto;
+        max-width: 100%;
+        text-align: center;
+        transition: transform 400ms ease;
+      }
+    }
+  }
+}
+.logo {
+  &__img {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  &__text {
+    color: $cWhite;
+  }
+
+  &__title {
+    font-size: rem(16);
+    font-family: "Overpass";
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  &__sub-title {
+    font-size: rem(12);
+    line-height: 1.33;
+  }
+}

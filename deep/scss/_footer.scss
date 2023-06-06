@@ -1,0 +1,38 @@
+.footer {
+  padding: rem(130) 0 rem(100);
+  @media (max-width: em(767.98)) {
+    padding: rem(80) 0;
+  }
+  @media (max-width: em(447.98)) {
+    padding: rem(30) 0;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__copy {
+    flex: 1 1 auto;
+    @media (min-width: em(447)) {
+      text-align: center;
+    }
+  }
+
+  &__back {
+    & img {
+      display: inline-block;
+      background-color: $cBlue;
+      padding: rem(31) rem(28);
+      transition: all 700ms ease;
+      @media (max-width: em(447.98)) {
+        padding: rem(20);
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(1.1) rotate(360deg);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

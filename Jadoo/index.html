@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230531153422">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230612153629">
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +14,16 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-scroll-show class="header">
 			<div class="header__container">
 				<div class="header__logo"><img src="img/logo.svg" alt="logo"></div>
 				<nav class="header__menu menu">
 					<ul class="menu__list">
-						<li class="menu__item"><a href="#" class="menu__link">Desitnations</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Hotels</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Flights</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Bookings</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".services" class="menu__link">Flights</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".destinations" class="menu__link">Desitnations</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".trip" class="menu__link">Bookings</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".testimonials" class="menu__link">Reviews</a>
+						</li>
 					</ul>
 					<div class="manu__action action-menu">
 						<button type="button" class="action-menu__login">Login</button>
@@ -39,7 +40,7 @@
 			</div>
 		</header>
 		<main class="page">
-			<section class="page__main main">
+			<section class="main">
 				<div class="main__container">
 					<div class="main__content main-content">
 						<h4 class="main-content__sub-title">Best Destinations around the world</h4>
@@ -67,55 +68,57 @@
 					</div>
 				</div>
 			</section>
-			<section class="services">
+			<section data-watch-threshold="0.6" data-watch-once data-watch class="services">
 				<div class="services__container">
-					<div class="services__header header-block header-block_center">
+					<div data-watch data-watch-once class="services__header header-block header-block_center">
 						<h4 class="header-block__sub-title ">CATEGORY</h4>
 						<h2 class="header-block__title ">We Offer Best Services</h2>
 					</div>
 					<div class="services__body services-body">
-						<div class="services-body__item services-item">
-							<div class="services-item__icon"><img src="img/services/services__icon1.svg" alt="services icon"></div>
+						<a href="#" data-watch data-watch-once class="services-body__item services-item">
+							<div class="services-item__icon"><img data-prlx-mouse data-prlx-cx="5000" src="img/services/services__icon1.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Calculated Weather</h5>
 							<div class="services-item__text">
 								<p>Built Wicket longer admire do barton vanity itself do in it.</p>
 							</div>
-						</div>
-						<div class="services-body__item services-item">
-							<div class="services-item__icon"><img src="img/services/services__icon2.svg" alt="services icon"></div>
+						</a>
+						<a href="#" data-watch data-watch-once class="services-body__item services-item">
+							<div class="services-item__icon"><img data-prlx-mouse data-prlx-cy="40" src="img/services/services__icon2.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Best Flights</h5>
 							<div class="services-item__text">
 								<p>Engrossed listening. Park gate sell they west hard for the.</p>
 							</div>
-						</div>
-						<div class="services-body__item services-item">
-							<div class="services-item__icon"><picture><source srcset="img/services/services__icon3.webp" type="image/webp"><img src="img/services/services__icon3.png" alt="services icon"></picture></div>
+						</a>
+						<a href="#" data-watch data-watch-once class="services-body__item services-item">
+							<div class="services-item__icon"><picture><source srcset="img/services/services__icon3.webp" type="image/webp"><img data-prlx-mouse data-prlx-cy="150" src="img/services/services__icon3.png" alt="services icon"></picture></div>
 							<h5 class="services-item__title">Local Events</h5>
 							<div class="services-item__text">
 								<p>Barton vanity itself do in it. Preferd to men it engrossed listening.</p>
 							</div>
-						</div>
-						<div class="services-body__item services-item">
-							<div class="services-item__icon"><img src="img/services/services__icon4.svg" alt="services icon"></div>
+						</a>
+						<a href="#" data-watch data-watch-onc class="services-body__item services-item">
+							<div class="services-item__icon"><img data-prlx-mouse data-prlx-cx="400" src=" img/services/services__icon4.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Customization</h5>
 							<div class="services-item__text">
 								<p>We deliver outsourced
 									aviation services for
 									military customers</p>
 							</div>
-						</div>
+						</a>
+
+
 
 					</div>
 				</div>
 			</section>
-			<section class="destinations">
+			<section data-watch-threshold="0.6" data-watch-once data-watch class="destinations">
 				<div class="destinations__container">
-					<div class="destinations__header header-block header-block_center">
+					<div data-watch data-watch-once class="destinations__header header-block header-block_center">
 						<h4 class="header-block__sub-title ">Top Selling</h4>
 						<h2 class="header-block__title ">Top Destinations</h2>
 					</div>
 					<div class="destinations__body destinations-body">
-						<a href="#" class="destinations-body__column destinations-column">
+						<a data-prlx-mouse data-prlx-a="30" data-watch data-watch-once href="#" class="destinations-body__column destinations-column">
 							<div class="destinations-column__image-ibg"><picture><source srcset="img/destinations/destinations__img1.webp" type="image/webp"><img src="img/destinations/destinations__img1.jpg" alt="Rome, Italty"></picture>
 							</div>
 							<div class="destinations-column__content">
@@ -126,7 +129,7 @@
 								<div class="destinations-column__number-day _icon-navigate">10 Days Trip</div>
 							</div>
 						</a>
-						<a href="#" class="destinations-body__column destinations-column">
+						<a data-prlx-mouse data-prlx-a="20" data-watch data-watch-once href="#" class="destinations-body__column destinations-column">
 							<div class="destinations-column__image-ibg"><picture><source srcset="img/destinations/destinations__img2.webp" type="image/webp"><img src="img/destinations/destinations__img2.jpg" alt="London, UK"></picture>
 							</div>
 							<div class="destinations-column__content">
@@ -137,7 +140,7 @@
 								<div class="destinations-column__number-day _icon-navigate">12 Days Trip</div>
 							</div>
 						</a>
-						<a href="#" class="destinations-body__column destinations-column">
+						<a data-prlx-mouse data-prlx-a="30" data-watch data-watch-once href="#" class="destinations-body__column destinations-column">
 							<div class="destinations-column__image-ibg"><picture><source srcset="img/destinations/destinations__img3.webp" type="image/webp"><img src="img/destinations/destinations__img3.jpg" alt="Europe"></picture>
 							</div>
 							<div class="destinations-column__content">
@@ -151,15 +154,15 @@
 					</div>
 				</div>
 			</section>
-			<section class="trip">
+			<section data-watch-threshold="0.6" data-watch-once data-watch class="trip">
 				<div class="trip__container">
 					<div class="trip__content trip-content">
-						<div class="trip-content__header header-block">
+						<div data-watch data-watch-once class="trip-content__header header-block">
 							<h4 class="header-block__sub-title ">Easy and Fast</h4>
 							<h2 class="header-block__title ">Book your next trip
 								in 3 easy steps</h2>
 						</div>
-						<div class="trip-content__items trip-items">
+						<div data-watch data-watch-once class="trip-content__items trip-items">
 							<div class="trip-items__item">
 								<div class="trip-items__icon trip-items__icon_yellow"><img src="img/trip/trip__icon1.svg" alt="cvad">
 								</div>
@@ -195,7 +198,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="trip__card trip-card">
+					<div data-prlx-mouse data-prlx-a="20" data-watch data-watch-once class="trip__card trip-card">
 						<div class="trip-card__body">
 							<a href="#" class="trip-card__image-ibg"><picture><source srcset="img/trip/trip-cart_img.webp" type="image/webp"><img src="img/trip/trip-cart_img.jpeg" alt="Trip To Greece"></picture></a>
 							<h4 class="trip-card__title"><a href="#">Trip To Greece</a> </h4>
@@ -233,17 +236,17 @@
 					</div>
 				</div>
 			</section>
-			<section class="testimonials">
+			<section data-watch-threshold="0.6" data-watch-once data-watch class="testimonials">
 				<div class="testimonials__container">
-					<div class="testimonials__content">
+					<div data-watch-once data-watch class="testimonials__content">
 						<div class="testimonials__header header-block ">
 							<h4 class="header-block__sub-title ">Testimonials</h4>
 							<h2 class="header-block__title ">What people say
 								about Us.</h2>
 						</div>
-						<div data-da=".testimonials__body, 767.98" class="testimonials__dots"></div>
+						<div data-da=".testimonials__body, 991.98" class="testimonials__dots"></div>
 					</div>
-					<div class="testimonials__body">
+					<div data-watch-once data-watch class="testimonials__body">
 						<div class="testimonials__slider swiper">
 							<div class="testimonials__wrapper swiper-wrapper">
 
@@ -266,9 +269,8 @@
 										<div class="testimonials-slide__photo"><picture><source srcset="img/testimonials/photo.webp" type="image/webp"><img src="img/testimonials/photo.jpg" alt="photo Mike taylor"></picture>
 										</div>
 										<div class="testimonials-slide__text">
-											<p>“On the Windows talking painted pasture. Sure last upon he same as
-												knew next. Of believed or
-												diverted no.”</p>
+											<p>“On the Windows talking painted pasture yet its express parties use. Sure last upon he same as
+												knew next.”</p>
 										</div>
 										<div class="testimonials-slide__author">Chris Thomas</div>
 										<div class="testimonials-slide__position">CEO of Red Button</div>
@@ -280,8 +282,11 @@
 										<div class="testimonials-slide__photo"><picture><source srcset="img/testimonials/photo.webp" type="image/webp"><img src="img/testimonials/photo.jpg" alt="photo Mike taylor"></picture>
 										</div>
 										<div class="testimonials-slide__text">
-											<p>“On the Windows talking painted pasture yet its express parties use. Sure last upon he same as
-												knew next.”</p>
+											<p>“On the Windows talking painted pasture. Sure last upon he same as
+												knew next. Of believed or
+												diverted no.”</p>
+											<p>“On the Windows talking painted pasture. Sure last upon he same as.
+												”</p>
 										</div>
 										<div class="testimonials-slide__author">Ivan Pupkov</div>
 										<div class="testimonials-slide__position">Dovben</div>
@@ -297,18 +302,18 @@
 					</div>
 				</div>
 			</section>
-			<div class="clients">
+			<div data-watch-threshold="0.6" data-watch-once data-watch class="clients">
 				<div class="clients__container">
 					<div class="clients__items">
-						<a href="#" class="clients__item"><picture><source srcset="img/clients/clients1.webp" type="image/webp"><img src="img/clients/clients1.png" alt="clients"></picture></a>
-						<a href="#" class="clients__item"><picture><source srcset="img/clients/clients2.webp" type="image/webp"><img src="img/clients/clients2.png" alt="clients"></picture></a>
-						<a href="#" class="clients__item"><picture><source srcset="img/clients/clients3.webp" type="image/webp"><img src="img/clients/clients3.png" alt="clients"></picture></a>
-						<a href="#" class="clients__item"><picture><source srcset="img/clients/clients4.webp" type="image/webp"><img src="img/clients/clients4.png" alt="clients"></picture></a>
-						<a href="#" class="clients__item"><picture><source srcset="img/clients/clients5.webp" type="image/webp"><img src="img/clients/clients5.png" alt="clients"></picture></a>
+						<a data-prlx-mouse data-prlx-cy="20" data-prlx-a="120" data-watch data-watch-once href="#" class="clients__item"><picture><source srcset="img/clients/clients1.webp" type="image/webp"><img src="img/clients/clients1.png" alt="clients"></picture></a>
+						<a data-prlx-mouse data-prlx-cy="10" data-prlx-a="100" data-watch data-watch-once href="#" class="clients__item"><picture><source srcset="img/clients/clients2.webp" type="image/webp"><img src="img/clients/clients2.png" alt="clients"></picture></a>
+						<a data-prlx-mouse data-prlx-cx="20" data-prlx-a="80" data-prlx-cy="30" data-watch data-watch-once href="#" class="clients__item"><picture><source srcset="img/clients/clients3.webp" type="image/webp"><img src="img/clients/clients3.png" alt="clients"></picture></a>
+						<a data-prlx-mouse data-prlx-cy="20" data-prlx-a="100" data-watch data-watch-once href="#" class="clients__item"><picture><source srcset="img/clients/clients4.webp" type="image/webp"><img src="img/clients/clients4.png" alt="clients"></picture></a>
+						<a data-prlx-mouse data-prlx-cy="20" data-prlx-a="120" data-watch data-watch-once href="#" class="clients__item"><picture><source srcset="img/clients/clients5.webp" type="image/webp"><img src="img/clients/clients5.png" alt="clients"></picture></a>
 					</div>
 				</div>
 			</div>
-			<section class="subscribe">
+			<section data-watch-threshold="0.5" data-watch-once data-watch class="subscribe">
 				<div class="subscribe__container">
 					<div class="subscribe__wrapper">
 						<h3 class="subscribe__title">Subscribe to get information, latest news and other
@@ -334,7 +339,7 @@
 							<p> Control for much longer.</p>
 						</div>
 					</div>
-					<nav data-spollers="480,max" class="footer__navigation spollers">
+					<nav data-one-spoller data-spollers="480,max" class="footer__navigation spollers">
 						<details class="spollers__item">
 							<summary class="spollers__title">Company</summary>
 							<div class="spollers__body">
@@ -418,7 +423,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230531153422"></script>
+	<script src="js/app.min.js?_v=20230612153629"></script>
 </body>
 
 </html>

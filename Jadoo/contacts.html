@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230531153422">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230612153629">
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +14,16 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-scroll-show class="header">
 			<div class="header__container">
 				<div class="header__logo"><img src="img/logo.svg" alt="logo"></div>
 				<nav class="header__menu menu">
 					<ul class="menu__list">
-						<li class="menu__item"><a href="#" class="menu__link">Desitnations</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Hotels</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Flights</a></li>
-						<li class="menu__item"><a href="#" class="menu__link">Bookings</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".services" class="menu__link">Flights</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".destinations" class="menu__link">Desitnations</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".trip" class="menu__link">Bookings</a></li>
+						<li class="menu__item"><a href="#" data-goto-header data-goto=".testimonials" class="menu__link">Reviews</a>
+						</li>
 					</ul>
 					<div class="manu__action action-menu">
 						<button type="button" class="action-menu__login">Login</button>
@@ -50,7 +51,7 @@
 							<p> Control for much longer.</p>
 						</div>
 					</div>
-					<nav data-spollers="480,max" class="footer__navigation spollers">
+					<nav data-one-spoller data-spollers="480,max" class="footer__navigation spollers">
 						<details class="spollers__item">
 							<summary class="spollers__title">Company</summary>
 							<div class="spollers__body">
@@ -118,7 +119,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230531153422"></script>
+	<script src="js/app.min.js?_v=20230612153629"></script>
 </body>
 
 </html>

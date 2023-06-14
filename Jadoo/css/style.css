@@ -1078,9 +1078,10 @@ body::after {
   overflow: hidden;
   opacity: 1;
   visibility: visible;
-  -webkit-transition: opacity 5s ease 1s, visibility 0 ease 6s;
-  -o-transition: opacity 5s ease 1s, visibility 0 ease 6s;
-  transition: opacity 5s ease 1s, visibility 0 ease 6s;
+  pointer-events: none;
+  -webkit-transition: opacity 2s ease 1s, visibility 0 ease 3s;
+  -o-transition: opacity 2s ease 1s, visibility 0 ease 3s;
+  transition: opacity 2s ease 1s, visibility 0 ease 3s;
 }
 
 .loaded .preloader {
@@ -1105,8 +1106,8 @@ body::after {
   position: absolute;
   height: 37vh;
   top: 28%;
-  width: 8vh;
-  left: 38%;
+  width: 10vw;
+  left: 41%;
   -webkit-transform-origin: bottom right;
       -ms-transform-origin: bottom right;
           transform-origin: bottom right;
@@ -1148,7 +1149,7 @@ body::after {
     -webkit-transform: rotate(380deg);
             transform: rotate(380deg);
     top: 28%;
-    width: 5vh;
+    width: 5vw;
   }
 }
 
@@ -1162,7 +1163,51 @@ body::after {
     -webkit-transform: rotate(380deg);
             transform: rotate(380deg);
     top: 28%;
-    width: 5vh;
+    width: 5vw;
+  }
+}
+
+@-webkit-keyframes flying-min {
+  15%, 80% {
+    top: 25%;
+    width: 25vw;
+  }
+
+  20% {
+    height: 23vh;
+  }
+
+  70% {
+    height: 26vh;
+  }
+
+  100% {
+    -webkit-transform: rotate(380deg);
+            transform: rotate(380deg);
+    top: 28%;
+    width: 5vw;
+  }
+}
+
+@keyframes flying-min {
+  15%, 80% {
+    top: 25%;
+    width: 25vw;
+  }
+
+  20% {
+    height: 23vh;
+  }
+
+  70% {
+    height: 26vh;
+  }
+
+  100% {
+    -webkit-transform: rotate(380deg);
+            transform: rotate(380deg);
+    top: 28%;
+    width: 5vw;
   }
 }
 
@@ -3555,6 +3600,18 @@ body::after {
 }
 
 @media (max-width: 29.99875em) {
+  .preloader__earth {
+    width: 30vh;
+    height: 30vh;
+  }
+
+  .preloader__traectory {
+    height: 24vh;
+    left: 32%;
+    -webkit-animation: flying-min 10s linear 2s infinite normal forwards;
+            animation: flying-min 10s linear 2s infinite normal forwards;
+  }
+
   .main-content__text {
     line-height: 1.25;
   }

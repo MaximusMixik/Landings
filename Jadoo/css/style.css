@@ -1079,9 +1079,9 @@ body::after {
   opacity: 1;
   visibility: visible;
   pointer-events: none;
-  -webkit-transition: opacity 2s ease 1s, visibility 0 ease 3s;
-  -o-transition: opacity 2s ease 1s, visibility 0 ease 3s;
-  transition: opacity 2s ease 1s, visibility 0 ease 3s;
+  -webkit-transition: opacity 3s ease 7s, visibility 0 ease 10s;
+  -o-transition: opacity 3s ease 7s, visibility 0 ease 10s;
+  transition: opacity 3s ease 7s, visibility 0 ease 10s;
 }
 
 .loaded .preloader {
@@ -4392,7 +4392,7 @@ body::after {
 
   .footer-contact__social a:hover {
     color: #fff;
-    background-color: #f3cda6;
+    background-color: #f9642e;
   }
 
   .footer-contact__social a:hover::before {

@@ -6899,7 +6899,7 @@
     async function sendMessage(form) {
         const formData = new FormData(form);
         if (formData) {
-            const url = "sendmassage.php";
+            const url = "sendmessage.php";
             const response = await fetch(url, {
                 method: "POST",
                 body: formData

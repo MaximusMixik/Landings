@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230615132447">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230615162920">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,14 +82,14 @@
 						<h2 class="header-block__title ">We Offer Best Services</h2>
 					</div>
 					<div class="services__body services-body">
-						<a href="#" data-watch data-watch-once class="services-body__item services-item">
+						<a target="_blank" href="t.me/MessageToMaximus" data-watch data-watch-once class="services-body__item services-item">
 							<div class="services-item__icon"><img data-prlx-mouse src="img/services/services__icon1.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Calculated Weather</h5>
 							<div class="services-item__text">
 								<p>Built Wicket longer admire do barton vanity itself do in it.</p>
 							</div>
 						</a>
-						<a href="#" data-watch data-watch-once class="services-body__item services-item">
+						<a target="_blank" href="@MessageToMaximus" data-watch data-watch-once class="services-body__item services-item">
 							<div class="services-item__icon"><img data-prlx-mouse src="img/services/services__icon2.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Best Flights</h5>
 							<div class="services-item__text">
@@ -325,11 +325,13 @@
 					<div class="subscribe__wrapper">
 						<h3 class="subscribe__title">Subscribe to get information, latest news and other
 							interesting offers about Jadoo</h3>
-						<form data-dev data-popup-message="#popup-message" action="#" class="subscribe__form subscribe-form">
+						<form action="#" class="subscribe__form subscribe-form">
+							<!-- data-dev data-popup-message="#popup-message" -->
 							<div class="subscribe-form__item  _icon-mail">
-								<input data-required="email" data-error="Error" autocomplete="off" type="text" name="form[]" placeholder="Your email" class="input">
+								<input type="email" required name="user-email" placeholder="Your email" class="input">
+								<!-- data-required="email" data-error="Error" autocomplete="off" -->
 							</div>
-							<button type="submit" class="subscribe-form__button submit">Subscribe</button>
+							<button type="submit" class="subscribe-form__button ">Subscribe</button>
 						</form>
 					</div>
 				</div>
@@ -431,7 +433,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230615132447"></script>
+	<script src="js/app.min.js?_v=20230615162920"></script>
 </body>
 
 </html>

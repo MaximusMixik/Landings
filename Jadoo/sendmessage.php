@@ -1,6 +1,6 @@
 <?php
 $content = '';
-foreach($_POST as $key => $value){
+foreach ($_POST as $key => $value){
   if($value){
     $content .= "<b>$key</b>: <i>$value</i>\n";
   }

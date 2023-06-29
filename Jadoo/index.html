@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230615162920">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230628143630">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
 
 <body>
 	<div class="wrapper">
-		<header data-scroll-show class="header">
+		<header data-lp data-scroll-show class="header">
 			<div class="header__container">
 				<div class="header__logo"><img src="img/logo.svg" alt="logo"></div>
 				<nav class="header__menu menu">
@@ -25,16 +25,16 @@
 						<li class="menu__item"><a href="#" data-goto-header data-goto=".testimonials" class="menu__link">Reviews</a>
 						</li>
 					</ul>
-					<div class="manu__action action-menu">
-						<button type="button" class="action-menu__login">Login</button>
-						<button type="button" class="action-menu__sign">Sign up</button>
-						<select class="select" name="form[]" data-class-modif="lang">
-							<option value="1" selected>EN</option>
-							<option value="2">UA</option>
-							<option value="3">PL</option>
-						</select>
-					</div>
 				</nav>
+				<div class="header__action action-menu">
+					<button type="button" class="action-menu__login">Login</button>
+					<button type="button" class="action-menu__sign">Sign up</button>
+					<select class="select" name="form[]" data-class-modif="lang">
+						<option value="1" selected>EN</option>
+						<option value="2">UA</option>
+						<option value="3">PL</option>
+					</select>
+				</div>
 				<button type="button" class="menu__icon icon-menu"><span></span></button>
 
 			</div>
@@ -48,7 +48,7 @@
 		<main class="page">
 			<section class="main">
 				<div class="main__container">
-					<div data-watch class="main__content main-content">
+					<div data-watch data-watch-once class="main__content main-content">
 						<h4 class="main-content__sub-title">Best Destinations around the world</h4>
 						<h1 class="main-content__title">Travel, <span>enjoy</span>
 							and live a new
@@ -65,11 +65,22 @@
 						</div>
 
 					</div>
-					<!-- data-watch-once  -->
-					<div data-watch class="main__medeia main-medeia ">
-						<div data-prlx-mouse class="main-medeia__plane main-medeia__plane_2"><img src="img/main/plane.svg" alt="plane"></div>
-						<div data-prlx-mouse class="main-medeia__plane main-medeia__plane_1"><img src="img/main/plane.svg" alt="plane"></div>
-						<div class="main-medeia__image"><picture><source srcset="img/main/traveller.webp" type="image/webp"><img src="img/main/traveller.png" alt="girl traveller"></picture>
+					<div data-watch data-watch-once class="main__swiper main-swiper">
+						<div data-prlx-mouse class="main-swiper__plane main-swiper__plane_2"><img src="img/main/plane.svg" alt="plane"></div>
+						<div data-prlx-mouse class="main-swiper__plane main-swiper__plane_1"><img src="img/main/plane.svg" alt="plane"></div>
+						<div class="main-swiper__wrapper swiper-wrapper">
+							<div class="main-swiper__slide-ibg_contain swiper-slide">
+								<picture><source srcset="img/main/traveller1.webp" type="image/webp"><img src="img/main/traveller1.png" alt="girl traveller"></picture>
+							</div>
+
+							<div class=" main-swiper__slide-ibg_contain swiper-slide">
+								<picture><source srcset="img/main/traveller2.webp" type="image/webp"><img src="img/main/traveller2.png" alt="girl traveller"></picture>
+							</div>
+
+							<div class=" main-swiper__slide-ibg_contain swiper-slide">
+								<picture><source srcset="img/main/traveller3.webp" type="image/webp"><img src="img/main/traveller3.png" alt="girl traveller"></picture>
+							</div>
+
 						</div>
 
 					</div>
@@ -83,28 +94,28 @@
 					</div>
 					<div class="services__body services-body">
 						<a target="_blank" href="t.me/MessageToMaximus" data-watch data-watch-once class="services-body__item services-item">
-							<div class="services-item__icon"><img data-prlx-mouse src="img/services/services__icon1.svg" alt="services icon"></div>
+							<div class="services-item__icon"><img src="img/services/services__icon1.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Calculated Weather</h5>
 							<div class="services-item__text">
 								<p>Built Wicket longer admire do barton vanity itself do in it.</p>
 							</div>
 						</a>
 						<a target="_blank" href="@MessageToMaximus" data-watch data-watch-once class="services-body__item services-item">
-							<div class="services-item__icon"><img data-prlx-mouse src="img/services/services__icon2.svg" alt="services icon"></div>
+							<div class="services-item__icon"><img src="img/services/services__icon2.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Best Flights</h5>
 							<div class="services-item__text">
 								<p>Engrossed listening. Park gate sell they west hard for the.</p>
 							</div>
 						</a>
 						<a href="#" data-watch data-watch-once class="services-body__item services-item">
-							<div class="services-item__icon"><picture><source srcset="img/services/services__icon3.webp" type="image/webp"><img data-prlx-mouse src="img/services/services__icon3.png" alt="services icon"></picture></div>
+							<div class="services-item__icon"><picture><source srcset="img/services/services__icon3.webp" type="image/webp"><img src="img/services/services__icon3.png" alt="services icon"></picture></div>
 							<h5 class="services-item__title">Local Events</h5>
 							<div class="services-item__text">
 								<p>Barton vanity itself do in it. Preferd to men it engrossed listening.</p>
 							</div>
 						</a>
 						<a href="#" data-watch data-watch-once class="services-body__item services-item">
-							<div class="services-item__icon"><img data-prlx-mouse src=" img/services/services__icon4.svg" alt="services icon"></div>
+							<div class="services-item__icon"><img src=" img/services/services__icon4.svg" alt="services icon"></div>
 							<h5 class="services-item__title">Customization</h5>
 							<div class="services-item__text">
 								<p>We deliver outsourced
@@ -122,7 +133,7 @@
 				<div class="destinations__container">
 					<div data-watch data-watch-once class="destinations__header header-block header-block_center">
 						<h4 class="header-block__sub-title ">Top Selling</h4>
-						<h2 class="header-block__title ">Top Destinations</h2>
+						<h2 class="header-block__title "><a href="#">Top Destinations</a></h2>
 					</div>
 					<div class="destinations__body destinations-body">
 						<a data-watch data-watch-once href="#" class="destinations-body__column destinations-column">
@@ -325,11 +336,10 @@
 					<div class="subscribe__wrapper">
 						<h3 class="subscribe__title">Subscribe to get information, latest news and other
 							interesting offers about Jadoo</h3>
-						<form action="#" class="subscribe__form subscribe-form">
-							<!-- data-dev data-popup-message="#popup-message" -->
+						<form data-dev data-popup-message="#popup-message" action="#" class="subscribe__form subscribe-form">
+
 							<div class="subscribe-form__item  _icon-mail">
-								<input type="email" required name="user-email" placeholder="Your email" class="input">
-								<!-- data-required="email" data-error="Error" autocomplete="off" -->
+								<input data-required="email" data-error="Error" autocomplete="off" type="email" name="user-email" placeholder="Your email" class="input">
 							</div>
 							<button type="submit" class="subscribe-form__button ">Subscribe</button>
 						</form>
@@ -433,7 +443,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230615162920"></script>
+	<script src="js/app.min.js?_v=20230628143630"></script>
 </body>
 
 </html>

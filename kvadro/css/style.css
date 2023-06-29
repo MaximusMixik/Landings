@@ -3404,7 +3404,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header._header-scroll .icon-menu::before,
   .header._header-scroll .icon-menu::after,
   .header._header-scroll .icon-menu span {
-    right: 0.625rem;
+    width: 1.5rem;
+    right: 0;
+    left: 0.75rem;
   }
 
   .header._header-scroll .icon-menu::before {
@@ -3630,7 +3632,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .icon-menu span,
   .icon-menu::before,
   .icon-menu::after {
-    right: 0.8125rem;
+    right: 0.75rem;
   }
 
   .icon-menu span,
@@ -5060,19 +5062,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     }
 }
 
-@supports (right: clamp( 0.8125rem , 0.5148720944rem  +  1.488139528vw , 1.4375rem )) {
+@supports (right: clamp( 0.75rem , 0.4226093038rem  +  1.6369534808vw , 1.4375rem )) {
     .icon-menu span,
     .icon-menu::before,
     .icon-menu::after {
-      right: clamp( 0.8125rem , 0.5148720944rem  +  1.488139528vw , 1.4375rem );
+      right: clamp( 0.75rem , 0.4226093038rem  +  1.6369534808vw , 1.4375rem );
     }
 }
 
-@supports not (right: clamp( 0.8125rem , 0.5148720944rem  +  1.488139528vw , 1.4375rem )) {
+@supports not (right: clamp( 0.75rem , 0.4226093038rem  +  1.6369534808vw , 1.4375rem )) {
     .icon-menu span,
     .icon-menu::before,
     .icon-menu::after {
-      right: calc(0.8125rem + 0.625 * (100vw - 20rem) / 41.99875);
+      right: calc(0.75rem + 0.6875 * (100vw - 20rem) / 41.99875);
     }
 }
 

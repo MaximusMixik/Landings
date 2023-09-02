@@ -1,0 +1,19 @@
+<svg width="60" height="172" viewBox="0 0 60 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1_82" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="60" height="172">
+<rect x="60" width="172" height="60" transform="rotate(90 60 0)" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1_82)">
+<path d="M60 1L60 14L-5.68248e-07 -47L0 -60L60 1Z" fill="#7EF273"/>
+<path d="M60 22L60 35L-5.68248e-07 -26L0 -39L60 22Z" fill="#7EF273"/>
+<path d="M60 43L60 56L-5.68248e-07 -5L0 -18L60 43Z" fill="#7EF273"/>
+<path d="M60 64L60 77L-5.68248e-07 16L0 3L60 64Z" fill="#7EF273"/>
+<path d="M60 85L60 98L-5.68248e-07 37L0 24L60 85Z" fill="#7EF273"/>
+<path d="M60 106L60 119L-5.68248e-07 58L0 45L60 106Z" fill="#7EF273"/>
+<path d="M60 127L60 140L-5.68248e-07 79L0 66L60 127Z" fill="#7EF273"/>
+<path d="M60 148L60 161L-5.68248e-07 100L0 87L60 148Z" fill="#7EF273"/>
+<path d="M60 169L60 182L-5.68248e-07 121L0 108L60 169Z" fill="#7EF273"/>
+<path d="M60 190L60 203L-5.68248e-07 142L0 129L60 190Z" fill="#7EF273"/>
+<path d="M60 211L60 224L-5.68248e-07 163L0 150L60 211Z" fill="#7EF273"/>
+<path d="M60 232L60 245L-5.68248e-07 184L0 171L60 232Z" fill="#7EF273"/>
+</g>
+</svg>

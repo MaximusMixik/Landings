@@ -710,6 +710,8 @@ body {
   -webkit-transition: visibility 100ms ease, opacity 600ms ease;
   transition: visibility 100ms ease, opacity 600ms ease;
   pointer-events: none;
+  padding: 1.25rem;
+  text-align: center;
 }
 
 .gallery-item__title {

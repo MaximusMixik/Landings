@@ -24,7 +24,8 @@
 	//Від кого лист
 	$mail->setFrom('maximus.mixik@gmail.com'); // Вказати потрібний E-mail
 	//Кому відправити
-	$mail->addAddress('neon8525@gmail.com '); // Вказати потрібний E-mail
+	// $mail->addAddress('neon8525@gmail.com '); // Вказати потрібний E-mail
+	$mail->addAddress('maximus.mixik@gmail.com'); // Вказати потрібний E-mail
 	//Тема листа
 	$mail->Subject = 'Повідомлення з сайту"';
 
@@ -38,7 +39,7 @@
 		$body.= 	' <p> <strong>Номер телефону:</strong> ' . $_POST['phone_number'] . '</p>';
 	}	
 		if(trim(!empty($_POST['value']))){
-		$body.= 	' <p> <strong>id товара</strong> ' . $_POST['value'] . '<span>грн</span></p>';
+		$body.= 	' <p> <strong>id товара</strong> ' . $_POST['value'] . '</p>';
 	}	
 	
 	/*

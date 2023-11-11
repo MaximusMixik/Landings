@@ -1267,7 +1267,8 @@ body::after {
   opacity: 1;
 }
 
-.services__video iframe {
+.services__video iframe,
+.services__video video {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1319,13 +1320,7 @@ body::after {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
-  min-width: 20rem;
-  width: 100%;
-  max-width: 100%;
   text-align: center;
-  display: -ms-grid;
-  display: grid;
-  grid-auto-rows: auto 1fr;
   opacity: 0.2;
   -webkit-transition: opacity 0.4s ease-in, -webkit-transform 0.4s ease-in;
   transition: opacity 0.4s ease-in, -webkit-transform 0.4s ease-in;
@@ -1349,6 +1344,7 @@ body::after {
 .services-item__wrapper {
   background-color: rgba(200, 163, 95, 0.7);
   border-radius: 0.5rem;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1356,16 +1352,14 @@ body::after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: hidden;
-}
-
-.services-item__slider {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  min-height: 100%;
 }
 
 .services-item__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1373,11 +1367,13 @@ body::after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
   gap: 1.25rem;
 }
 
 .services-item__title {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   font-size: 1rem;
   color: #2f343a;
   font-weight: 700;
@@ -1928,7 +1924,6 @@ body::after {
   }
 
   .body-services__item {
-    min-height: 100%;
     padding: 0 0.625rem;
   }
 
@@ -2019,6 +2014,10 @@ body::after {
         -ms-transform: translate(0);
             transform: translate(0);
     opacity: 1;
+  }
+
+  .body-services__item {
+    max-width: 50%;
   }
 
   .services-item__title {
@@ -2182,6 +2181,10 @@ body::after {
     margin-bottom: 2.5rem;
   }
 
+  .body-services__item {
+    min-width: 21.875rem;
+  }
+
   .services-item__content {
     padding: 1.875rem;
   }
@@ -2288,6 +2291,10 @@ body::after {
 
   .services__title:not(:last-child) {
     margin-bottom: 1.25rem;
+  }
+
+  .body-services__item {
+    min-width: 18.75rem;
   }
 
   .services-item__content {
@@ -2778,6 +2785,18 @@ body::after {
 @supports not (margin-bottom: clamp( 1.25rem , 0.762195122rem  +  2.4390243902vw , 2.5rem )) {
     .services__title:not(:last-child) {
       margin-bottom: calc(1.25rem + 1.25 * (100vw - 20rem) / 51.25);
+    }
+}
+
+@supports ( min-width: clamp( 18.75rem , 17.5304878049rem  +  6.0975609756vw , 21.875rem )) {
+    .body-services__item {
+      min-width: clamp( 18.75rem , 17.5304878049rem  +  6.0975609756vw , 21.875rem );
+    }
+}
+
+@supports not ( min-width: clamp( 18.75rem , 17.5304878049rem  +  6.0975609756vw , 21.875rem )) {
+    .body-services__item {
+      min-width: calc(18.75rem + 3.125 * (100vw - 20rem) / 51.25);
     }
 }
 

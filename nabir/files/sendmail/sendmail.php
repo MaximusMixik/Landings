@@ -24,8 +24,7 @@
 	//Від кого лист
 	$mail->setFrom('maximus.mixik@gmail.com'); // Вказати потрібний E-mail
 	//Кому відправити
-	// $mail->addAddress('neon8525@gmail.com '); // Вказати потрібний E-mail
-	$mail->addAddress('maximus.mixik@gmail.com'); // Вказати потрібний E-mail
+	$mail->addAddress('neon8525@gmail.com '); // Вказати потрібний E-mail
 	//Тема листа
 	$mail->Subject = 'Повідомлення з сайту"';
 

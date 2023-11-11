@@ -4555,7 +4555,7 @@
             });
         }
         function initSliders() {
-            if (document.querySelector(".swiper-services")) new swiper_core_Swiper(".swiper-services", {
+            if (document.querySelector(".swiper-s")) new swiper_core_Swiper(".swiper-s", {
                 modules: [ Navigation, Autoplay, Pagination ],
                 observer: true,
                 observeParents: true,
@@ -4563,12 +4563,48 @@
                 autoHeight: true,
                 speed: 800,
                 pagination: {
-                    el: ".navigation-swiper__pagination",
+                    el: ".swiper-s .navigation-swiper__pagination",
                     clickable: true
                 },
                 navigation: {
-                    prevEl: ".navigation-swiper__button_prev",
-                    nextEl: ".navigation-swiper__button_next"
+                    prevEl: ".swiper-s .navigation-swiper__button_prev",
+                    nextEl: ".swiper-s .navigation-swiper__button_next"
+                },
+                loop: true,
+                on: {}
+            });
+            if (document.querySelector(".swiper-m")) new swiper_core_Swiper(".swiper-m", {
+                modules: [ Navigation, Autoplay, Pagination ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                autoHeight: true,
+                speed: 800,
+                pagination: {
+                    el: ".swiper-m .navigation-swiper__pagination",
+                    clickable: true
+                },
+                navigation: {
+                    prevEl: ".swiper-m .navigation-swiper__button_prev",
+                    nextEl: ".swiper-m .navigation-swiper__button_next"
+                },
+                loop: true,
+                on: {}
+            });
+            if (document.querySelector(".swiper-l")) new swiper_core_Swiper(".swiper-l", {
+                modules: [ Navigation, Autoplay, Pagination ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                autoHeight: true,
+                speed: 800,
+                pagination: {
+                    el: ".swiper-l .navigation-swiper__pagination",
+                    clickable: true
+                },
+                navigation: {
+                    prevEl: ".swiper-l .navigation-swiper__button_prev",
+                    nextEl: ".swiper-l .navigation-swiper__button_next"
                 },
                 loop: true,
                 on: {}
@@ -4731,7 +4767,7 @@
                 }));
             }
         }), 0);
-        window["FLS"] = true;
+        window["FLS"] = false;
         isWebp();
         addLoadedClass();
         spollers();

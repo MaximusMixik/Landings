@@ -5,10 +5,21 @@
 	<title>Portfolio</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<!-- <style>body{opacity: 0;}</style> -->
 	<meta name='freelancehunt' content='5674236f984ed75'>
-	<link rel="stylesheet" href="css/style.min.css?_v=20231018132631">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231201174118">
 	<link rel="shortcut icon" href="favicon.ico">
+
+
+	<link rel="apple-touch-icon" sizes="180x180" href="files/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="files/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="files/favicons/favicon-16x16.png">
+	<link rel="manifest" href="files/favicons/site.webmanifest">
+	<link rel="mask-icon" href="files/favicons/safari-pinned-tab.svg" color="#25b500">
+	<meta name="apple-mobile-web-app-title" content="Maximus-portfolio">
+	<meta name="application-name" content="Maximus-portfolio">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="theme-color" content="#000000">
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Maksym Smolyak">
@@ -18,6 +29,7 @@
 	<meta property="og:title" content="Portfolio">
 	<meta property="og:description" content="Welcome to my portfolio page">
 	<meta property="og:image" content="img/main/my-photo.png">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css?_v=20231201174118">
 </head>
 
 <body>
@@ -28,16 +40,19 @@
 				<nav class="header__menu menu">
 					<ul class="menu__list">
 						<li class="menu__item">
-							<a href="#" data-goto=".gallery-body__title" data-goto-header class="menu__link ">Portfolio</a>
+							<a href="#" data-goto=".gallery__container" data-goto-header class="menu__link ">Portfolio</a>
 						</li>
 						<li class="menu__item ">
-							<a href="#" data-goto=".skills__title" data-goto-header class="menu__link ">Skills</a>
+							<a href="#" data-goto=".skills__container" data-goto-header class="menu__link ">Skills</a>
 						</li>
 						<li class="menu__item ">
-							<a href="#" data-goto=".why-me-content__title" data-goto-header class="menu__link ">Advantages</a>
+							<a href="#" data-goto=".why-me__container" data-goto-header class="menu__link ">Advantages</a>
 						</li>
 						<li class="menu__item">
-							<a href="#" data-goto=".main__title" data-goto-header class="menu__link">Contacts</a>
+							<a href="#" data-goto=".contacts__container" data-goto-header class="menu__link">Contacts</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" data-goto=".reviews__container" data-goto-header class="menu__link">Reviews</a>
 						</li>
 					</ul>
 				</nav>
@@ -52,12 +67,13 @@
 					<h1 class="main__title">
 						I’m Max,
 						<br>
-						<span>Front-end Developer</span>
+						<span>Front-end Developer </span>
 					</h1>
 					<div class="main__run main-run">
 						<div class="main-run__text">
 							HTML CSS JAVASCRIPT
 						</div>
+
 					</div>
 					<div class="main__body body-main">
 						<div class="body-main__text text">
@@ -66,8 +82,8 @@
 						</div>
 						<div class="body-main__media media-main">
 							<div class="media-main__img-ibg_contain"><picture><source data-srcset="img/main/photo.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/photo.png" alt="Maxim Smolyak"></picture></div>
-							<a href="https://t.me/MaximusMixik" target="_blank" class="media-main__button button button_green">Сontact
-								with me</a>
+							<button data-goto=".page__contacts" data-goto-header class="media-main__button button button_green">Сontact
+								with me</button>
 
 						</div>
 						<div class="body-main__contac contact-main">
@@ -130,7 +146,8 @@
 								</div>
 							</a>
 						</li>
-						<li data-watch data-watch-once class="gallery-body__item gallery-item"><a href="https://maximusmixik.github.io/Landings/smart/index.html" target="_blank" class="gallery-item__wrapper">
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="https://maximusmixik.github.io/Landings/smart/index.html" target="_blank" class="gallery-item__wrapper">
 								<picture><source data-srcset="img/main/swiper__img15.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img15.jpg" alt="SmartVote"></picture>
 								<div class="gallery-item__content">
 									<h3 class="gallery-item__title">SmartVote</h3>
@@ -139,7 +156,6 @@
 								</div>
 							</a>
 						</li>
-
 						<li data-watch data-watch-once class="gallery-body__item gallery-item">
 							<a href="http://maximus.great-site.net/craftsmen/index.html" target="_blank" class="gallery-item__wrapper">
 								<picture><source data-srcset="img/main/swiper__img17.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img17.jpg" alt="Умільці"></picture>
@@ -392,8 +408,7 @@
 					</div>
 
 					<div data-watch data-watch-once class="why-me__content why-me-content">
-						<h2 class="why-me-content__title title">Why You <span>Hire Me</span> for Your Next
-							Project</h2>
+						<h2 class="why-me-content__title title">Why You should <span>Hire Me</span> for Your Next Project</h2>
 						<div class="why-me-content__text text">
 							<p>Choosing the right professional for your project is crucial for its success. With a strong background
 								in website
@@ -416,8 +431,86 @@
 					</div>
 				</div>
 			</section>
+			<section class="page__contacts contacts">
+				<div class="contacts__container">
+					<div data-watch data-watch-once class="contacts__image">
+						<img src="img/contacts/contacts_image.svg" alt="contacts">
+					</div>
 
+					<form data-watch data-watch-once data-dev class="contacts__form form" data-popup-message="#popup-message" action="#">
+						<!-- data-dev -->
 
+						<!-- <form class="contacts__form form" data-dev data-ajax data-popup-message="#popup-message"
+															action="files/sendmail/sendmail.php" enctype="multipart/form-data" method="POST"> -->
+
+						<!-- action="https://jsonplaceholder.typicode.com/posts" method="POST" -->
+
+						<!-- <form data-dev data-popup-message="#popup-message" action="#" class="subscribe__form subscribe-form"> -->
+						<h2 class="form__title ">Discuss the <span>project</span></h2>
+						<div class="form__item _icon-user">
+							<input data-validate data-required type="text" name="name" data-error="Enter your name" placeholder="Your name" class="form__input ">
+						</div>
+
+						<!-- <div class="form__item select-phone">
+							<select class="select" data-required data-error="Error" name="select" data-class-modif="form">
+								<option value="+38" selected>UA (+38)</option>
+								<option value="+49">GM (+49)</option>
+								<option value="+33">FR (+33)</option>
+								<option value="+48">PL (+48)</option>
+							</select>
+							<input data-validate data-required required type="tel" autocomplete="off" name="phone"
+								data-error="Enter your phone number" placeholder="Your phone number" class="form__input phone">
+						</div> -->
+
+						<div class="form__item ">
+							<input type="tel" data-validate data-required required data-error="Enter your phone number" name="phone" id="phone" placeholder="Your phone number" class="form__input phone">
+						</div>
+						<div class="form__item _icon-mail">
+							<input data-validate data-required="email" type="email" name="email" data-error="Enter your email" placeholder="Your email" class="form__input ">
+						</div>
+
+						<button type="submit" class="form__button button button_green ">Send</button>
+						<div class="form__text ">Or contact me on Telegram</div>
+						<a href="https://t.me/MaximusMixik" class="form__link _icon-telegram button ">Telegram</a>
+					</form>
+				</div>
+			</section>
+			<section class="page__reviews reviews">
+				<div class="reviews__container">
+					<h2 data-watch data-watch-once class="reviews__title title ">My <span>Reviews</span> </h2>
+					<div data-watch data-watch-once class="reviews__slider reviews-swiper">
+						<div class="reviews-swiper__wrapper swiper-wrapper">
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide1.webp" type="image/webp"><img src="img/reviews/reviews_slide1.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide2.webp" type="image/webp"><img src="img/reviews/reviews_slide2.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide3.webp" type="image/webp"><img src="img/reviews/reviews_slide3.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide4.webp" type="image/webp"><img src="img/reviews/reviews_slide4.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide5.webp" type="image/webp"><img src="img/reviews/reviews_slide5.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide6.webp" type="image/webp"><img src="img/reviews/reviews_slide6.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide7.webp" type="image/webp"><img src="img/reviews/reviews_slide7.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide8.webp" type="image/webp"><img src="img/reviews/reviews_slide8.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide9.webp" type="image/webp"><img src="img/reviews/reviews_slide9.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source srcset="img/reviews/reviews_slide10.webp" type="image/webp"><img src="img/reviews/reviews_slide10.jpg" alt=""></picture>
+							</div>
+						</div>
+						<div class="reviews-swiper__navigation">
+							<button type="button" aria-label="arrow-left" class="reviews-swiper__swiper-button reviews-swiper__swiper-button--prev _icon-arrow"></button>
+							<div class="reviews-swiper__pagination"></div>
+
+							<button type="button" aria-label="arrow-right" class="reviews-swiper__swiper-button reviews-swiper__swiper-button--next _icon-arrow"></button>
+						</div>
+
+					</div>
+				</div>
+			</section>
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -470,6 +563,24 @@
 				</div>
 			</div>
 		</footer>
+		<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрити</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+		<div id="popup-message" aria-hidden="true" class="popup .popup_show ">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close "></button>
+					<div class="popup__text">Your message has been sent!</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Стилі для body -->
 	<style>
@@ -691,7 +802,18 @@
 			preloader();
 		</script>
 	</div>
-	<script src="js/app.min.js?_v=20231018132631"></script>
+	<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js?_v=20231201174118"></script>
+	<script>
+		const input = document.querySelector("#phone");
+		window.intlTelInput(input, {
+			utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+			preferredCountries: ['ua'],
+			separateDialCode: true,
+			showFlags: true,
+			autoInsertDialCode: true,
+		});
+	</script>
+	<script src="js/app.min.js?_v=20231201174118"></script>
 </body>
 
 </html>

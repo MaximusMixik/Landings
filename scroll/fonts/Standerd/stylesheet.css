@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Standerd';
+    src: url('StanderdFree-Regular.woff2') format('woff2'),
+        url('StanderdFree-Regular.woff') format('woff'),
+        url('StanderdFree-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Standerd';
+    src: url('StanderdFree-Regular_1.woff2') format('woff2'),
+        url('StanderdFree-Regular_1.woff') format('woff'),
+        url('StanderdFree-Regular_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

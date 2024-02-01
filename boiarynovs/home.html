@@ -6,7 +6,7 @@
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240129112120">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240201180836">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Author: Max.S.O, We are a dynamic team of experienced IT specialists dedicated to assisting you in designing and
 									implementing
@@ -18,7 +18,7 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-scroll-show class="header">
 			<div class="header__container">
 				<a href="home.html" class="header__logo">
 					<img src="img/header/logo.svg" alt="logo">
@@ -632,7 +632,7 @@
 										<div class="item-about__expirience">
 											20+ years experience
 										</div>
-										<div data-da=".item-about:nth-child(1), 767.98, 1" class="item-about__position">
+										<div data-da=".item-about:nth-child(1), 768.98, 1" class="item-about__position">
 											Senior IT Consultant, Systems architect
 										</div>
 									</div>
@@ -660,7 +660,7 @@
 										<div class="item-about__expirience">
 											10+ years experience
 										</div>
-										<div data-da=".item-about.item-about:nth-child(2), 767.98, 1" class="item-about__position">
+										<div data-da=".item-about.item-about:nth-child(2), 768.98, 1" class="item-about__position">
 											Senior UI/UX Designer
 										</div>
 									</div>
@@ -768,15 +768,15 @@
 					<form data-popup-message="#popup-message" action="#" class="contacts__form form">
 						<div class="form__item">
 							<label class="form__label" for="name">Name</label>
-							<input autocomplete="off" type="text" name="name" data-error="Error" placeholder="John Doe |" class="form__input">
+							<input autocomplete="off" id="name" type="text" name="name" data-error="Error" placeholder="John Doe |" class="form__input">
 						</div>
 						<div class="form__item">
 							<label class="form__label" for="email">Contact</label>
-							<input autocomplete="off" type="email" name="email" data-error="Error" placeholder="How can we contact you?" class="form__input">
+							<input autocomplete="off" id="email" type="email" name="email" data-error="Error" placeholder="How can we contact you?" class="form__input">
 						</div>
 						<div class="form__item">
 							<label class="form__label" for="select">Topics</label>
-							<select name="select" data-class-modif="form">
+							<select name="select" id="select" data-class-modif="form">
 								<option selected disabled>What you would like to discuss?</option>
 								<option value="IT Security Assessment">IT Security Assessment</option>
 								<option value="Backup and recovery">Backup and recovery</option>
@@ -791,7 +791,7 @@
 
 						<div class="form__item">
 							<label class="form__label" for="textarea">Question</label>
-							<textarea name="textarea" class="form__textarea" placeholder="Tell us a few words about your project and business requirements."></textarea>
+							<textarea name="textarea" id="textarea" class="form__textarea" placeholder="Tell us a few words about your project and business requirements."></textarea>
 						</div>
 
 						<div class="form__text">
@@ -840,7 +840,7 @@
 		</footer>
 	</div>
 	<!-- popup_show -->
-	<div id="popup-message" aria-hidden="true" class="popup ">
+	<div id="popup-message" aria-hidden="true" class="popup   ">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="popup__image"><picture><source srcset="img/popup/popup_img.webp" type="image/webp"><img src="img/popup/popup_img.png" alt="cube"></picture></div>
@@ -854,7 +854,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240129112120"></script>
+	<script src="js/app.min.js?_v=20240201180836"></script>
 </body>
 
 </html>

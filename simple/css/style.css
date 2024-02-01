@@ -2119,6 +2119,10 @@ h6 {
     background-color: #2699d0;
   }
 
+  .header__logo svg path {
+    fill: #fff;
+  }
+
   .menu__body {
     position: fixed;
     height: 100%;

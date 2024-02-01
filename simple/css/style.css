@@ -919,8 +919,13 @@ h6 {
   background-color: rgba(255, 255, 255, 0.12);
   border-radius: 4.0625rem;
   text-align: center;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .benefits__item {
@@ -3908,6 +3913,9 @@ h6 {
 
   .info__item:hover {
     background-color: #55d6be;
+    -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+            transform: scale(0.95);
   }
 
   .why-us__button:hover {

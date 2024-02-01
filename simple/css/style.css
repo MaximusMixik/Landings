@@ -343,8 +343,6 @@ h6 {
 
 .button--transparent {
   border: 0.0625rem solid rgba(255, 255, 255, 0.46);
-  -webkit-transition-timing-function: 0.4s;
-          transition-timing-function: 0.4s;
 }
 
 .button--blue-transparent {
@@ -399,18 +397,20 @@ h6 {
   z-index: 3;
 }
 
-._header-scroll .header__logo img:last-of-type {
-  display: block;
+._header-scroll .header__logo svg path {
+  fill: #fff;
 }
 
-._header-scroll .header__logo img:first-of-type {
-  display: none;
-}
-
-.header__logo img {
+.header__logo svg {
   max-width: 15.5rem;
   width: 100%;
   height: 2.875rem;
+}
+
+.header__logo svg path {
+  fill: #2699d0;
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
 }
 
 .header__menu {
@@ -1535,10 +1535,6 @@ h6 {
 }
 
 @media (min-width: 78.125em) {
-  .header__logo img:last-of-type {
-    display: none;
-  }
-
   .header__link {
     margin-left: 0.875rem;
   }
@@ -2123,10 +2119,6 @@ h6 {
     background-color: #2699d0;
   }
 
-  .header__logo img:first-of-type {
-    display: none;
-  }
-
   .menu__body {
     position: fixed;
     height: 100%;
@@ -2396,7 +2388,7 @@ h6 {
     background-color: #2699d0;
   }
 
-  .header__logo img {
+  .header__logo svg {
     height: 2.375rem;
     max-width: 11.875rem;
   }

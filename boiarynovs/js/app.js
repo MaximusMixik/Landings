@@ -238,7 +238,6 @@
                 }
                 const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
                 if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen) {
-                    //!!! e.target.classList.add('close')
                     e.preventDefault();
                     this.close();
                     return;
@@ -312,7 +311,7 @@
                     this.isOpen = true;
                     setTimeout((() => {
                         this._focusTrap();
-                    }), 50);
+                    }), 5);
                     this.options.on.afterOpen(this);
                     document.dispatchEvent(new CustomEvent("afterPopupOpen", {
                         detail: {
@@ -518,6 +517,7 @@
                 classSelectOptionsScroll: "select__scroll",
                 classSelectOption: "select__option",
                 classSelectContent: "select__content",
+                classSelectContentColor: "color",
                 classSelectRow: "select__row",
                 classSelectData: "select__asset",
                 classSelectDisabled: "_select-disabled",
@@ -785,6 +785,8 @@
         optionAction(selectItem, originalSelect, optionItem) {
             const selectOptions = selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptions)}`);
             if (!selectOptions.classList.contains("_slide")) {
+                const select = document.querySelector(".select");
+                select.classList.add("color");
                 if (originalSelect.multiple) {
                     optionItem.classList.toggle(this.selectClasses.classSelectOptionSelected);
                     const originalSelectSelectedItems = this.getSelectedOptionsData(originalSelect).elements;
@@ -4529,7 +4531,7 @@
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 16,
-                speed: 800,
+                speed: 300,
                 loop: false,
                 pagination: {
                     el: ".slider-big__pagination",
@@ -4539,7 +4541,7 @@
                     }
                 },
                 autoplay: {
-                    delay: 12e3,
+                    delay: 2e3,
                     disableOnInteraction: false
                 },
                 navigation: {
@@ -4548,16 +4550,8 @@
                 thumbs: {
                     swiper: {
                         el: ".slider",
-                        slidesPerView: 5,
-                        direction: "vertical",
-                        breakpoints: {
-                            640: {
-                                spaceBetween: 16
-                            },
-                            768: {
-                                spaceBetween: 24
-                            }
-                        }
+                        slidesPerView: false,
+                        direction: "vertical"
                     }
                 }
             });

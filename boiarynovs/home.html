@@ -6,7 +6,7 @@
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240201180836">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240202172715">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Author: Max.S.O, We are a dynamic team of experienced IT specialists dedicated to assisting you in designing and
 									implementing
@@ -15,10 +15,12 @@
 									systems meet the highest standards of security and efficiency.">
 
 </head>
+<!-- TODO popup-animation -->
+<!-- TODO  swiper-animation-->
 
 <body>
 	<div class="wrapper">
-		<header data-scroll-show class="header">
+		<header data-lp data-scroll-show class="header">
 			<div class="header__container">
 				<a href="home.html" class="header__logo">
 					<img src="img/header/logo.svg" alt="logo">
@@ -480,6 +482,7 @@
 									<li class="slider__slide swiper-slide">
 										Commencement of Work
 									</li>
+
 								</ul>
 							</div>
 							<div data-da=".work__container, 600" class="work__description">
@@ -493,7 +496,6 @@
 						<div class="work__slider-big slider-big">
 							<div class="slider-big__pagination"></div>
 							<div class="slider-big__wrapper swiper-wrapper">
-
 								<div class="slider-big__slide swiper-slide">
 									<div class="slider-big__image">
 										<img src="img/work/circle1.svg" alt="image 1 ">
@@ -511,7 +513,6 @@
 										</p>
 									</div>
 								</div>
-
 								<div class="slider-big__slide swiper-slide">
 									<div class="slider-big__image">
 										<img src="img/work/circle2.svg" alt="image 2">
@@ -527,7 +528,6 @@
 										</p>
 									</div>
 								</div>
-
 								<div class="slider-big__slide swiper-slide">
 									<div class="slider-big__image">
 										<img src="img/work/circle3.svg" alt="image 3">
@@ -543,7 +543,6 @@
 										</p>
 									</div>
 								</div>
-
 								<div class="slider-big__slide swiper-slide">
 									<div class="slider-big__image">
 										<picture><source srcset="img/work/circle4.webp" type="image/webp"><img src="img/work/circle4.png" alt="image 4"></picture>
@@ -561,7 +560,6 @@
 									</div>
 
 								</div>
-
 								<div class="slider-big__slide swiper-slide">
 									<div class="slider-big__image">
 										<picture><source srcset="img/work/circle5.webp" type="image/webp"><img src="img/work/circle5.png" alt="image 5"></picture>
@@ -578,7 +576,6 @@
 										</p>
 									</div>
 								</div>
-
 							</div>
 							<button class="slider-big__navigation">
 								<img class="play hidden" src="img/work/play.svg" alt="play">
@@ -764,8 +761,7 @@
 							</ul>
 						</div>
 					</div>
-					<!--  data-dev  -->
-					<form data-popup-message="#popup-message" action="#" class="contacts__form form">
+					<form data-popup-message="#popup" action="#" class="contacts__form form">
 						<div class="form__item">
 							<label class="form__label" for="name">Name</label>
 							<input autocomplete="off" id="name" type="text" name="name" data-error="Error" placeholder="John Doe |" class="form__input">
@@ -776,7 +772,7 @@
 						</div>
 						<div class="form__item">
 							<label class="form__label" for="select">Topics</label>
-							<select name="select" id="select" data-class-modif="form">
+							<select name="select" class="select" id="select" data-class-modif="form">
 								<option selected disabled>What you would like to discuss?</option>
 								<option value="IT Security Assessment">IT Security Assessment</option>
 								<option value="Backup and recovery">Backup and recovery</option>
@@ -788,17 +784,15 @@
 								<option value="	Other">Other</option>
 							</select>
 						</div>
-
 						<div class="form__item">
 							<label class="form__label" for="textarea">Question</label>
 							<textarea name="textarea" id="textarea" class="form__textarea" placeholder="Tell us a few words about your project and business requirements."></textarea>
 						</div>
-
 						<div class="form__text">
 							You agree that your data will be used to process your request. Further information can be found in the <a href="#">Privacy Policy</a>
 							page.
 						</div>
-						<button class="form__button button ">send</button>
+						<button data-popup="#popup" class="form__button button ">send</button>
 					</form>
 				</div>
 			</section>
@@ -840,7 +834,7 @@
 		</footer>
 	</div>
 	<!-- popup_show -->
-	<div id="popup-message" aria-hidden="true" class="popup   ">
+	<div id="popup" aria-hidden="true" class="popup   ">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="popup__image"><picture><source srcset="img/popup/popup_img.webp" type="image/webp"><img src="img/popup/popup_img.png" alt="cube"></picture></div>
@@ -854,7 +848,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240201180836"></script>
+	<script src="js/app.min.js?_v=20240202172715"></script>
 </body>
 
 </html>

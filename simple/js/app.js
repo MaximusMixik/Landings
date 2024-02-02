@@ -396,13 +396,6 @@
                 document.documentElement.classList.add(className);
             }));
         }
-        function addLoadedClass() {
-            if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
-                setTimeout((function() {
-                    document.documentElement.classList.add("loaded");
-                }), 0);
-            }));
-        }
         function getHash() {
             if (location.hash) return location.hash.replace("#", "");
         }
@@ -4241,9 +4234,9 @@
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 0,
-                speed: 300,
+                speed: 800,
                 autoplay: {
-                    delay: 3e3,
+                    delay: 4e3,
                     disableOnInteraction: false
                 },
                 pagination: {
@@ -4520,18 +4513,13 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
-        const sponsorsElement = document.querySelector(".sponsors");
-        if (sponsorsElement) {
-            function updateColumnGap() {
-                const columnGapValue = window.getComputedStyle(sponsorsElement).columnGap;
-                if (columnGapValue) if (columnGapValue !== sponsorsElement.style.getPropertyValue("--column-gap")) sponsorsElement.style.setProperty("--column-gap", columnGapValue);
-            }
-            updateColumnGap();
-            window.addEventListener("resize", updateColumnGap);
-        }
+        const root = document.documentElement;
+        const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+        const marqueeContent = document.querySelector("ul.marquee-content");
+        root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+        for (let i = 0; i < marqueeElementsDisplayed; i++) marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
         window["FLS"] = false;
         isWebp();
-        addLoadedClass();
         menuInit();
         formRating();
         pageNavigation();

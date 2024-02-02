@@ -4531,7 +4531,7 @@
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 16,
-                speed: 300,
+                speed: 600,
                 loop: false,
                 pagination: {
                     el: ".slider-big__pagination",
@@ -4541,7 +4541,7 @@
                     }
                 },
                 autoplay: {
-                    delay: 2e3,
+                    delay: 12e3,
                     disableOnInteraction: false
                 },
                 navigation: {

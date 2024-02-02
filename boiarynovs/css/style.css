@@ -1493,8 +1493,8 @@ body::after {
   gap: 1rem;
   overflow: hidden;
   position: relative;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .slider-big__slide::before {
@@ -1515,11 +1515,11 @@ body::after {
   transition: width 0s linear;
 }
 
-.slider-big__slide .swiper-slide-active::before::before {
+.slider-big__slide.swiper-slide-active::before {
   width: 100%;
 }
 
-.stop .slider-big__slide .swiper-slide-active::before::before {
+.stop .slider-big__slide.swiper-slide-active::before {
   width: 0;
   -webkit-transition: width 0s linear;
   transition: width 0s linear;
@@ -2048,14 +2048,14 @@ body::after {
 }
 
 .policy__container h4 {
-  font-size: 26px;
   font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.065rem;
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -0.08rem;
 }
 
 .policy__container h4:not(:last-child) {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .policy__container h5 {
@@ -2066,7 +2066,7 @@ body::after {
 }
 
 .policy__container h5:not(:last-child) {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .policy__container h6 {
@@ -2076,7 +2076,7 @@ body::after {
 }
 
 .policy__container h6:not(:last-child) {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .policy__container section:not(:last-child) {

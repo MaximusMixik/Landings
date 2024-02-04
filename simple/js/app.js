@@ -4249,21 +4249,21 @@
                     modules: [ Pagination ],
                     observer: true,
                     observeParents: true,
+                    loop: false,
                     speed: 800,
                     spaceBetween: 34,
                     slidesPerView: 1,
+                    autoHeight: true,
                     pagination: {
                         el: ".pricing__pagination",
                         clickable: true
                     },
                     breakpoints: {
-                        700: {
+                        650: {
                             slidesPerView: 2,
-                            autoHeight: true,
-                            centeredSlides: true
-                        },
-                        992: {
-                            slidesPerView: 3
+                            centeredSlides: true,
+                            initialSlide: 1,
+                            autoHeight: false
                         },
                         1268: {
                             slidesPerView: 4

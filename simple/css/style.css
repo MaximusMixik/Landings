@@ -1528,6 +1528,10 @@ h6 {
   margin: 0 auto;
 }
 
+.pricing__wrapper {
+  overflow: hidden;
+}
+
 .item-pricing {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;

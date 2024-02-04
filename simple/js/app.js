@@ -4246,16 +4246,12 @@
             });
             if (document.querySelector(".pricing-swiper")) {
                 const mySwiper = new swiper_core_Swiper(".pricing-swiper", {
-                    modules: [ Autoplay, Pagination ],
+                    modules: [ Pagination ],
                     observer: true,
                     observeParents: true,
                     speed: 800,
                     spaceBetween: 34,
                     slidesPerView: 1,
-                    autoplay: {
-                        delay: 4e3,
-                        disableOnInteraction: false
-                    },
                     pagination: {
                         el: ".pricing__pagination",
                         clickable: true

@@ -2636,12 +2636,6 @@ h6 {
   }
 }
 
-@media (max-width: 79.25em) and (max-width: 29.99875em) {
-  .pricing__pagination .swiper-pagination-bullet {
-    background-color: #fff;
-  }
-}
-
 @media (max-width: 78.125em) {
   .media-hero__card::after {
     -webkit-filter: invert(43%) sepia(30%) saturate(964%) hue-rotate(166deg) brightness(94%) contrast(99%);

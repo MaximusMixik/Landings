@@ -4242,52 +4242,48 @@
                 pagination: {
                     el: ".publishers__pagination",
                     clickable: true
-                },
-                on: {}
+                }
             });
             if (document.querySelector(".pricing-swiper")) {
                 const mySwiper = new swiper_core_Swiper(".pricing-swiper", {
-                    modules: [ Navigation, Autoplay, Pagination ],
+                    modules: [ Autoplay, Pagination ],
                     observer: true,
                     observeParents: true,
                     speed: 800,
+                    spaceBetween: 34,
+                    slidesPerView: 1,
                     autoplay: {
                         delay: 4e3,
                         disableOnInteraction: false
                     },
                     pagination: {
                         el: ".pricing__pagination",
-                        clickable: true,
-                        renderBullet: function(index, className) {
-                            return '<span class="' + className + '"></span>';
-                        }
+                        clickable: true
                     },
                     breakpoints: {
-                        300: {
-                            spaceBetween: 20,
-                            slidesPerView: 1
-                        },
                         700: {
                             slidesPerView: 2,
-                            spaceBetween: 20,
-                            autoHeight: true
+                            autoHeight: true,
+                            centeredSlides: true
                         },
                         992: {
                             slidesPerView: 3
                         },
                         1268: {
-                            slidesPerView: 4,
-                            spaceBetween: 34
+                            slidesPerView: 4
                         }
                     }
                 });
-                mySwiper.on("slideChange", (function() {
+                mySwiper.on("slideChange", (function(swiper) {
                     let pagination = document.querySelector(".pricing__pagination");
                     pagination.className = "pricing__pagination";
-                    let currentSlide = document.querySelector(".pricing__slide.swiper-slide-next\t .item-pricing");
+                    let currentSlide = swiper.slides[swiper.activeIndex].querySelector(".item-pricing");
                     if (currentSlide) {
                         let colorClass = Array.from(currentSlide.classList).find((className => className.startsWith("item-pricing--")));
-                        if (colorClass) pagination.classList.add(colorClass);
+                        if (colorClass) {
+                            let colorName = colorClass.replace("item-pricing--", "");
+                            pagination.classList.add("pricing__pagination", colorName);
+                        }
                     }
                 }));
             }
@@ -4560,9 +4556,10 @@
         const da = new DynamicAdapt("max");
         da.init();
         document.addEventListener("DOMContentLoaded", (function() {
-            const root = document.documentElement;
-            const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-            if (marqueeElementsDisplayed) {
+            const marquee = document.querySelector(".sponsors");
+            if (marquee) {
+                const root = document.documentElement;
+                const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
                 const marqueeContent = document.querySelector(".sponsors__marquee");
                 root.style.setProperty("--marquee-elements", marqueeContent.children.length);
                 for (let i = 0; i < marqueeElementsDisplayed; i++) marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));

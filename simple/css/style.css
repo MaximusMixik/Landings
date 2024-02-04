@@ -1971,7 +1971,7 @@ h6 {
   }
 
   .page__production {
-    padding-top: 6.875rem;
+    padding-top: 6.25rem;
   }
 
   .page__production {
@@ -2583,6 +2583,11 @@ h6 {
     margin-bottom: 1.5625rem;
   }
 
+  .pricing__slide {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+
   .pricing__pagination {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2596,7 +2601,6 @@ h6 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: transparent !important;
   }
 
   .pricing__pagination .swiper-pagination-bullet {
@@ -2615,19 +2619,19 @@ h6 {
     opacity: 1;
   }
 
-  .pricing__pagination.item-pricing--blue .swiper-pagination-bullet {
+  .pricing__pagination.blue .swiper-pagination-bullet {
     background-color: #2699d0;
   }
 
-  .pricing__pagination.item-pricing--green .swiper-pagination-bullet {
+  .pricing__pagination.green .swiper-pagination-bullet {
     background-color: #55d6be;
   }
 
-  .pricing__pagination.item-pricing--yellow .swiper-pagination-bullet {
+  .pricing__pagination.yellow .swiper-pagination-bullet {
     background-color: #f5c84c;
   }
 
-  .pricing__pagination.item-pricing--purple .swiper-pagination-bullet {
+  .pricing__pagination.purple .swiper-pagination-bullet {
     background-color: #c769cf;
   }
 }
@@ -2977,6 +2981,11 @@ h6 {
 @media (max-width: 29.99875em) {
   .title {
     line-height: 1.4;
+  }
+
+  .page__production {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
   }
 
   .content-hero__list {
@@ -3404,15 +3413,15 @@ h6 {
     }
 }
 
-@supports (padding-top: clamp( 3.75rem , 2.5617870722rem  +  4.752851711vw , 6.875rem )) {
+@supports (padding-top: clamp( 3.75rem , 2.7994296578rem  +  3.8022813688vw , 6.25rem )) {
     .page__production {
-      padding-top: clamp( 3.75rem , 2.5617870722rem  +  4.752851711vw , 6.875rem );
+      padding-top: clamp( 3.75rem , 2.7994296578rem  +  3.8022813688vw , 6.25rem );
     }
 }
 
-@supports not (padding-top: clamp( 3.75rem , 2.5617870722rem  +  4.752851711vw , 6.875rem )) {
+@supports not (padding-top: clamp( 3.75rem , 2.7994296578rem  +  3.8022813688vw , 6.25rem )) {
     .page__production {
-      padding-top: calc(3.75rem + 3.125 * (100vw - 25rem) / 65.75);
+      padding-top: calc(3.75rem + 2.5 * (100vw - 25rem) / 65.75);
     }
 }
 

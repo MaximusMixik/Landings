@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Portfolio</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name='freelancehunt' content='5674236f984ed75'>
+	<link rel="stylesheet" href="css/style.min.css?_v=20240210132513">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="files/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="files/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="files/favicons/favicon-16x16.png">
+	<link rel="manifest" href="files/favicons/site.webmanifest">
+	<link rel="mask-icon" href="files/favicons/safari-pinned-tab.svg" color="#25b500">
+	<meta name="apple-mobile-web-app-title" content="Maximus-portfolio">
+	<meta name="application-name" content="Maximus-portfolio">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="theme-color" content="#000000">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Maksym Smolyak">
+	<meta name="description" content="Welcome to my portfolio page">
+	<meta name="keywords" content="web development, frontend, web design, portfolio">
+	<meta name="robots" content="index, follow">
+	<meta property="og:title" content="Portfolio">
+	<meta property="og:description" content="Welcome to my portfolio page">
+	<meta property="og:image" content="img/main/my-photo.png">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" id="header">
+			<div class="header__container">
+				<div class="header__logo"><img src="img/logo.svg" alt="logo"></div>
+				<nav class="header__menu menu">
+					<ul class="menu__list">
+						<li class="menu__item">
+							<a href="#" data-goto=".gallery__container" data-goto-header class="menu__link ">Portfolio</a>
+						</li>
+						<li class="menu__item ">
+							<a href="#" data-goto=".skills__container" data-goto-header class="menu__link ">Skills</a>
+						</li>
+						<li class="menu__item ">
+							<a href="#" data-goto=".why-me__container" data-goto-header class="menu__link ">Advantages</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" data-goto=".reviews__container" data-goto-header class="menu__link">Reviews</a>
+						</li>
+					</ul>
+				</nav>
+				<a href="resume.pdf" target="_blank" class="header__button button">resume</a>
+				<button aria-label="burger" class="header__burger icon-menu"><span></span></button>
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__main main">
+				<div class="main__container">
+					<h1 class="main__title">
+						I’m Max,
+						<br>
+						<span>Front-end Developer </span>
+					</h1>
+					<div class="main__media">
+						<div class="main__run run-main">
+							<div class="run-main__text">
+								HTML CSS JAVASCRIPT
+							</div>
+						</div>
+						<picture><source srcset="img/main/photo.webp" type="image/webp"><img src="img/main/photo.png" alt="Maxim Smolyak"></picture>
+					</div>
+					<div class="main__text text">
+						<p>Creating responsive websites and web applications using HTML, CSS, JavaScript and other relevant
+							technologies</p>
+					</div>
+				</div>
+			</section>
+			<section class="page__gallery gallery">
+				<div data-showmore="items" class="gallery__container gallery-body ">
+					<h2 data-watch data-watch-once class="gallery-body__title title  title_green">Portfolio</h2>
+
+					<ul data-showmore-content="3" class="gallery-body__wrapper">
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/akari/home.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img6.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img6.jpg" alt="Akari"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Akari</h3>
+									<div class="gallery-item__link"><span>Show more</span> </div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/automation/home.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img18.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img18.jpg" alt="Alpha Automation GmbH"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Alpha Automation GmbH</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="https://maximusmixik.github.io/Landings/smart/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img15.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img15.jpg" alt="SmartVote"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">SmartVote</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/craftsmen/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img17.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img17.jpg" alt="Умільці"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Умільці</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/trans_full/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img7.jpg	" alt="Trans Gold">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Trans Gold</h3>
+									<div class="gallery-item__link"><span>Show more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://dimservice.in.ua" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img19.jpg	" alt="Dimservice">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Dimservice</h3>
+									<div class="gallery-item__link"><span>Show more</span></div>
+								</div>
+							</a>
+						</li>
+
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/kvadro/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img8.jpg	" alt="Kvadro Ukraine">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Kvadro Ukraine</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/safari/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img2.jpg" alt="Safari"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Safari</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/funiro/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img9.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img9.jpg" alt="Funiro"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Funiro</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/jadoo/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img11.jpg	" alt="Jadoo">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Jadoo</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/test/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img14.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img14.jpg" alt="Agency"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Agency</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/bethfrom/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img16.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img16.jpg" alt="Casino"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Casino</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/telebox/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img3.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img3.jpg" alt="Telebox"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Telebox</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/dananz/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img12.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img12.jpg" alt="Dananz"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Dananz</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/creative_thinker/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img5.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img5.jpg" alt="Creative Thinker"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Creative Thinker</h3>
+									<div class="gallery-item__link"><span>Show more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/rocketeer/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img10.jpg	" alt="Rocketeer">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Rocketeer</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/deep/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img4.jpg	" alt="Deep">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Deep</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/freedom/index.html" target="_blank" class="gallery-item__wrapper">
+								<img data-src="img/main/swiper__img13.jpg	" alt="Freedom">
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title">Freedom</h3>
+									<div class="gallery-item__link"><span>Show
+											more</span></div>
+								</div>
+							</a>
+						</li>
+						<li data-watch data-watch-once class="gallery-body__item gallery-item">
+							<a href="http://maximus.great-site.net/leasing/index.html" target="_blank" class="gallery-item__wrapper">
+								<picture><source data-srcset="img/main/swiper__img1.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img1.jpg" alt="D&M Leasing"></picture>
+								<div class="gallery-item__content">
+									<h3 class="gallery-item__title"> D&M Leasing</h3>
+									<div class="gallery-item__link"><span>Show more</span></div>
+								</div>
+							</a>
+						</li>
+
+
+					</ul>
+					<button data-watch data-watch-once hidden data-showmore-button type="button" class="gallery-body__button  button button_green-border"><span>SHOW
+							ALL</span><span>HIDE</span></button>
+				</div>
+			</section>
+			<section class="page__skills skills">
+				<div class="skills__container">
+					<h2 data-watch data-watch-once class="skills__title title title_green">Skills</h2>
+					<div class="skills__body">
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/html.svg" alt="HTML"></div>
+							<h3 class="skills-item__title">HTML 5</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/css.svg" alt="CSS 3"></div>
+							<h3 class="skills-item__title">CSS 3</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/js.svg" alt="JavaScript"></div>
+							<h3 class="skills-item__title">JavaScript</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/sass.svg" alt="SCSS"></div>
+							<h3 class="skills-item__title">SCSS</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/figma.svg" alt="Figma"></div>
+							<h3 class="skills-item__title">Figma</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/git.svg" alt="Git"></div>
+							<h3 class="skills-item__title">GIT</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/bem.svg" alt="BEM"></div>
+							<h3 class="skills-item__title">BEM</h3>
+						</article>
+						<article data-watch data-watch-once class="skills__item skills-item">
+							<div class="skills-item__image"><img data-src="img/skills/swiper.svg" alt="SCSS"></div>
+							<h3 class="skills-item__title">Swiper</h3>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="page__why-me why-me">
+				<div class="why-me__container">
+					<div data-watch data-watch-once class="why-me__media media-why-me">
+						<picture><source data-srcset="img/main/main__image.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/main__image.jpg" alt="macbook"></picture>
+						<div class="media-why-me__swiper why-me-swiper">
+							<div class="why-me-swiper__wrapper swiper-wrapper">
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img14.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img14.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img15.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img15.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img16.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img16.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img17.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img17.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img2.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img6.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img6.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img3.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img3.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img4.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img4.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img5.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img5.jpg" alt="my works"></picture>
+								</div>
+
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img7.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img7.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img8.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img8.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img9.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img9.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img10.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img10.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img11.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img11.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img12.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img12.jpg" alt="my works"></picture>
+								</div>
+								<div class="why-me-swiper__slide swiper-slide"><picture><source data-srcset="img/main/swiper__img13.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/main/swiper__img13.jpg" alt="my works"></picture>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div data-watch data-watch-once class="why-me__content why-me-content">
+						<h2 class="why-me-content__title title">Why You should <span>Hire Me</span> for Your Next Project</h2>
+						<div class="why-me-content__text text">
+							<p>Choosing the right professional for your project is crucial for its success. With a strong background
+								in website
+								development, I bring the expertise needed to create impactful online experiences.
+							</p>
+							<p>
+								My experience and skills ensure high-quality results, while my passion for problem-solving guarantees
+								that your project
+								will overcome challenges and thrive. I prioritize effective communication, working collaboratively to
+								bring your vision
+								to life.
+							</p>
+							<p>
+								I'm adaptable and dedicated to staying current with industry trends, ensuring your project benefits from
+								the latest
+								technologies. With a focus on website development, hiring me means gaining a skilled partner who is
+								committed to
+								delivering exceptional results.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__reviews reviews">
+				<div class="reviews__container">
+					<h2 data-watch data-watch-once class="reviews__title title ">My <span>Reviews</span> </h2>
+					<div data-watch data-watch-once class="reviews__slider reviews-swiper">
+						<div class="reviews-swiper__wrapper swiper-wrapper">
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide1.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide1.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide2.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide3.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide3.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide4.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide4.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide5.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide5.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide6.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide6.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide7.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide7.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide8.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide8.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide9.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide9.jpg" alt=""></picture>
+							</div>
+							<div class="reviews-swiper__slide swiper-slide"><picture><source data-srcset="img/reviews/reviews_slide10.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/reviews/reviews_slide10.jpg" alt=""></picture>
+							</div>
+						</div>
+						<div class="reviews-swiper__navigation">
+							<button type="button" aria-label="arrow-left" class="reviews-swiper__swiper-button reviews-swiper__swiper-button--prev _icon-arrow"></button>
+							<div class="reviews-swiper__pagination"></div>
+
+							<button type="button" aria-label="arrow-right" class="reviews-swiper__swiper-button reviews-swiper__swiper-button--next _icon-arrow"></button>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</main>
+		<div class="progress-bar" data-goto=".main" data-pct="0">
+			<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+				<circle class="progress-bar__line" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0" />
+				<circle class="progress-bar__progress" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="565.48" />
+				<path class="progress-bar__arrow" d="M113.849 138H85.1505V100.121H62L99.5 63L137 100.121H113.849V138Z" fill="transparent" />
+			</svg>
+		</div>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__logo"><img src="img/logo.svg" alt="logo"></div>
+				<nav class="footer__menu menu-footer">
+					<ul class="menu-footer__list">
+						<li class="menu-footer__item">
+							<a href="#" data-goto=".main__container" data-goto-header class="menu-footer__link ">Start</a>
+						</li>
+						<li class="menu-footer__item">
+							<a href="#" data-goto=".gallery__container" data-goto-header class="menu-footer__link ">Portfolio</a>
+						</li>
+						<li class="menu-footer__item ">
+							<a href="#" data-goto=".skills__container" data-goto-header class="menu-footer__link ">Skills</a>
+						</li>
+						<li class="menu-footer__item ">
+							<a href="#" data-goto=".why-me__container" data-goto-header class="menu-footer__link ">Advantages</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+	</div>
+	<!-- Стилі для body -->
+	<style>
+		.lock body {
+			overflow: hidden;
+			touch-action: none;
+			overscroll-behavior: none;
+		}
+
+		.loading body {
+			opacity: 0;
+			visibility: hidden;
+			/* overflow: scroll; */
+			overflow: hidden;
+			background-color: #000;
+		}
+
+		.loaded body {
+			transition: opacity 0.5s ease 0s;
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
+	<div id="preloader">
+
+		<!-- Документація: https://template.fls.guru/template-docs/modul-preloader.html -->
+		<!-- Стилі для прелоадера -->
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+				border: 0px;
+			}
+
+			*,
+			*:before,
+			*:after {
+				box-sizing: border-box;
+			}
+
+			html {
+				overflow: auto;
+				touch-action: none;
+				overscroll-behavior: none;
+			}
+
+
+			.preloader {
+				display: block;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				border: 2px solid transparent;
+
+				border-top-color: #90ec34;
+				box-shadow: 0 0 5px #90ec34;
+				border-radius: 50%;
+				-webkit-animation: spin9 1.5s ease infinite;
+				animation: spin9 1.5s ease infinite;
+				margin: -15vh 0 0 -15vh;
+				height: 30vh;
+				width: 30vh;
+			}
+
+			.preloader:before {
+				content: "";
+				position: absolute;
+				top: 7px;
+				right: 7px;
+				bottom: 7px;
+				left: 7px;
+				border: 2px solid transparent;
+				border-radius: 50%;
+				border-top-color: #90ec34;
+				box-shadow: 0 0 5px #90ec34;
+				-webkit-animation: spin9_x 1s linear infinite;
+				animation: spin9_x 1s linear infinite;
+			}
+
+			.preloader:after {
+				content: "";
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				bottom: 15px;
+				left: 15px;
+				border: 2px solid transparent;
+				border-radius: 50%;
+				border-top-color: #7bda1d;
+				box-shadow: 0 0 5px #77d916;
+				-webkit-animation: spin9 1.5s linear infinite;
+				animation: spin9 1.5s linear infinite;
+			}
+
+			@-webkit-keyframes spin9 {
+				from {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+
+				to {
+					-webkit-transform: rotate(359deg);
+					transform: rotate(359deg);
+				}
+			}
+
+			@keyframes spin9 {
+				from {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+
+				to {
+					-webkit-transform: rotate(359deg);
+					transform: rotate(359deg);
+					-webkit-transform: rotate(359deg);
+					transform: rotate(359deg);
+				}
+			}
+
+			@-webkit-keyframes spin9_x {
+				0% {
+					-webkit-transform: rotateX(0deg);
+					transform: rotateX(0deg);
+				}
+
+				100% {
+					-webkit-transform: rotateX(360deg);
+					transform: rotateX(360deg);
+				}
+			}
+
+			@keyframes spin9_x {
+				0% {
+					-webkit-transform: rotateX(0deg);
+					transform: rotateX(0deg);
+					-webkit-transform: rotateX(0deg);
+					transform: rotateX(0deg);
+				}
+
+				100% {
+					-webkit-transform: rotateX(360deg);
+					transform: rotateX(360deg);
+					-webkit-transform: rotateX(360deg);
+					transform: rotateX(360deg);
+				}
+			}
+
+			/* .preloader__counter {
+			font-size: 10rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: none;
+		} */
+		</style>
+		<!-- Скріпт прелоадера -->
+		<script>
+			function preloader() {
+				const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+				const preloaderContainer = document.querySelector('#preloader');
+				if (preloaderImages.length) {
+					const preloaderTemplate = `
+					<div class="preloader">
+	
+					</div>`;
+					document.querySelector('html').insertAdjacentHTML("beforeend", preloaderTemplate);
+
+					const
+						preloader = document.querySelector('.preloader'),
+						showPecentLoad = document.querySelector('.preloader__counter'),
+						showLineLoad = document.querySelector('.preloader__line span'),
+						htmlDocument = document.documentElement;
+
+					let imagesLoadedCount = counter = progress = 0;
+
+					htmlDocument.classList.add('loading');
+					htmlDocument.classList.add('lock');
+
+					preloaderImages.forEach(preloaderImage => {
+						const imgClone = document.createElement('img');
+						if (imgClone) {
+							imgClone.onload = imageLoaded;
+							imgClone.onerror = imageLoaded;
+							preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+						}
+					});
+
+					function setValueProgress(progress) {
+						showPecentLoad ? showPecentLoad.innerText = `${progress}%` : null;
+						showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+					}
+					showPecentLoad ? setValueProgress(progress) : null;
+
+					function imageLoaded() {
+						imagesLoadedCount++;
+						progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
+						const intervalId = setInterval(() => {
+							counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+							counter >= 100 ? addLoadedClass() : null;
+						}, 10);
+					}
+
+					function addLoadedClass() {
+						htmlDocument.classList.add('loaded');
+						htmlDocument.classList.remove('lock');
+						htmlDocument.classList.remove('loading');
+						setInterval(() => {
+							preloader.remove();
+							preloaderContainer.remove();
+						}, 500);
+					}
+				} else {
+					preloaderContainer.remove();
+				}
+			}
+			preloader();
+		</script>
+	</div>
+	<script src="js/app.min.js?_v=20240210132513"></script>
+</body>
+
+</html>

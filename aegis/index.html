@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240516130332">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240517133015">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="description" content="Author: Max.S.O, 	Надежный и быстрый VPN Aegis. Мы используем клиент Outline. Для подключения к VPN не потребуются сложные настройки. Одна подписка будет работать на всех устройствах.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -15,19 +15,20 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-lp class="header">
 			<div class="header__container">
 				<a href="#" class="header__logo logo">
 					<img src="img/logo.svg" alt="logo">
 					<span>AegisVPN</span>
 				</a>
 				<div class="header__action">
-					<button class="header__button button button--gold">Приобрести</button>
-					<button class="header__button button button--dark">Кабинет</button>
+					<button data-popup="#popup" class="header__button button button--gold">Приобрести</button>
+					<button data-popup="#popup" class="header__button button button--dark">Кабинет</button>
 				</div>
 			</div>
 		</header>
 		<main class="page">
+			<!-- TODO  було би непогано зробити переливання + на кожному заголовку є світлові эффект по 3 шт, пони мають по черзі зникати і з'являтися, щоб ніби був еффект переливання-->
 			<section class="page__hero hero">
 				<div class="hero__container">
 					<div class="hero__content">
@@ -45,8 +46,8 @@
 							</p>
 						</div>
 						<div class="hero__actions">
-							<button class="hero__button button button--gold">Тестировать за 10 ₹</button>
-							<button class="hero__button button button--dark">Подробно</button>
+							<button data-popup="#popup" class="hero__button button button--gold">Тестировать за 10 ₹</button>
+							<button data-popup="#popup" class="hero__button button button--dark">Подробно</button>
 						</div>
 					</div>
 				</div>
@@ -69,19 +70,17 @@
 							</div>
 						</div>
 						<div class="buy__content ">
-
 							<div class="buy__description description-buy">
 								<div class="description-buy__wrapper">
-									<h3 class=" description-buy__title">
+									<h3 class=" description-buy__title subtitle">
 										Получите до 6 мес подписки в подарок <span>до 22 августа!</span>
 									</h3>
 								</div>
 							</div>
-
 							<div data-da=".variations__body, 769, 0" class="buy__body body-bue">
 								<div class="body-bue__selector selector">
-									<input class="selector__input" type="radio" id="500" name="subscription" value="500">
-									<label class="selector__label" for="500"></label>
+									<input class="selector__input" type="radio" id="subscription_500" name="subscription" value="500">
+									<label class="selector__label" for="subscription_500"></label>
 								</div>
 
 								<div class="body-bue__content">
@@ -97,7 +96,7 @@
 									<div class="body-bue__label">
 										Базовый тариф
 									</div>
-									<button class="body-bue__button button button--gold">Купить за 500₽</button>
+									<button data-popup="#popup" class="body-bue__button button button--gold">Купить за 500₽</button>
 								</div>
 							</div>
 							<div data-da=".variations__container, 992" class="buy__warranty">
@@ -113,8 +112,8 @@
 					<div class="variations__body">
 						<div class="variations__item body-bue">
 							<div class="body-bue__selector selector">
-								<input class="selector__input" type="radio" id="350" name="subscription" value="350">
-								<label class="selector__label" for="350"></label>
+								<input class="selector__input" type="radio" id="subscription_350" name="subscription" value="350">
+								<label class="selector__label" for="subscription_350"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -129,13 +128,13 @@
 								<div class="body-bue__label body-bue__label--gold">
 									Выгода 30%
 								</div>
-								<button class="body-bue__button button button--gold">Купить за 2 800 ₹</button>
+								<button data-popup="#popup" class="body-bue__button button button--gold">Купить за 2 800 ₹</button>
 							</div>
 						</div>
 						<div class="variations__item body-bue">
 							<div class="body-bue__selector selector">
-								<input class="selector__input" type="radio" id="280" name="subscription" value="280">
-								<label class="selector__label" for="280"></label>
+								<input class="selector__input" type="radio" id="subscription_280" name="subscription" value="280">
+								<label class="selector__label" for="subscription_280"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -150,14 +149,14 @@
 								<div class="body-bue__label body-bue__label--gold">
 									Выгода 44%
 								</div>
-								<button class="body-bue__button button button--gold">Купить за 4 200 ₹</button>
+								<button data-popup="#popup" class="body-bue__button button button--gold">Купить за 4 200 ₹</button>
 							</div>
 
 						</div>
 						<div class="variations__item body-bue  body-bue--mark">
 							<div class="body-bue__selector selector">
-								<input class="selector__input" type="radio" id="190" name="subscription" value="190">
-								<label class="selector__label" for="190"></label>
+								<input class="selector__input" type="radio" id="subscription_190" name="subscription" value="190">
+								<label class="selector__label" for="subscription_190"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -172,13 +171,11 @@
 								<div class="body-bue__label body-bue__label--gold">
 									Выгода 62%
 								</div>
-								<button class="body-bue__button button button--gold">Купить за 5 700 ₹</button>
+								<button data-popup="#popup" class="body-bue__button button button--gold">Купить за 5 700 ₹</button>
 							</div>
-
 						</div>
-
 					</div>
-					<button class="variations__button button button--gold">Попробоватьза10₹</button>
+					<button data-popup="#popup" class="variations__button button button--gold">Попробоватьза10₹</button>
 				</div>
 			</div>
 			<div class="page__prices prices">
@@ -478,7 +475,7 @@
 							<div class="item-advantages__image">
 								<img src="img/advantages/shadow.webp" alt="shadow">
 							</div>
-							<h3 class="item-advantages__title">
+							<h3 class="item-advantages__title subtitle">
 								AegisVPN работает на Shadowsocks/ Outline/vless
 							</h3>
 							<div class="item-advantages__text">
@@ -493,7 +490,7 @@
 							<div class="item-advantages__image">
 								<img src="img/advantages/fast.webp" alt="fast">
 							</div>
-							<h3 class="item-advantages__title">
+							<h3 class="item-advantages__title subtitle">
 								Космически быстрый VPN
 								скрость до 10гб/сек
 							</h3>
@@ -509,7 +506,7 @@
 							<div class="item-advantages__image">
 								<img src="img/advantages/safety.webp" alt="safety">
 							</div>
-							<h3 class="item-advantages__title">
+							<h3 class="item-advantages__title subtitle">
 								Полная приватность
 								на всех устройствах
 							</h3>
@@ -581,67 +578,71 @@
 							</div>
 						</div>
 						<div class="buy__content ">
-							<div class="buy__description description-buy">
-								<div class="description-buy__wrapper">
-									<div class="description-buy__body">
-										<div class="description-buy__icon">
-											<svg>
-												<use xlink:href="img/icons/icons.svg#flash"></use>
-											</svg>
+							<div data-tab-interval="3000" class="buy__main">
+								<div class="buy__description description-buy active-tab">
+									<div class="description-buy__wrapper">
+										<div class="description-buy__body">
+											<div class="description-buy__icon">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#flash"></use>
+												</svg>
+											</div>
+											<div class="description-buy__content">
+												<h3 class=" description-buy__title subtitle">
+													Высокая скорость
+												</h3>
+												<div class="description-buy__text">
+													Всё как в полной версии, на сутки
+												</div>
+											</div>
 										</div>
-										<div class="description-buy__content">
-											<h3 class=" description-buy__title">
-												Высокая скорость
-											</h3>
-											<div class="description-buy__text">
-												Всё как в полной версии, на сутки
+									</div>
+								</div>
+								<div class="buy__description description-buy">
+									<div class="description-buy__wrapper">
+										<div class="description-buy__body">
+											<div class="description-buy__icon">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#time"></use>
+												</svg>
+											</div>
+											<div class="description-buy__content">
+												<h3 class=" description-buy__title subtitle">все на одних руках
+												</h3>
+												<div class="description-buy__text">
+													Тариф можно купить только 1 раз
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="buy__description description-buy">
+									<div class="description-buy__wrapper">
+										<div class="description-buy__body">
+											<div class="description-buy__icon">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#fakel"></use>
+												</svg>
+											</div>
+											<div class="description-buy__content">
+												<h3 class=" description-buy__title subtitle">
+													всегда на связи
+												</h3>
+												<div class="description-buy__text">
+													Поможем подключиться к VPN
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="buy__description description-buy">
-								<div class="description-buy__wrapper">
-									<div class="description-buy__body">
-										<div class="description-buy__icon">
-											<svg>
-												<use xlink:href="img/icons/icons.svg#time"></use>
-											</svg>
-										</div>
-										<div class="description-buy__content">
-											<h3 class=" description-buy__title">все на одних руках
-											</h3>
-											<div class="description-buy__text">
-												Тариф можно купить только 1 раз
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="buy__description description-buy">
-								<div class="description-buy__wrapper">
-									<div class="description-buy__body">
-										<div class="description-buy__icon">
-											<svg>
-												<use xlink:href="img/icons/icons.svg#fakel"></use>
-											</svg>
-										</div>
-										<div class="description-buy__content">
-											<h3 class=" description-buy__title">
-												всегда на связи
-											</h3>
-											<div class="description-buy__text">
-												Поможем подключиться к VPN
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<button class="buy__button button button--gold">Попробовать за 10 ₹</button>
+							<button data-popup="#popup" class="buy__button button button--gold">Попробовать за 10 ₹</button>
 						</div>
 					</div>
 				</div>
 			</section>
+			<!-- TODO  svg icon, анимация svg icon rate-->
+			<!-- TODO  з ліва на право плавно  проявляються зірки одна за одною -->
 			<section class="page__reviews reviews">
 				<div class="reviews__container">
 					<h2 class="reviews__title title title--gold">
@@ -737,7 +738,7 @@
 							</div>
 						</li>
 					</ul>
-					<button class="reviews__button button button--gold">Все отзывы</button>
+					<button data-popup="#popup" class="reviews__button button button--gold">Все отзывы</button>
 				</div>
 			</section>
 			<div class="page__services services">
@@ -795,14 +796,14 @@
 								<div class="support__icon">
 									<img src="img//support/icon1.svg" alt="icon">
 								</div>
-								<h2 class="support__title">
+								<h2 class="support__title subtitle">
 									Протестируйте vpn
 								</h2>
 								<div class="support__text text">
 									<p> Получите полноценный доступ на сутки, без ограничений. Подключитесь к серверу, убедитесь, что всё
 										работает</p>
 								</div>
-								<button class="support__button button button--dark">
+								<button data-popup="#popup" class="support__button button button--dark">
 									Тестировать за 10 ₹
 								</button>
 							</article>
@@ -812,13 +813,13 @@
 								<div class="support__icon">
 									<img src="img//support/icon2.svg" alt="icon">
 								</div>
-								<h2 class="support__title">
+								<h2 class="support__title subtitle">
 									Протестируйте vpn
 								</h2>
 								<div class="support__text text">
 									<p>Приобретете AegisVPN и получите все преимущества без ограничений и временных рамок</p>
 								</div>
-								<button class="support__button button button--gold">
+								<button data-popup="#popup" class="support__button button button--gold">
 									Приобрести
 								</button>
 							</article>
@@ -828,13 +829,13 @@
 								<div class="support__icon">
 									<img src="img//support/ava.webp" alt="icon">
 								</div>
-								<h2 class="support__title">
+								<h2 class="support__title subtitle">
 									support@aegisvpn
 								</h2>
 								<div class="support__text text">
 									<p>Напишите нам. Мы рассмотрим все ваши ваши проблемы. Даем полною подержку после покупки!</p>
 								</div>
-								<button class="support__button button button--dark">
+								<button data-popup="#popup" class="support__button button button--dark">
 									Написать в телеграмм
 								</button>
 							</article>
@@ -853,30 +854,48 @@
 						</a>
 						<ul class="actions-footer__list">
 							<li class="actions-footer__item">
-								<a href="#" class="actions-footer__link">Пакетные цены</a>
+								<button type="button" data-goto=".buy__wrapper" data-goto-top="100" class="actions-footer__link">Пакетные
+									цены</button>
 							</li>
 							<li class="actions-footer__item">
-								<a href="#" class="actions-footer__link">Помощь и вопросы</a>
+								<button type="button" data-goto=".support" data-goto-top="100" class="actions-footer__link">Помощь и
+									вопросы</button>
 							</li>
 							<li class="actions-footer__item">
-								<a href="#" class="actions-footer__link">Пользовательский кабинет</a>
+								<button type="button" data-popup="#popup" class="actions-footer__link">Пользовательский кабинет</button>
 							</li>
 						</ul>
 						<div class="actions-footer__store">
-							<a href="#" class="actions-footer__button button button--dark"><img src="img/footer/googlePlay.svg" alt="google Play"></a>
-							<a href="#" class="actions-footer__button button button--dark"><img src="img/footer/appStore.svg" alt="app Store"></a>
+							<a href="#" class="actions-footer__button button button--dark">
+								<!-- <img src="img/footer/googlePlay.svg" alt="google Play"> -->
+								<svg>
+									<use xlink:href="img/icons/icons.svg#google"></use>
+								</svg>
+							</a>
+							<a href="#" class="actions-footer__button button button--dark">
+								<svg>
+									<use xlink:href="img/icons/icons.svg#apple"></use>
+								</svg>
+								<!-- <img src="img/footer/appStore.svg" alt="app Store"> -->
+							</a>
 						</div>
 					</div>
 					<nav class="footer__navigation navigation">
 						<ul class="navigation__list">
-							<li class="navigation__item"><a href="#" class="navigation__link">Правила возврата</a></li>
-							<li class="navigation__item"><a href="#" class="navigation__link">Договор оферты</a></li>
-							<li class="navigation__item"><a href="#" class="navigation__link">Политика обработки персональных данных</a>
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Правила
+									возврата</a></li>
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Договор оферты</a>
 							</li>
-							<li class="navigation__item"><a href="#" class="navigation__link">Политика cookies</a></li>
-							<li class="navigation__item"><a href="#" class="navigation__link">Соглашение о присоединении к системе
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Политика обработки
+									персональных данных</a>
+							</li>
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Политика
+									cookies</a></li>
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Соглашение о
+									присоединении к системе
 									платежей</a></li>
-							<li class="navigation__item"><a href="#" class="navigation__link">Отмена подписки</a></li>
+							<li class="navigation__item"><a href="resume.pdf" target="_blank" class="navigation__link">Отмена подписки</a>
+							</li>
 						</ul>
 					</nav>
 					<div class="footer__payment payment">
@@ -885,8 +904,18 @@
 								Оплата на сайте:
 							</div>
 							<div class="payment__action">
-								<a href="#"><img src="img/footer/visa.svg" alt="visa"></a>
-								<a href="#"><img src="img/footer/mastercard.svg" alt="mastercard"></a>
+								<a href="#">
+									<svg>
+										<use xlink:href="img/icons/icons.svg#visa"></use>
+									</svg>
+									<!-- <img src="img/footer/visa.svg" alt="visa"> -->
+								</a>
+								<a href="#">
+									<svg>
+										<use xlink:href="img/icons/icons.svg#mastercard"></use>
+									</svg>
+									<!-- <img src="img/footer/mastercard.svg" alt="mastercard"> -->
+								</a>
 							</div>
 						</div>
 						<div class="payment__copyright">
@@ -897,8 +926,28 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240516130332"></script>
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__body">
+				<div class="popup__content">
+					<h2 class="popup__title subtitle">
+						приложения <br> в разработке
+					</h2>
+					<div class="popup__text text">
+						<p>
+							Мы работаем над нашим приложениям, скоро оно будет доступно на платформах android и IOS
+						</p>
+					</div>
+					<button data-close type="button" class="popup__close button button--gold">
+						Закрыть окно
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240517133015"></script>
 </body>
-<!-- TODO , свечения на body-bue, анимация кнопки, анимация блока с  description-buy__body , svg icon, анимация svg icon rate , popup -->
+
+<!-- TODO -->
 
 </html>

@@ -514,14 +514,16 @@
     //! Tabs
         function activeTabs() {
         const tabs = document.querySelectorAll(".buy__main .description-buy");
-        const intervalValue = document.querySelector("[data-tab-interval]").dataset.tabInterval;
-        let currentTab = 0;
-        setInterval((() => {
-            tabs.forEach((tab => tab.classList.remove("active-tab")));
-            tabs[currentTab].classList.add("active-tab");
-            currentTab++;
-            if (currentTab >= tabs.length) currentTab = 0;
-        }), intervalValue);
+        if (tabs.length) {
+            const intervalValue = document.querySelector("[data-tab-interval]").dataset.tabInterval;
+            let currentTab = 0;
+            setInterval((() => {
+                tabs.forEach((tab => tab.classList.remove("active-tab")));
+                tabs[currentTab].classList.add("active-tab");
+                currentTab++;
+                if (currentTab >= tabs.length) currentTab = 0;
+            }), intervalValue);
+        }
     }
     window.onload = function() {
         new RadioAction;

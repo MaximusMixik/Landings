@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240517133015">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240517211246">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="description" content="Author: Max.S.O, 	Надежный и быстрый VPN Aegis. Мы используем клиент Outline. Для подключения к VPN не потребуются сложные настройки. Одна подписка будет работать на всех устройствах.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -19,6 +19,9 @@
 			<div class="header__container">
 				<a href="#" class="header__logo logo">
 					<img src="img/logo.svg" alt="logo">
+					<!-- <svg aria-label="logo">
+				<use xlink:href="img/icons/icons.svg#logo"></use>
+			</svg> -->
 					<span>AegisVPN</span>
 				</a>
 				<div class="header__action">
@@ -28,12 +31,12 @@
 			</div>
 		</header>
 		<main class="page">
-			<!-- TODO  було би непогано зробити переливання + на кожному заголовку є світлові эффект по 3 шт, пони мають по черзі зникати і з'являтися, щоб ніби був еффект переливання-->
 			<section class="page__hero hero">
 				<div class="hero__container">
 					<div class="hero__content">
 						<h1 class="hero__title">
 							Aegis
+							<span></span>
 						</h1>
 						<div class="hero__subtitle">
 							Надежный и быстрый VPN всего от 190 <span>₹</span> за месяц
@@ -62,6 +65,7 @@
 							<h2 class="buy__title title">
 								Купить доступ <br>
 								к VPN сейчас
+								<span></span>
 							</h2>
 							<div class="buy__images image-animation">
 								<img class="image-animation__column" src="img/buy/column.webp" alt="column">
@@ -80,7 +84,7 @@
 							<div data-da=".variations__body, 769, 0" class="buy__body body-bue">
 								<div class="body-bue__selector selector">
 									<input class="selector__input" type="radio" id="subscription_500" name="subscription" value="500">
-									<label class="selector__label" for="subscription_500"></label>
+									<label class="selector__label" aria-label="check value 500" for="subscription_500"></label>
 								</div>
 
 								<div class="body-bue__content">
@@ -113,7 +117,7 @@
 						<div class="variations__item body-bue">
 							<div class="body-bue__selector selector">
 								<input class="selector__input" type="radio" id="subscription_350" name="subscription" value="350">
-								<label class="selector__label" for="subscription_350"></label>
+								<label class="selector__label" aria-label="check value 350" for="subscription_350"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -134,7 +138,7 @@
 						<div class="variations__item body-bue">
 							<div class="body-bue__selector selector">
 								<input class="selector__input" type="radio" id="subscription_280" name="subscription" value="280">
-								<label class="selector__label" for="subscription_280"></label>
+								<label class="selector__label" aria-label="check value 280" for="subscription_280"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -156,7 +160,7 @@
 						<div class="variations__item body-bue  body-bue--mark">
 							<div class="body-bue__selector selector">
 								<input class="selector__input" type="radio" id="subscription_190" name="subscription" value="190">
-								<label class="selector__label" for="subscription_190"></label>
+								<label class="selector__label" aria-label="check value 190" for="subscription_190"></label>
 							</div>
 							<div class="body-bue__content">
 								<div class="body-bue__date">
@@ -468,6 +472,7 @@
 					<h2 class="advantages__title title title--gold">
 						Ваша выгода <br>
 						и надежность
+						<span></span>
 					</h2>
 					<div class="advantages__body ">
 
@@ -570,6 +575,7 @@
 						<div class="buy__media">
 							<h2 class="buy__title title">
 								Протестируйте AegisVPN
+								<span></span>
 							</h2>
 							<div class="buy__images image-animation">
 								<img class="image-animation__column" src="img/buy/column.webp" alt="column">
@@ -641,12 +647,11 @@
 					</div>
 				</div>
 			</section>
-			<!-- TODO  svg icon, анимация svg icon rate-->
-			<!-- TODO  з ліва на право плавно  проявляються зірки одна за одною -->
 			<section class="page__reviews reviews">
 				<div class="reviews__container">
 					<h2 class="reviews__title title title--gold">
 						Что пишут <br> наши клиенты?
+						<span></span>
 					</h2>
 					<ul class="reviews__list">
 						<li class="reviews__item item-reviews">
@@ -850,6 +855,9 @@
 					<div class="footer__actions actions-footer">
 						<a href="#" class="actions-footer__logo logo">
 							<img src="img/logo.svg" alt="logo">
+							<!-- <svg aria-label="logo">
+						<use xlink:href="img/icons/icons.svg#logo"></use>
+					</svg> -->
 							<span>AegisVPN</span>
 						</a>
 						<ul class="actions-footer__list">
@@ -868,12 +876,12 @@
 						<div class="actions-footer__store">
 							<a href="#" class="actions-footer__button button button--dark">
 								<!-- <img src="img/footer/googlePlay.svg" alt="google Play"> -->
-								<svg>
+								<svg aria-label="google store">
 									<use xlink:href="img/icons/icons.svg#google"></use>
 								</svg>
 							</a>
 							<a href="#" class="actions-footer__button button button--dark">
-								<svg>
+								<svg aria-label="app store">
 									<use xlink:href="img/icons/icons.svg#apple"></use>
 								</svg>
 								<!-- <img src="img/footer/appStore.svg" alt="app Store"> -->
@@ -905,13 +913,13 @@
 							</div>
 							<div class="payment__action">
 								<a href="#">
-									<svg>
+									<svg aria-label="pay visa">
 										<use xlink:href="img/icons/icons.svg#visa"></use>
 									</svg>
 									<!-- <img src="img/footer/visa.svg" alt="visa"> -->
 								</a>
 								<a href="#">
-									<svg>
+									<svg aria-label="pay mastercard">
 										<use xlink:href="img/icons/icons.svg#mastercard"></use>
 									</svg>
 									<!-- <img src="img/footer/mastercard.svg" alt="mastercard"> -->
@@ -945,9 +953,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240517133015"></script>
+	<script src="js/app.min.js?_v=20240517211246"></script>
 </body>
-
-<!-- TODO -->
 
 </html>

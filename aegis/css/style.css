@@ -277,16 +277,6 @@ body::after {
     background-position: 100% 100%
   }
 }
-@-webkit-keyframes pulsation {
-  50% {
-    background-position: 50% 100%
-  }
-}
-@keyframes pulsation {
-  50% {
-    background-position: 50% 100%
-  }
-}
 @-webkit-keyframes shining {
   50% {
     opacity: 1
@@ -299,7 +289,7 @@ body::after {
 }
 .button {
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   display: grid;
   place-items: center
@@ -308,14 +298,11 @@ body::after {
   color: var(--text-dark);
   border: .0625rem solid #fff0e8;
   background: linear-gradient(180deg,#f3dfc7 -43.13%,#e49f4e 108.13%);
-  background-size: 100% 200%;
-  background-position: 50% 0;
   position: relative;
   z-index: 1;
-  -webkit-animation: pulsation 3s ease-in-out infinite alternate;
-  animation: pulsation 3s ease-in-out infinite alternate;
   transition: box-shadow .3s ease,border .3s ease
 }
+.button--gold::after,
 .button--gold::before {
   content: "";
   position: absolute;
@@ -325,6 +312,10 @@ body::after {
   left: 5%;
   opacity: 0;
   transition: opacity .3s ease;
+  box-shadow: 0 0 .625rem .1875rem rgba(236,163,74,.8);
+  z-index: -1
+}
+.button--gold::before {
   -webkit-animation: shining 3s ease infinite alternate;
   animation: shining 3s ease infinite alternate
 }
@@ -345,7 +336,6 @@ body::after {
   object-fit: cover
 }
 .actions-footer__link,
-.buy__warranty a,
 .navigation__link {
   transition: color .3s ease
 }
@@ -354,12 +344,14 @@ body::after {
   -webkit-text-stroke-color: #fff;
   font-family: Fabrica,sans-serif;
   background: var(--gradient-light);
+  -webkit-text-stroke: .0625rem #fff;
   text-shadow: .25rem .25rem 1.25rem rgba(175,175,175,.3),-.25rem -.25rem 1.25rem rgba(175,175,175,.3)
 }
 .title--gold {
   -webkit-text-stroke-color: #000;
   text-shadow: .25rem .25rem 1.25rem rgba(248,180,102,.3),-.25rem -.25rem 1.25rem rgba(248,180,102,.3);
-  background: var(--gradient-gold)
+  background: var(--gradient-gold);
+  -webkit-text-stroke: .125rem #f6b280
 }
 .subtitle {
   text-shadow: 0 .25rem .5rem rgba(155,155,155,.24);
@@ -368,7 +360,8 @@ body::after {
 }
 .advantages__title,
 .hero__title,
-.reviews__title {
+.reviews__title,
+.test h1 {
   background-position: 0 0;
   background-size: 200% 200%;
   background-image: var(--gradient-gold);
@@ -384,7 +377,10 @@ body::after {
 .hero__title::before,
 .reviews__title span,
 .reviews__title::after,
-.reviews__title::before {
+.reviews__title::before,
+.test h1 span,
+.test h1::after,
+.test h1::before {
   content: "";
   position: absolute;
   -webkit-filter: blur(.0625rem);
@@ -439,6 +435,9 @@ body::after {
   display: flex;
   align-items: center
 }
+.header__button {
+  font-weight: 500
+}
 .footer__wrapper {
   border-top: .0625rem solid rgba(254,252,250,.3);
   display: flex
@@ -485,10 +484,7 @@ body::after {
 .page__hero {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-  min-height: 100vh;
-  transition: min-height .3s ease
+  justify-content: center
 }
 .page__buy {
   padding: 0 1rem
@@ -507,7 +503,8 @@ body::after {
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #000;
   font-family: Fabrica,sans-serif;
-  text-transform: uppercase
+  text-transform: uppercase;
+  -webkit-text-stroke: .125rem #f6b280
 }
 .hero__title::before {
   width: 12%;
@@ -582,6 +579,10 @@ body::after {
 .bue--next .buy__title span {
   bottom: 21%
 }
+.buy__content {
+  position: relative;
+  z-index: 1
+}
 .bue--next .buy__content {
   align-self: center
 }
@@ -595,26 +596,23 @@ body::after {
   text-align: center;
   margin: 0 auto
 }
-.buy__warranty a {
-  text-decoration-line: underline
-}
 .buy__warranty::before {
   content: "";
   position: absolute;
   left: 0;
   background: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"  fill=\"none\"><path d=\"M8 .13a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1.67 12.4-.99.37a2.6 2.6 0 0 1-.86.13c-.5 0-.88-.13-1.16-.37a1.18 1.18 0 0 1-.41-.93 3.36 3.36 0 0 1 .13-.96l.51-1.82.12-.5c.03-.15.05-.29.05-.42 0-.23-.05-.4-.15-.49-.1-.09-.28-.13-.55-.13-.13 0-.27.02-.4.06l-.37.12.14-.56c.34-.14.66-.26.97-.36.3-.1.6-.14.87-.14.5 0 .88.12 1.15.36.27.23.4.55.4.93a5.41 5.41 0 0 1-.13.96l-.51 1.82a5.13 5.13 0 0 0-.17.92c0 .24.06.4.17.5.1.08.29.13.56.13a2.41 2.41 0 0 0 .77-.18l-.14.56Zm-.1-7.37c-.23.22-.52.33-.86.33-.34 0-.63-.1-.87-.33a1.07 1.07 0 0 1 0-1.62c.24-.22.53-.34.87-.34.34 0 .63.12.86.34.24.22.36.5.36.81 0 .32-.12.59-.36.8Z\" fill=\"%23fff\"/></svg>") center/contain no-repeat
 }
-.buy__button {
+.buy__button.button {
   width: 100%
 }
 .description-buy {
-  padding: .0625rem;
+  padding: .125rem;
   background: var(--gradient-gold);
   transition: box-shadow .3s ease
 }
 .description-buy.active-tab {
   background: linear-gradient(180deg,#f3dfc7 -43.13%,#e49f4e 108.13%);
-  box-shadow: 0 0 .625rem .0625rem #f3c793
+  box-shadow: 0 .5rem .625rem rgba(243,200,147,.1)
 }
 .description-buy__wrapper {
   background-color: var(--bg-primary);
@@ -625,6 +623,7 @@ body::after {
   background-color: transparent
 }
 .description-buy__title {
+  width: 100%;
   text-align: center;
   transition: all .3s ease
 }
@@ -636,6 +635,7 @@ body::after {
 }
 .description-buy__body {
   display: flex;
+  width: 100%;
   align-items: center
 }
 .description-buy__body .description-buy__title {
@@ -685,7 +685,6 @@ body::after {
   position: absolute;
   width: 55%;
   height: 45%;
-  top: 18%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -954,11 +953,18 @@ body::after {
   -webkit-animation-delay: 3s;
   animation-delay: 3s
 }
-.reviews__button {
+.reviews__button.button {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
   max-width: -webkit-max-content;
   max-width: max-content;
   min-width: 16.5rem;
   margin: 0 auto
+}
+.reviews__button.button::before {
+  content: "";
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused
 }
 @-webkit-keyframes rateAnimate {
   100% {
@@ -1106,16 +1112,13 @@ body::after {
   position: relative;
   z-index: 1
 }
-.support__item-wrapper--decor {
-  position: relative
-}
-.support__item-wrapper--decor::before {
+.support__item-wrapper::before {
   content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   flex-shrink: 0;
-  background-color: #1d1815;
+  background: var(--gradient-gold);
   z-index: -1;
   -webkit-filter: blur(4.375rem);
   filter: blur(4.375rem)
@@ -1133,8 +1136,24 @@ body::after {
   align-items: center;
   justify-content: center
 }
-.test svg {
-  color: #daa520
+.test h1 {
+  line-height: 1;
+  text-shadow: .25rem .25rem 1.25rem rgba(248,180,102,.3),-.25rem -.25rem 1.25rem rgba(248,180,102,.3);
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+  font-family: Fabrica,sans-serif;
+  text-transform: uppercase;
+  position: relative
+}
+.test h1::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #f6b280;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: .375rem transparent;
+  z-index: -1
 }
 .body-bue__date span,
 .body-bue__label,
@@ -1144,6 +1163,7 @@ body::after {
 .hero__title,
 .logo span,
 .subtitle,
+.test h1,
 .title,
 .title--gold {
   background-clip: text;
@@ -1158,43 +1178,19 @@ body::after {
   }
   @-webkit-keyframes levitation {
     50% {
-      top: 23%
+      top: 25%
     }
   }
   @keyframes levitation {
     50% {
-      top: 23%
+      top: 25%
     }
   }
-  .body-bue--mark {
-    position: relative
-  }
-  .body-bue--mark::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    background: url(../img/buy/decor.svg) 0 0/contain no-repeat
+  .image-animation__item {
+    top: 30%
   }
   .services__list + .services__list {
     display: none
-  }
-  .support__item-wrapper--decor::before {
-    border-radius: 50% 50% 0 0;
-    -webkit-transform: translate(-50%,20%);
-    transform: translate(-50%,20%);
-    width: 22rem;
-    height: 13.375rem
-  }
-}
-@media (min-width:29.99875em) and (min-width:110em) {
-  .body-bue--mark::before {
-    width: 2.75rem
-  }
-  .body-bue--mark::before {
-    height: 5.375rem
-  }
-  .body-bue--mark::before {
-    right: 2.25rem
   }
 }
 @media (min-width:48.06125em) {
@@ -1229,6 +1225,12 @@ body::after {
     height: 3.75rem
   }
   .button {
+    font-size: 1.25rem
+  }
+  .button {
+    border-radius: .75rem
+  }
+  .button {
     padding-top: 1.0625rem
   }
   .button {
@@ -1239,9 +1241,6 @@ body::after {
   }
   .button {
     padding-right: 1.0625rem
-  }
-  .button--gold::before {
-    box-shadow: 0 0 .9375rem .3125rem #f3c793
   }
   .text {
     font-size: 1.5rem
@@ -1270,6 +1269,9 @@ body::after {
   }
   .subtitle {
     font-size: 2.875rem
+  }
+  .header__button {
+    min-width: 11.25rem
   }
   .footer__wrapper {
     row-gap: 3.75rem
@@ -1325,6 +1327,9 @@ body::after {
     font-size: 1.5rem
   }
   .page__hero {
+    flex: 1 1 auto;
+    min-height: 100vh;
+    transition: min-height .3s ease;
     padding-top: 15rem;
     padding-bottom: 22.125rem
   }
@@ -1453,10 +1458,10 @@ body::after {
   .buy__warranty::before {
     top: .25rem
   }
-  .buy__button {
+  .buy__button.button {
     min-height: 6.875rem
   }
-  .buy__button {
+  .buy__button.button {
     font-size: 1.5rem
   }
   .description-buy {
@@ -1510,6 +1515,9 @@ body::after {
   .image-animation {
     min-height: 43.75rem
   }
+  .image-animation {
+    margin-top: -12.5rem
+  }
   .image-animation__column {
     max-width: 100%;
     width: 100%;
@@ -1536,6 +1544,15 @@ body::after {
   }
   .body-bue__content {
     text-align: center
+  }
+  .body-bue--mark {
+    position: relative
+  }
+  .body-bue--mark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    background: url(../img/buy/decor.svg) 0 0/contain no-repeat
   }
   .body-bue__date {
     background-color: #141212;
@@ -1617,7 +1634,7 @@ body::after {
     flex: 1 1 50%;
     min-width: 28.125rem
   }
-  .reviews__button {
+  .reviews__button.button {
     min-height: 5rem
   }
   .item-reviews__wrapper {
@@ -1659,6 +1676,14 @@ body::after {
   .support__item-wrapper {
     border-radius: 1.5rem
   }
+  .support__item-wrapper::before {
+    opacity: .05;
+    border-radius: 50% 50% 0 0;
+    -webkit-transform: translate(-50%,20%);
+    transform: translate(-50%,20%);
+    width: 22rem;
+    height: 13.375rem
+  }
   .support__icon img {
     width: 6rem
   }
@@ -1667,6 +1692,9 @@ body::after {
   }
   .support__button {
     min-height: 5rem
+  }
+  .test h1 {
+    font-size: 12.25rem
   }
 }
 @media (min-width:48.06125em) and (min-width:29.99875em) {
@@ -1679,6 +1707,15 @@ body::after {
   }
 }
 @media (min-width:48.06125em) and (min-width:48.06125em) {
+  .body-bue--mark::before {
+    width: 2.75rem
+  }
+  .body-bue--mark::before {
+    height: 5.375rem
+  }
+  .body-bue--mark::before {
+    right: 2.25rem
+  }
   .body-bue__label:not(:last-child) {
     margin-bottom: 2.75rem
   }
@@ -1733,15 +1770,6 @@ body::after {
 @media (min-width:61.99875em) {
   .logo span {
     font-size: 2.875rem
-  }
-  .button {
-    font-size: 1.25rem
-  }
-  .button {
-    border-radius: .75rem
-  }
-  .button {
-    min-width: 11.25rem
   }
   .title {
     font-size: 6.875rem
@@ -1929,13 +1957,8 @@ body::after {
   .logo {
     gap: .5rem
   }
-  .button--gold::before {
-    box-shadow: 0 0 .75rem .1875rem #f3c793
-  }
   .page__hero {
-    flex-direction: column-reverse;
-    padding-top: 6.6875rem;
-    padding-bottom: 4.5625rem
+    flex-direction: column-reverse
   }
   .hero__content {
     text-align: center
@@ -2017,8 +2040,23 @@ body::after {
   .body-bue__button {
     display: none
   }
+  .support__item-wrapper::before {
+    opacity: .1;
+    background: linear-gradient(44deg,rgba(255,255,255,0) 6.12%,rgba(255,255,255,.4) 47.9%),linear-gradient(283deg,#696969 3.14%,#fff 29.25%,#afafaf 64.62%,#555353 96.35%);
+    -webkit-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    bottom: 25%;
+    width: 13.75rem;
+    height: 3.75rem
+  }
 }
 @media (max-width:48.06125em) and (max-width:22.5em) {
+  .page__hero {
+    padding-top: 1.875rem
+  }
+  .page__hero {
+    padding-bottom: 2.8125rem
+  }
   .hero__background {
     margin-bottom: -3.75rem
   }
@@ -2082,6 +2120,9 @@ body::after {
       top: 13%
     }
   }
+  .image-animation__item {
+    top: 20%
+  }
   .body-bue__date:not(:last-child) {
     margin-bottom: .0000000625rem
   }
@@ -2109,13 +2150,6 @@ body::after {
   .services__list + .services__list {
     display: flex
   }
-  .support__item-wrapper--decor::before {
-    -webkit-transform: translate(-50%,0);
-    transform: translate(-50%,0);
-    bottom: 25%;
-    width: 12rem;
-    height: 2.125rem
-  }
 }
 @media (max-width:22.5em) {
   .popup__body {
@@ -2132,15 +2166,15 @@ body::after {
   }
   .logo img,
   .logo svg {
-    flex-basis: 2.5625rem
+    flex-basis: 2.25rem
   }
   .logo img,
   .logo svg {
-    width: 2.5625rem
+    width: 2.25rem
   }
   .logo img,
   .logo svg {
-    height: 2.375rem
+    height: 2.25rem
   }
   .logo span {
     font-size: 1.5rem
@@ -2150,9 +2184,6 @@ body::after {
   }
   .button {
     border-radius: .25rem
-  }
-  .button {
-    min-width: 4.75rem
   }
   .button {
     padding-top: .625rem
@@ -2176,13 +2207,16 @@ body::after {
     font-size: 1.25rem
   }
   .header__container {
-    min-height: 5rem
+    min-height: 4.4375rem
   }
   ._header-scroll .header__container {
-    min-height: 3.75rem
+    min-height: 3.125rem
   }
   .header__action {
     gap: .25rem
+  }
+  .header__button {
+    min-width: 4.75rem
   }
   .header__button {
     min-height: 2.25rem
@@ -2331,10 +2365,10 @@ body::after {
   .buy__warranty::before {
     top: .0000000625rem
   }
-  .buy__button {
+  .buy__button.button {
     min-height: 3.75rem
   }
-  .buy__button {
+  .buy__button.button {
     font-size: 1rem
   }
   .description-buy {
@@ -2383,7 +2417,7 @@ body::after {
     height: 2.25rem
   }
   .description-buy__text {
-    font-size: .875rem
+    font-size: 1rem
   }
   .image-animation {
     min-height: 14.8125rem
@@ -2473,7 +2507,7 @@ body::after {
   .reviews__list:not(:last-child) {
     margin-bottom: 1.5rem
   }
-  .reviews__button {
+  .reviews__button.button {
     min-height: 2.75rem
   }
   .item-reviews__wrapper {
@@ -2548,6 +2582,9 @@ body::after {
   .support__button {
     min-height: 2.75rem
   }
+  .test h1 {
+    font-size: 4.125rem
+  }
 }
 @media (min-width:22.5em) and (max-width:48.06125em) {
   @supports (border-radius:clamp(0.75rem ,0.0898210181rem + 2.9341288083vw ,1.5rem)) {
@@ -2590,40 +2627,60 @@ body::after {
       max-width: calc(9.875rem + 6.625 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (flex-basis:clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)) {
+  @supports (flex-basis:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      flex-basis: clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)
+      flex-basis: clamp(2.25rem ,.9296420363rem + 5.8682576165vw ,3.75rem)
     }
   }
-  @supports not (flex-basis:clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)) {
+  @supports not (flex-basis:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      flex-basis: calc(2.5625rem + 1.1875 * (100vw - 22.5rem)/ 25.56125)
+      flex-basis: calc(2.25rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (width:clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)) {
+  @supports (width:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      width: clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)
+      width: clamp(2.25rem ,.9296420363rem + 5.8682576165vw ,3.75rem)
     }
   }
-  @supports not (width:clamp(2.5625rem ,1.5172166121rem + 4.6457039464vw ,3.75rem)) {
+  @supports not (width:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      width: calc(2.5625rem + 1.1875 * (100vw - 22.5rem)/ 25.56125)
+      width: calc(2.25rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (height:clamp(2.375rem ,1.1646718666rem + 5.3792361485vw ,3.75rem)) {
+  @supports (height:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      height: clamp(2.375rem ,1.1646718666rem + 5.3792361485vw ,3.75rem)
+      height: clamp(2.25rem ,.9296420363rem + 5.8682576165vw ,3.75rem)
     }
   }
-  @supports not (height:clamp(2.375rem ,1.1646718666rem + 5.3792361485vw ,3.75rem)) {
+  @supports not (height:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
     .logo img,
     .logo svg {
-      height: calc(2.375rem + 1.375 * (100vw - 22.5rem)/ 25.56125)
+      height: calc(2.25rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (font-size:clamp(0.75rem ,0.3098806788rem + 1.9560858722vw ,1.25rem)) {
+    .button {
+      font-size: clamp(.75rem ,.3098806788rem + 1.9560858722vw ,1.25rem)
+    }
+  }
+  @supports not (font-size:clamp(0.75rem ,0.3098806788rem + 1.9560858722vw ,1.25rem)) {
+    .button {
+      font-size: calc(.75rem + .5 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (border-radius:clamp(0.25rem ,-0.1901193212rem + 1.9560858722vw ,0.75rem)) {
+    .button {
+      border-radius: clamp(.25rem ,-.1901193212rem + 1.9560858722vw ,.75rem)
+    }
+  }
+  @supports not (border-radius:clamp(0.25rem ,-0.1901193212rem + 1.9560858722vw ,0.75rem)) {
+    .button {
+      border-radius: calc(.25rem + .5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (padding-top:clamp(0.625rem ,0.2398955939rem + 1.7115751381vw ,1.0625rem)) {
@@ -2684,6 +2741,16 @@ body::after {
   @supports not (font-size:clamp(1.25rem ,-0.180387794rem + 6.3572790846vw ,2.875rem)) {
     .subtitle {
       font-size: calc(1.25rem + 1.625 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (min-width:clamp(4.75rem ,-0.9715511761rem + 25.4291163382vw ,11.25rem)) {
+    .header__button {
+      min-width: clamp(4.75rem ,-.9715511761rem + 25.4291163382vw ,11.25rem)
+    }
+  }
+  @supports not (min-width:clamp(4.75rem ,-0.9715511761rem + 25.4291163382vw ,11.25rem)) {
+    .header__button {
+      min-width: calc(4.75rem + 6.5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (row-gap:clamp(2.375rem ,1.1646718666rem + 5.3792361485vw ,3.75rem)) {
@@ -3029,22 +3096,22 @@ body::after {
     }
   }
   @supports (min-height:clamp(3.75rem ,0.9992542423rem + 12.2255367011vw ,6.875rem)) {
-    .buy__button {
+    .buy__button.button {
       min-height: clamp(3.75rem ,.9992542423rem + 12.2255367011vw ,6.875rem)
     }
   }
   @supports not (min-height:clamp(3.75rem ,0.9992542423rem + 12.2255367011vw ,6.875rem)) {
-    .buy__button {
+    .buy__button.button {
       min-height: calc(3.75rem + 3.125 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
-    .buy__button {
+    .buy__button.button {
       font-size: clamp(1rem ,.5598806788rem + 1.9560858722vw ,1.5rem)
     }
   }
   @supports not (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
-    .buy__button {
+    .buy__button.button {
       font-size: calc(1rem + .5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
@@ -3198,14 +3265,14 @@ body::after {
       height: calc(2.25rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (font-size:clamp(0.875rem ,0.3248508485rem + 2.4451073402vw ,1.5rem)) {
+  @supports (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
     .description-buy__text {
-      font-size: clamp(.875rem ,.3248508485rem + 2.4451073402vw ,1.5rem)
+      font-size: clamp(1rem ,.5598806788rem + 1.9560858722vw ,1.5rem)
     }
   }
-  @supports not (font-size:clamp(0.875rem ,0.3248508485rem + 2.4451073402vw ,1.5rem)) {
+  @supports not (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
     .description-buy__text {
-      font-size: calc(.875rem + .625 * (100vw - 22.5rem)/ 25.56125)
+      font-size: calc(1rem + .5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (min-height:clamp(14.8125rem ,-10.6594057167rem + 113.2084698518vw ,43.75rem)) {
@@ -3299,12 +3366,12 @@ body::after {
     }
   }
   @supports (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
-    .reviews__button {
+    .reviews__button.button {
       min-height: clamp(2.75rem ,.7694630544rem + 8.8023864248vw ,5rem)
     }
   }
   @supports not (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
-    .reviews__button {
+    .reviews__button.button {
       min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
@@ -3438,6 +3505,16 @@ body::after {
       min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
+  @supports (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
+    .test h1 {
+      font-size: clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)
+    }
+  }
+  @supports not (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
+    .test h1 {
+      font-size: calc(4.125rem + 8.125 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
 }
 @media (min-width:22.5em) and (max-width:61.99875em) {
   @supports (font-size:clamp(1.5rem ,0.7167473654rem + 3.4811228203vw ,2.875rem)) {
@@ -3450,36 +3527,6 @@ body::after {
       font-size: calc(1.5rem + 1.375 * (100vw - 22.5rem)/ 39.49875)
     }
   }
-  @supports (font-size:clamp(0.75rem ,0.4651808602rem + 1.2658628438vw ,1.25rem)) {
-    .button {
-      font-size: clamp(.75rem ,.4651808602rem + 1.2658628438vw ,1.25rem)
-    }
-  }
-  @supports not (font-size:clamp(0.75rem ,0.4651808602rem + 1.2658628438vw ,1.25rem)) {
-    .button {
-      font-size: calc(.75rem + .5 * (100vw - 22.5rem)/ 39.49875)
-    }
-  }
-  @supports (border-radius:clamp(0.25rem ,-0.0348191398rem + 1.2658628438vw ,0.75rem)) {
-    .button {
-      border-radius: clamp(.25rem ,-.0348191398rem + 1.2658628438vw ,.75rem)
-    }
-  }
-  @supports not (border-radius:clamp(0.25rem ,-0.0348191398rem + 1.2658628438vw ,0.75rem)) {
-    .button {
-      border-radius: calc(.25rem + .5 * (100vw - 22.5rem)/ 39.49875)
-    }
-  }
-  @supports (min-width:clamp(4.75rem ,1.047351182rem + 16.4562169689vw ,11.25rem)) {
-    .button {
-      min-width: clamp(4.75rem ,1.047351182rem + 16.4562169689vw ,11.25rem)
-    }
-  }
-  @supports not (min-width:clamp(4.75rem ,1.047351182rem + 16.4562169689vw ,11.25rem)) {
-    .button {
-      min-width: calc(4.75rem + 6.5 * (100vw - 22.5rem)/ 39.49875)
-    }
-  }
   @supports (font-size:clamp(2.6875rem ,0.3021397038rem + 10.6016013165vw ,6.875rem)) {
     .title {
       font-size: clamp(2.6875rem ,.3021397038rem + 10.6016013165vw ,6.875rem)
@@ -3490,24 +3537,24 @@ body::after {
       font-size: calc(2.6875rem + 4.1875 * (100vw - 22.5rem)/ 39.49875)
     }
   }
-  @supports (min-height:clamp(5rem ,2.5790373113rem + 10.759834172vw ,9.25rem)) {
+  @supports (min-height:clamp(4.4375rem ,1.696115779rem + 12.1839298712vw ,9.25rem)) {
     .header__container {
-      min-height: clamp(5rem ,2.5790373113rem + 10.759834172vw ,9.25rem)
+      min-height: clamp(4.4375rem ,1.696115779rem + 12.1839298712vw ,9.25rem)
     }
   }
-  @supports not (min-height:clamp(5rem ,2.5790373113rem + 10.759834172vw ,9.25rem)) {
+  @supports not (min-height:clamp(4.4375rem ,1.696115779rem + 12.1839298712vw ,9.25rem)) {
     .header__container {
-      min-height: calc(5rem + 4.25 * (100vw - 22.5rem)/ 39.49875)
+      min-height: calc(4.4375rem + 4.8125 * (100vw - 22.5rem)/ 39.49875)
     }
   }
-  @supports (min-height:clamp(3.75rem ,2.6819282256rem + 4.7469856641vw ,5.625rem)) {
+  @supports (min-height:clamp(3.125rem ,1.7009043008rem + 6.3293142188vw ,5.625rem)) {
     ._header-scroll .header__container {
-      min-height: clamp(3.75rem ,2.6819282256rem + 4.7469856641vw ,5.625rem)
+      min-height: clamp(3.125rem ,1.7009043008rem + 6.3293142188vw ,5.625rem)
     }
   }
-  @supports not (min-height:clamp(3.75rem ,2.6819282256rem + 4.7469856641vw ,5.625rem)) {
+  @supports not (min-height:clamp(3.125rem ,1.7009043008rem + 6.3293142188vw ,5.625rem)) {
     ._header-scroll .header__container {
-      min-height: calc(3.75rem + 1.875 * (100vw - 22.5rem)/ 39.49875)
+      min-height: calc(3.125rem + 2.5 * (100vw - 22.5rem)/ 39.49875)
     }
   }
   @supports (min-height:clamp(2.25rem ,1.3955425805rem + 3.7975885313vw ,3.75rem)) {
@@ -3975,24 +4022,13 @@ body::after {
     flex-wrap: wrap
   }
 }
-@media (max-width:61.99875em) and (min-width:48.06125em) {
-  .page__buy {
+@media (max-width:48.06125em) and (min-width:48.06125em) {
+  .page__hero {
     padding-top: 5rem
   }
-}
-@media (max-width:61.99875em) and (min-width:22.5em) and (max-width:48.06125em) {
-  @supports (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
-    .page__buy {
-      padding-top: clamp(1.9375rem ,-.7582308426rem + 11.981025967vw ,5rem)
-    }
+  .page__hero {
+    padding-bottom: 4.6875rem
   }
-  @supports not (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
-    .page__buy {
-      padding-top: calc(1.9375rem + 3.0625 * (100vw - 22.5rem)/ 25.56125)
-    }
-  }
-}
-@media (max-width:48.06125em) and (min-width:48.06125em) {
   .hero__background {
     margin-bottom: -5.5rem
   }
@@ -4022,6 +4058,26 @@ body::after {
   }
 }
 @media (max-width:48.06125em) and (min-width:22.5em) and (max-width:48.06125em) {
+  @supports (padding-top:clamp(1.875rem ,-0.8757457577rem + 12.2255367011vw ,5rem)) {
+    .page__hero {
+      padding-top: clamp(1.875rem ,-.8757457577rem + 12.2255367011vw ,5rem)
+    }
+  }
+  @supports not (padding-top:clamp(1.875rem ,-0.8757457577rem + 12.2255367011vw ,5rem)) {
+    .page__hero {
+      padding-top: calc(1.875rem + 3.125 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (padding-bottom:clamp(2.8125rem ,1.1620525454rem + 7.3353220206vw ,4.6875rem)) {
+    .page__hero {
+      padding-bottom: clamp(2.8125rem ,1.1620525454rem + 7.3353220206vw ,4.6875rem)
+    }
+  }
+  @supports not (padding-bottom:clamp(2.8125rem ,1.1620525454rem + 7.3353220206vw ,4.6875rem)) {
+    .page__hero {
+      padding-bottom: calc(2.8125rem + 1.875 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
   @supports (margin-bottom:clamp(-5.5rem ,-2.2095823757rem + -6.8463005526vw ,-3.75rem)) {
     .hero__background {
       margin-bottom: clamp(-5.5rem ,-2.2095823757rem + -6.8463005526vw ,-3.75rem)
@@ -4113,18 +4169,21 @@ body::after {
     }
   }
 }
-@media (min-width:29.99875em) and (max-width:48.06125em) {
-  .buy__media {
-    margin-bottom: 2.25rem
+@media (max-width:61.99875em) and (min-width:48.06125em) {
+  .page__buy {
+    padding-top: 5rem
   }
-  .body-bue--mark::before {
-    width: 1.5rem
+}
+@media (max-width:61.99875em) and (min-width:22.5em) and (max-width:48.06125em) {
+  @supports (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
+    .page__buy {
+      padding-top: clamp(1.9375rem ,-.7582308426rem + 11.981025967vw ,5rem)
+    }
   }
-  .body-bue--mark::before {
-    height: 2.3125rem
-  }
-  .body-bue--mark::before {
-    right: 1.5rem
+  @supports not (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
+    .page__buy {
+      padding-top: calc(1.9375rem + 3.0625 * (100vw - 22.5rem)/ 25.56125)
+    }
   }
 }
 @media (max-width:48.06125em) and (min-width:110em) {
@@ -4153,36 +4212,53 @@ body::after {
     height: 2.125rem
   }
 }
-@media (min-width:29.99875em) and (min-width:48.06125em) and (max-width:110em) {
-  @supports (width:clamp(1.5rem ,0.5300649836rem + 2.0181227422vw ,2.75rem)) {
+@media (min-width:48.06125em) and (min-width:48.06125em) and (max-width:48.06125em) {
+  @supports (width:clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.75rem)) {
     .body-bue--mark::before {
-      width: clamp(1.5rem ,.5300649836rem + 2.0181227422vw ,2.75rem)
+      width: clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.75rem)
     }
   }
-  @supports not (width:clamp(1.5rem ,0.5300649836rem + 2.0181227422vw ,2.75rem)) {
+  @supports not (width:clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.75rem)) {
     .body-bue--mark::before {
-      width: calc(1.5rem + 1.25 * (100vw - 48.06125rem)/ 61.93875)
+      width: calc(1.5rem + 1.25 * (100vw - 48.06125rem)/ 0)
     }
   }
-  @supports (height:clamp(2.3125rem ,-0.0638407903rem + 4.9444007185vw ,5.375rem)) {
+  @supports (height:clamp(2.3125rem ,calc(-infinity)rem + calc(infinity)vw ,5.375rem)) {
     .body-bue--mark::before {
-      height: clamp(2.3125rem ,-.0638407903rem + 4.9444007185vw ,5.375rem)
+      height: clamp(2.3125rem ,calc(-infinity)rem + calc(infinity)vw ,5.375rem)
     }
   }
-  @supports not (height:clamp(2.3125rem ,-0.0638407903rem + 4.9444007185vw ,5.375rem)) {
+  @supports not (height:clamp(2.3125rem ,calc(-infinity)rem + calc(infinity)vw ,5.375rem)) {
     .body-bue--mark::before {
-      height: calc(2.3125rem + 3.0625 * (100vw - 48.06125rem)/ 61.93875)
+      height: calc(2.3125rem + 3.0625 * (100vw - 48.06125rem)/ 0)
     }
   }
-  @supports (right:clamp(1.5rem ,0.9180389901rem + 1.2108736453vw ,2.25rem)) {
+  @supports (right:clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.25rem)) {
     .body-bue--mark::before {
-      right: clamp(1.5rem ,.9180389901rem + 1.2108736453vw ,2.25rem)
+      right: clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.25rem)
     }
   }
-  @supports not (right:clamp(1.5rem ,0.9180389901rem + 1.2108736453vw ,2.25rem)) {
+  @supports not (right:clamp(1.5rem ,calc(-infinity)rem + calc(infinity)vw ,2.25rem)) {
     .body-bue--mark::before {
-      right: calc(1.5rem + .75 * (100vw - 48.06125rem)/ 61.93875)
+      right: calc(1.5rem + .75 * (100vw - 48.06125rem)/ 0)
     }
+  }
+}
+@media (min-width:48.06125em) and (max-width:48.06125em) {
+  .body-bue--mark::before {
+    width: 1.5rem
+  }
+  .body-bue--mark::before {
+    height: 2.3125rem
+  }
+  .body-bue--mark::before {
+    right: 1.5rem
+  }
+  .item-advantages__text {
+    padding-left: .0000000625rem
+  }
+  .item-advantages__text {
+    padding-right: .0000000625rem
   }
 }
 @media (min-width:29.99875em) and (max-width:61.99875em) {
@@ -4457,39 +4533,20 @@ body::after {
     }
   }
 }
-@media (min-width:48.06125em) and (max-width:48.06125em) {
-  .item-advantages__text {
-    padding-left: .0000000625rem
-  }
-  .item-advantages__text {
-    padding-right: .0000000625rem
-  }
-}
 @media (any-hover:hover) {
   .button--gold:hover {
     border: .0625rem solid transparent;
-    box-shadow: 0 0 1rem .125rem #f3c793,inset 0 0 3.125rem 1.25rem #f3c793
+    box-shadow: inset 0 0 3.125rem 1.25rem #f4c894
+  }
+  .button--gold:hover::after {
+    opacity: 1
   }
   .button--dark:hover {
     color: var(--text-secondary);
     background-position: 0 100%
   }
   .actions-footer__link:hover,
-  .buy__warranty a:hover,
   .navigation__link:hover {
     color: var(--text-accent)
-  }
-  .actions-footer__button,
-  .payment__action img,
-  .payment__action svg {
-    -webkit-transform: scale(1.001);
-    transform: scale(1.001);
-    transition: all .3s ease
-  }
-  .actions-footer__button:hover,
-  .payment__action img:hover,
-  .payment__action svg:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1)
   }
 }

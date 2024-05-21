@@ -54,7 +54,7 @@
   --text-gray: #a199994d;
   --text-accent: #e7983c;
   --gradient-light: linear-gradient(96deg, #696969 -17%, #fff 13%, #afafaf 80%, #555353 100%);
-  --gradient-gold: linear-gradient(102deg, #f9b58f 0%, #f4954a 38%, #f8b466 70%, #ed8539 100%)
+  --gradient-gold: linear-gradient(102deg, #f9b58f 10%, #f4954a 38%, #f8b466 70%, #ed8539 100%)
 }
 * {
   padding: 0;
@@ -311,11 +311,13 @@ body::after {
   bottom: 0;
   left: 5%;
   opacity: 0;
-  transition: opacity .3s ease;
-  box-shadow: 0 0 .625rem .1875rem rgba(236,163,74,.8);
-  z-index: -1
+  transition: opacity .3s ease
+}
+.button--gold::after {
+  box-shadow: 0 0 .75rem .125rem rgba(236,163,74,.7)
 }
 .button--gold::before {
+  box-shadow: 0 0 1rem .1875rem rgba(236,163,74,.7);
   -webkit-animation: shining 3s ease infinite alternate;
   animation: shining 3s ease infinite alternate
 }
@@ -360,8 +362,7 @@ body::after {
 }
 .advantages__title,
 .hero__title,
-.reviews__title,
-.test h1 {
+.reviews__title {
   background-position: 0 0;
   background-size: 200% 200%;
   background-image: var(--gradient-gold);
@@ -377,10 +378,7 @@ body::after {
 .hero__title::before,
 .reviews__title span,
 .reviews__title::after,
-.reviews__title::before,
-.test h1 span,
-.test h1::after,
-.test h1::before {
+.reviews__title::before {
   content: "";
   position: absolute;
   -webkit-filter: blur(.0625rem);
@@ -454,13 +452,17 @@ body::after {
 }
 .actions-footer__store {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem
 }
-.actions-footer__button img,
-.actions-footer__button svg {
+.actions-footer__button {
+  position: relative
+}
+.actions-footer__button img {
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   -o-object-fit: contain;
   object-fit: contain
 }
@@ -470,8 +472,7 @@ body::after {
 .payment__action {
   display: flex
 }
-.payment__action img,
-.payment__action svg {
+.payment__action img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -596,6 +597,9 @@ body::after {
   text-align: center;
   margin: 0 auto
 }
+.buy__warranty a {
+  text-decoration-line: underline
+}
 .buy__warranty::before {
   content: "";
   position: absolute;
@@ -606,7 +610,7 @@ body::after {
   width: 100%
 }
 .description-buy {
-  padding: .125rem;
+  border: .0625rem solid transparent;
   background: var(--gradient-gold);
   transition: box-shadow .3s ease
 }
@@ -899,6 +903,10 @@ body::after {
   animation-delay: 3s
 }
 .item-advantages__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
   max-width: 100%
 }
 .footer-advantages__list {
@@ -1130,31 +1138,6 @@ body::after {
 .support__title {
   flex: 1 1 auto
 }
-.test {
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center
-}
-.test h1 {
-  line-height: 1;
-  text-shadow: .25rem .25rem 1.25rem rgba(248,180,102,.3),-.25rem -.25rem 1.25rem rgba(248,180,102,.3);
-  -webkit-text-stroke-width: 1;
-  -webkit-text-stroke-color: #000;
-  font-family: Fabrica,sans-serif;
-  text-transform: uppercase;
-  position: relative
-}
-.test h1::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #f6b280;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: .375rem transparent;
-  z-index: -1
-}
 .body-bue__date span,
 .body-bue__label,
 .body-bue__label--gold,
@@ -1163,7 +1146,6 @@ body::after {
 .hero__title,
 .logo span,
 .subtitle,
-.test h1,
 .title,
 .title--gold {
   background-clip: text;
@@ -1191,6 +1173,16 @@ body::after {
   }
   .services__list + .services__list {
     display: none
+  }
+}
+@media (min-width:43.75em) {
+  .actions-footer__button {
+    width: 100%
+  }
+}
+@media (min-width:43.75em) and (min-width:48.06125em) {
+  .actions-footer__button {
+    max-width: 11.25rem
   }
 }
 @media (min-width:48.06125em) {
@@ -1293,15 +1285,7 @@ body::after {
     margin-bottom: 2.25rem
   }
   .actions-footer__button {
-    max-width: 11.25rem
-  }
-  .actions-footer__button img,
-  .actions-footer__button svg {
-    max-width: 7.6875rem
-  }
-  .actions-footer__button img,
-  .actions-footer__button svg {
-    max-height: 2rem
+    min-height: 3.75rem
   }
   .navigation__list > :not(:last-child) {
     margin-bottom: 1.5rem
@@ -1315,12 +1299,10 @@ body::after {
   .payment__action {
     gap: 1.5rem
   }
-  .payment__action img,
-  .payment__action svg {
+  .payment__action img {
     max-width: 4.5625rem
   }
-  .payment__action img,
-  .payment__action svg {
+  .payment__action img {
     max-height: 2rem
   }
   .payment__copyright {
@@ -1356,7 +1338,7 @@ body::after {
     max-width: 35rem
   }
   .hero__title {
-    font-size: 12.25rem
+    font-size: 12.125rem
   }
   .hero__subtitle {
     font-size: 2.875rem
@@ -1551,7 +1533,7 @@ body::after {
   .body-bue--mark::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -1%;
     background: url(../img/buy/decor.svg) 0 0/contain no-repeat
   }
   .body-bue__date {
@@ -1607,6 +1589,9 @@ body::after {
   .advantages__item {
     flex: 1 1 33.33%;
     min-width: 25rem
+  }
+  .item-advantages__image {
+    height: 18.75rem
   }
   .footer-advantages__title {
     font-size: 1.25rem
@@ -1693,9 +1678,6 @@ body::after {
   .support__button {
     min-height: 5rem
   }
-  .test h1 {
-    font-size: 12.25rem
-  }
 }
 @media (min-width:48.06125em) and (min-width:29.99875em) {
   .body-bue::after {
@@ -1772,7 +1754,7 @@ body::after {
     font-size: 2.875rem
   }
   .title {
-    font-size: 6.875rem
+    font-size: 6.75rem
   }
   .header__container {
     min-height: 9.25rem
@@ -2090,13 +2072,17 @@ body::after {
     margin-top: -1.875rem
   }
 }
+@media (max-width:43.75em) {
+  .actions-footer__store {
+    flex-wrap: wrap
+  }
+  .actions-footer__button {
+    flex-wrap: wrap
+  }
+}
 @media (max-width:29.99875em) {
   .popup__body {
     padding: 2.25rem 1.5rem
-  }
-  .actions-footer__button {
-    padding-top: .5rem;
-    padding-bottom: .5rem
   }
   .navigation__list {
     padding-left: 1.25rem
@@ -2201,7 +2187,7 @@ body::after {
     font-size: 1rem
   }
   .title {
-    font-size: 2.6875rem
+    font-size: 2.5625rem
   }
   .subtitle {
     font-size: 1.25rem
@@ -2251,13 +2237,8 @@ body::after {
   .actions-footer__list:not(:last-child) {
     margin-bottom: 1rem
   }
-  .actions-footer__button img,
-  .actions-footer__button svg {
-    max-width: 5.1875rem
-  }
-  .actions-footer__button img,
-  .actions-footer__button svg {
-    max-height: 1.25rem
+  .actions-footer__button {
+    min-height: 2.25rem
   }
   .navigation__list > :not(:last-child) {
     margin-bottom: 1rem
@@ -2271,12 +2252,10 @@ body::after {
   .payment__action {
     gap: 1.125rem
   }
-  .payment__action img,
-  .payment__action svg {
+  .payment__action img {
     max-width: 3.375rem
   }
-  .payment__action img,
-  .payment__action svg {
+  .payment__action img {
     max-height: 1.5rem
   }
   .payment__copyright {
@@ -2320,7 +2299,7 @@ body::after {
     padding-bottom: 2.5rem
   }
   .hero__title {
-    font-size: 4.125rem
+    font-size: 4rem
   }
   .hero__title:not(:last-child) {
     margin-bottom: .75rem
@@ -2474,6 +2453,9 @@ body::after {
   .advantages__body:not(:last-child) {
     margin-bottom: 2.75rem
   }
+  .item-advantages__image {
+    height: 7rem
+  }
   .item-advantages__image:not(:last-child) {
     margin-bottom: .75rem
   }
@@ -2581,9 +2563,6 @@ body::after {
   }
   .support__button {
     min-height: 2.75rem
-  }
-  .test h1 {
-    font-size: 4.125rem
   }
 }
 @media (min-width:22.5em) and (max-width:48.06125em) {
@@ -2815,28 +2794,14 @@ body::after {
       margin-bottom: calc(1rem + 1.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (max-width:clamp(5.1875rem ,2.9869033938rem + 9.7804293608vw ,7.6875rem)) {
-    .actions-footer__button img,
-    .actions-footer__button svg {
-      max-width: clamp(5.1875rem ,2.9869033938rem + 9.7804293608vw ,7.6875rem)
+  @supports (min-height:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
+    .actions-footer__button {
+      min-height: clamp(2.25rem ,.9296420363rem + 5.8682576165vw ,3.75rem)
     }
   }
-  @supports not (max-width:clamp(5.1875rem ,2.9869033938rem + 9.7804293608vw ,7.6875rem)) {
-    .actions-footer__button img,
-    .actions-footer__button svg {
-      max-width: calc(5.1875rem + 2.5 * (100vw - 22.5rem)/ 25.56125)
-    }
-  }
-  @supports (max-height:clamp(1.25rem ,0.5898210181rem + 2.9341288083vw ,2rem)) {
-    .actions-footer__button img,
-    .actions-footer__button svg {
-      max-height: clamp(1.25rem ,.5898210181rem + 2.9341288083vw ,2rem)
-    }
-  }
-  @supports not (max-height:clamp(1.25rem ,0.5898210181rem + 2.9341288083vw ,2rem)) {
-    .actions-footer__button img,
-    .actions-footer__button svg {
-      max-height: calc(1.25rem + .75 * (100vw - 22.5rem)/ 25.56125)
+  @supports not (min-height:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
+    .actions-footer__button {
+      min-height: calc(2.25rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (margin-bottom:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
@@ -2880,26 +2845,22 @@ body::after {
     }
   }
   @supports (max-width:clamp(3.375rem ,2.3297166121rem + 4.6457039464vw ,4.5625rem)) {
-    .payment__action img,
-    .payment__action svg {
+    .payment__action img {
       max-width: clamp(3.375rem ,2.3297166121rem + 4.6457039464vw ,4.5625rem)
     }
   }
   @supports not (max-width:clamp(3.375rem ,2.3297166121rem + 4.6457039464vw ,4.5625rem)) {
-    .payment__action img,
-    .payment__action svg {
+    .payment__action img {
       max-width: calc(3.375rem + 1.1875 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (max-height:clamp(1.5rem ,1.0598806788rem + 1.9560858722vw ,2rem)) {
-    .payment__action img,
-    .payment__action svg {
+    .payment__action img {
       max-height: clamp(1.5rem ,1.0598806788rem + 1.9560858722vw ,2rem)
     }
   }
   @supports not (max-height:clamp(1.5rem ,1.0598806788rem + 1.9560858722vw ,2rem)) {
-    .payment__action img,
-    .payment__action svg {
+    .payment__action img {
       max-height: calc(1.5rem + .5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
@@ -2963,14 +2924,14 @@ body::after {
       padding-top: calc(2.5rem + 3.125 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
+  @supports (font-size:clamp(4rem ,-3.1519389701rem + 31.7863954228vw ,12.125rem)) {
     .hero__title {
-      font-size: clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)
+      font-size: clamp(4rem ,-3.1519389701rem + 31.7863954228vw ,12.125rem)
     }
   }
-  @supports not (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
+  @supports not (font-size:clamp(4rem ,-3.1519389701rem + 31.7863954228vw ,12.125rem)) {
     .hero__title {
-      font-size: calc(4.125rem + 8.125 * (100vw - 22.5rem)/ 25.56125)
+      font-size: calc(4rem + 8.125 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (font-size:clamp(1.5rem ,0.2896718666rem + 5.3792361485vw ,2.875rem)) {
@@ -3305,6 +3266,16 @@ body::after {
       margin-bottom: calc(2.25rem + 2.75 * (100vw - 22.5rem)/ 25.56125)
     }
   }
+  @supports (height:clamp(7rem ,-3.3428040491rem + 45.968017996vw ,18.75rem)) {
+    .item-advantages__image {
+      height: clamp(7rem ,-3.3428040491rem + 45.968017996vw ,18.75rem)
+    }
+  }
+  @supports not (height:clamp(7rem ,-3.3428040491rem + 45.968017996vw ,18.75rem)) {
+    .item-advantages__image {
+      height: calc(7rem + 11.75 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
   @supports (font-size:clamp(0.75rem ,0.3098806788rem + 1.9560858722vw ,1.25rem)) {
     .footer-advantages__title {
       font-size: clamp(.75rem ,.3098806788rem + 1.9560858722vw ,1.25rem)
@@ -3505,16 +3476,6 @@ body::after {
       min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
-    .test h1 {
-      font-size: clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)
-    }
-  }
-  @supports not (font-size:clamp(4.125rem ,-3.0269389701rem + 31.7863954228vw ,12.25rem)) {
-    .test h1 {
-      font-size: calc(4.125rem + 8.125 * (100vw - 22.5rem)/ 25.56125)
-    }
-  }
 }
 @media (min-width:22.5em) and (max-width:61.99875em) {
   @supports (font-size:clamp(1.5rem ,0.7167473654rem + 3.4811228203vw ,2.875rem)) {
@@ -3527,14 +3488,14 @@ body::after {
       font-size: calc(1.5rem + 1.375 * (100vw - 22.5rem)/ 39.49875)
     }
   }
-  @supports (font-size:clamp(2.6875rem ,0.3021397038rem + 10.6016013165vw ,6.875rem)) {
+  @supports (font-size:clamp(2.5625rem ,0.1771397038rem + 10.6016013165vw ,6.75rem)) {
     .title {
-      font-size: clamp(2.6875rem ,.3021397038rem + 10.6016013165vw ,6.875rem)
+      font-size: clamp(2.5625rem ,.1771397038rem + 10.6016013165vw ,6.75rem)
     }
   }
-  @supports not (font-size:clamp(2.6875rem ,0.3021397038rem + 10.6016013165vw ,6.875rem)) {
+  @supports not (font-size:clamp(2.5625rem ,0.1771397038rem + 10.6016013165vw ,6.75rem)) {
     .title {
-      font-size: calc(2.6875rem + 4.1875 * (100vw - 22.5rem)/ 39.49875)
+      font-size: calc(2.5625rem + 4.1875 * (100vw - 22.5rem)/ 39.49875)
     }
   }
   @supports (min-height:clamp(4.4375rem ,1.696115779rem + 12.1839298712vw ,9.25rem)) {
@@ -4012,6 +3973,23 @@ body::after {
     .item-reviews__text {
       font-size: calc(1rem + 1.875 * (100vw - 22.5rem)/ 87.5)
     }
+  }
+}
+@media (min-width:43.75em) and (min-width:22.5em) and (max-width:48.06125em) {
+  @supports (max-width:clamp(9.75rem ,8.4296420363rem + 5.8682576165vw ,11.25rem)) {
+    .actions-footer__button {
+      max-width: clamp(9.75rem ,8.4296420363rem + 5.8682576165vw ,11.25rem)
+    }
+  }
+  @supports not (max-width:clamp(9.75rem ,8.4296420363rem + 5.8682576165vw ,11.25rem)) {
+    .actions-footer__button {
+      max-width: calc(9.75rem + 1.5 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+}
+@media (min-width:43.75em) and (max-width:22.5em) {
+  .actions-footer__button {
+    max-width: 9.75rem
   }
 }
 @media (min-width:479.98) and (max-width:48.06125em) {

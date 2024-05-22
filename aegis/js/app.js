@@ -632,9 +632,18 @@
             }), intervalValue);
         }
     }
+    function videoAction() {
+        const video = document.getElementById("bgVideo");
+        if (video) video.addEventListener("ended", (function() {
+            console.log(111);
+            video.currentTime = 0;
+            video.play();
+        }));
+    }
     window.onload = function() {
         new RadioAction;
         activeTabs();
+        videoAction();
     };
     window["FLS"] = false;
     pageNavigation();

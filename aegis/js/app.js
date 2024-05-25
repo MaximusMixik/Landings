@@ -641,20 +641,15 @@
     function referralAction() {
         const button = document.querySelector("#cabinet");
         const referralItemsList = document.querySelectorAll(".referral");
-        if (button && referralItemsList.length) {
+        if (button && referralItemsList.length) button.onclick = e => {
             referralItemsList.forEach((el => {
-                el.classList.add("close");
-            }));
-            button.onclick = e => {
-                referralItemsList.forEach((el => {
-                    el.classList.remove("close");
-                    const button = el.querySelector(".referral__close");
-                    button.addEventListener("click", (() => {
-                        el.classList.add("close");
-                    }));
+                el.classList.remove("close");
+                const button = el.querySelector(".referral__close");
+                button.addEventListener("click", (() => {
+                    el.classList.add("close");
                 }));
-            };
-        }
+            }));
+        };
     }
     window.onload = function() {
         new RadioAction;

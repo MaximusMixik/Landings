@@ -590,6 +590,11 @@ body::after {
 .hero__actions {
   display: flex
 }
+.hero__background img,
+.hero__background video {
+  -o-object-position: 50% 0;
+  object-position: 50% 0
+}
 .buy {
   position: relative
 }
@@ -1405,7 +1410,7 @@ body::after {
     flex: 1 1 auto;
     transition: min-height .3s ease;
     padding-top: 15rem;
-    padding-bottom: 22.125rem
+    padding-bottom: 14.625rem
   }
   .page__buy {
     padding-bottom: 1.125rem
@@ -2021,11 +2026,6 @@ body::after {
     flex-wrap: wrap
   }
 }
-@media (max-width:61.99875em) and (max-width:22.5em) {
-  .page__buy {
-    padding-top: 1.9375rem
-  }
-}
 @media (max-width:48.06125em) {
   .logo {
     gap: .5rem
@@ -2147,6 +2147,9 @@ body::after {
   }
   .page__hero {
     padding-bottom: 2.8125rem
+  }
+  .page__buy {
+    padding-top: 1.9375rem
   }
   .hero__background {
     margin-bottom: -3.75rem
@@ -4329,6 +4332,9 @@ body::after {
   .page__hero {
     padding-bottom: 4.6875rem
   }
+  .page__buy {
+    padding-top: 5rem
+  }
   .hero__background {
     margin-bottom: -5.5rem
   }
@@ -4386,6 +4392,16 @@ body::after {
   @supports not (padding-bottom:clamp(2.8125rem ,1.1620525454rem + 7.3353220206vw ,4.6875rem)) {
     .page__hero {
       padding-bottom: calc(2.8125rem + 1.875 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
+    .page__buy {
+      padding-top: clamp(1.9375rem ,-.7582308426rem + 11.981025967vw ,5rem)
+    }
+  }
+  @supports not (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
+    .page__buy {
+      padding-top: calc(1.9375rem + 3.0625 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (margin-bottom:clamp(-5.5rem ,-2.2095823757rem + -6.8463005526vw ,-3.75rem)) {
@@ -4529,23 +4545,6 @@ body::after {
     justify-content: space-between;
     gap: 1.25rem;
     flex-wrap: wrap
-  }
-}
-@media (max-width:61.99875em) and (min-width:48.06125em) {
-  .page__buy {
-    padding-top: 5rem
-  }
-}
-@media (max-width:61.99875em) and (min-width:22.5em) and (max-width:48.06125em) {
-  @supports (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
-    .page__buy {
-      padding-top: clamp(1.9375rem ,-.7582308426rem + 11.981025967vw ,5rem)
-    }
-  }
-  @supports not (padding-top:clamp(1.9375rem ,-0.7582308426rem + 11.981025967vw ,5rem)) {
-    .page__buy {
-      padding-top: calc(1.9375rem + 3.0625 * (100vw - 22.5rem)/ 25.56125)
-    }
   }
 }
 @media (max-width:48.06125em) and (min-width:110em) {

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240522193144">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240525162728">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="description" content="Author: Max.S.O, 	Надежный и быстрый VPN Aegis. Мы используем клиент Outline. Для подключения к VPN не потребуются сложные настройки. Одна подписка будет работать на всех устройствах.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -17,6 +17,24 @@
 	<div class="wrapper">
 		<header data-lp class="header">
 			<div class="header__container">
+				<div class="header__referral referral referral--active">
+					<div class="referral__wrapper">
+						<div class="referral__content">
+							Реферальный код успешно активирован, используйте свой бонус
+						</div>
+						<button type="button" aria-label="close referral" class="referral__close"></button>
+					</div>
+				</div>
+				<div class="header__referral referral">
+					<div class="referral__wrapper">
+						<div class="referral__content">
+							Вы уже являетесь активным юзером и не можете стать рефералом
+						</div>
+						<button type="button" aria-label="close referral" class="referral__close"></button>
+					</div>
+				</div>
+
+
 				<a href="#" class="header__logo logo">
 					<img src="img/logo.svg" alt="logo">
 					<!-- <svg aria-label="logo">
@@ -59,6 +77,7 @@
 				<div class="hero__background">
 					<!-- <img src="img/hero/hero.webp" alt="hero background"> -->
 					<video class="background__video" poster="img/hero/hero.webp" id="bgVideo" autoplay preload="auto" loop muted playsinline webkit-playsinline video-autoplay="true">
+						<source src="files/video/home.webm" type="video/webm">
 						<source src="files/video/home.mp4" type="video/mp4">
 					</video>
 				</div>
@@ -966,7 +985,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240522193144"></script>
+	<script src="js/app.min.js?_v=20240525162728"></script>
 </body>
 
 </html>

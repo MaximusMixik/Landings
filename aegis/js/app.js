@@ -640,10 +640,21 @@
             video.play();
         }));
     }
+    function referralAction() {
+        const referralItemsList = document.querySelectorAll(".referral");
+        if (referralItemsList.length) referralItemsList.forEach((el => {
+            const button = el.querySelector(".referral__close");
+            button.addEventListener("click", (e => {
+                e.target;
+                el.classList.add("close");
+            }));
+        }));
+    }
     window.onload = function() {
         new RadioAction;
         activeTabs();
         videoAction();
+        referralAction();
     };
     window["FLS"] = false;
     pageNavigation();

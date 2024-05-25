@@ -398,7 +398,6 @@
             return configWatcher;
         }
         scrollWatcherCreate(configWatcher) {
-            console.log(configWatcher);
             this.observer = new IntersectionObserver(((entries, observer) => {
                 entries.forEach((entry => {
                     this.scrollWatcherCallback(entry, observer);
@@ -635,20 +634,27 @@
     function videoAction() {
         const video = document.getElementById("bgVideo");
         if (video) video.addEventListener("ended", (function() {
-            console.log(111);
             video.currentTime = 0;
             video.play();
         }));
     }
     function referralAction() {
+        const button = document.querySelector("#cabinet");
         const referralItemsList = document.querySelectorAll(".referral");
-        if (referralItemsList.length) referralItemsList.forEach((el => {
-            const button = el.querySelector(".referral__close");
-            button.addEventListener("click", (e => {
-                e.target;
+        if (button && referralItemsList.length) {
+            referralItemsList.forEach((el => {
                 el.classList.add("close");
             }));
-        }));
+            button.onclick = e => {
+                referralItemsList.forEach((el => {
+                    el.classList.remove("close");
+                    const button = el.querySelector(".referral__close");
+                    button.addEventListener("click", (() => {
+                        el.classList.add("close");
+                    }));
+                }));
+            };
+        }
     }
     window.onload = function() {
         new RadioAction;

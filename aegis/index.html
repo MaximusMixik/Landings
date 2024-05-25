@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240525164509">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240525212220">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="description" content="Author: Max.S.O, 	Надежный и быстрый VPN Aegis. Мы используем клиент Outline. Для подключения к VPN не потребуются сложные настройки. Одна подписка будет работать на всех устройствах.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -34,7 +34,6 @@
 					</div>
 				</div>
 
-
 				<a href="#" class="header__logo logo">
 					<img src="img/logo.svg" alt="logo">
 					<!-- <svg aria-label="logo">
@@ -44,7 +43,8 @@
 				</a>
 				<div class="header__action">
 					<button data-popup="#popup" class="header__button button button--gold">Приобрести</button>
-					<button data-popup="#popup" class="header__button button button--dark">Кабинет</button>
+					<button id="cabinet" class="header__button button button--dark">Кабинет</button>
+					<!-- data-popup="#popup" -->
 				</div>
 			</div>
 		</header>
@@ -76,7 +76,8 @@
 				</div>
 				<div class="hero__background">
 					<!-- <img src="img/hero/hero.webp" alt="hero background"> -->
-					<video class="background__video" poster="img/hero/hero.webp" id="bgVideo" autoplay preload="auto" loop muted playsinline webkit-playsinline video-autoplay="true">
+					<!-- poster="img/hero/hero.webp" webkit-playsinline  video-autoplay="true" sizes="(max-width: 768px) 100%, (max-width: 1024px) 50%, 100%"-->
+					<video class="background__video" id="bgVideo" autoplay preload="auto" loop muted playsinline>
 						<source src="files/video/home.webm" type="video/webm">
 						<source src="files/video/home.mp4" type="video/mp4">
 					</video>
@@ -985,7 +986,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240525164509"></script>
+	<script src="js/app.min.js?_v=20240525212220"></script>
 </body>
 
 </html>

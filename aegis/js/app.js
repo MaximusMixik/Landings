@@ -631,13 +631,6 @@
             }), intervalValue);
         }
     }
-    function videoAction() {
-        const video = document.getElementById("bgVideo");
-        if (video) video.addEventListener("ended", (function() {
-            video.currentTime = 0;
-            video.play();
-        }));
-    }
     function referralAction() {
         const button = document.querySelector("#cabinet");
         const referralItemsList = document.querySelectorAll(".referral");
@@ -654,7 +647,6 @@
     window.onload = function() {
         new RadioAction;
         activeTabs();
-        videoAction();
         referralAction();
     };
     window["FLS"] = false;

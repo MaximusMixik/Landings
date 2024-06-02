@@ -4133,6 +4133,68 @@
             }));
         }
     }
+    async function srvTime() {
+        try {
+            const response = await fetch(window.location.href, {
+                method: "HEAD"
+            });
+            const date = response.headers.get("Date");
+            return new Date(date);
+        } catch (error) {
+            console.warn("AJAX not supported", error);
+            return new Date;
+        }
+    }
+    function countDown() {
+        console.log("fn countDown");
+        function getTimeRemaining(endtime) {
+            const t = Date.parse(endtime) - Date.parse(new Date);
+            const seconds = Math.floor(t / 1e3 % 60);
+            const minutes = Math.floor(t / 1e3 / 60 % 60);
+            const hours = Math.floor(t / (1e3 * 60 * 60) % 24);
+            const days = Math.floor(t / (1e3 * 60 * 60 * 24));
+            return {
+                total: t,
+                days,
+                hours,
+                minutes,
+                seconds
+            };
+        }
+        function initializeClock(className) {
+            srvTime().then((serverTime => {
+                const clockElements = document.querySelectorAll(className);
+                clockElements.forEach((el => {
+                    const daysSpan = el.querySelector(".js-days");
+                    const hoursSpan = el.querySelector(".js-hours");
+                    const minutesSpan = el.querySelector(".js-minutes");
+                    const secondsSpan = el.querySelector(".js-seconds");
+                    const dataYear = parseInt(el.getAttribute("data-year"), 10);
+                    const dataMonth = parseInt(el.getAttribute("data-month"), 10) - 1;
+                    const dataDay = parseInt(el.getAttribute("data-day"), 10);
+                    const leadingZero = el.getAttribute("data-leading-zero") === "true";
+                    const deadline = new Date(serverTime);
+                    deadline.setFullYear(dataYear, dataMonth, dataDay);
+                    deadline.setHours(0, 0, 0, 0);
+                    function updateClock() {
+                        const t = getTimeRemaining(deadline);
+                        function padZero(num) {
+                            return leadingZero ? String(num).padStart(2, "0") : num;
+                        }
+                        if (daysSpan) daysSpan.textContent = padZero(t.days);
+                        if (hoursSpan) hoursSpan.textContent = padZero(t.hours);
+                        if (minutesSpan) minutesSpan.textContent = padZero(t.minutes);
+                        if (secondsSpan) secondsSpan.textContent = padZero(t.seconds);
+                        if (t.total <= 0) clearInterval(timeinterval);
+                    }
+                    updateClock();
+                    const timeinterval = setInterval(updateClock, 1e3);
+                }));
+            }));
+        }
+        initializeClock(".countdown");
+    }
+    countDown();
     window.addEventListener("load", windowLoaded);
     function windowLoaded() {
         copyLink();

@@ -192,16 +192,19 @@ body {
 .button--green {
   background-color: var(--bg-button-secondary)
 }
-.title {
+.title,
+.title-small {
   font-family: Hobo;
-  font-weight: 500;
+  font-weight: 500
+}
+.title {
   background: var(--gradient-primary)
 }
-.title--small {
-  background: linear-gradient(64deg,#00c4b7 -7.17%,#71cdc3 66.25%)
+.title-small {
+  color: var(--text-accent)
 }
-.title--small span {
-  background: var(--text-accent)
+.title-small span {
+  background: linear-gradient(64deg,#00c4b7 -7.17%,#71cdc3 66.25%)
 }
 .subtitle {
   color: var(--text-primary)
@@ -983,9 +986,15 @@ body {
   color: rgba(113,205,194,.6);
   font-weight: 400
 }
+.countdown {
+  display: flex
+}
+.countdown__item {
+  display: flex
+}
 .hero__title,
 .title,
-.title--small span {
+.title-small span {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1397,7 +1406,7 @@ body {
   }
 }
 @media (min-width:61.99875em) {
-  .title--small {
+  .title-small {
     font-size: 5rem
   }
   .socials__link svg {
@@ -1755,7 +1764,7 @@ body {
   .title {
     font-size: 3.75rem
   }
-  .title--small {
+  .title-small {
     font-size: 2.5rem
   }
   .subtitle {
@@ -2665,12 +2674,12 @@ body {
 }
 @media (min-width:22.5em) and (max-width:61.99875em) {
   @supports (font-size:clamp(2.5rem ,1.0759043008rem + 6.3293142188vw ,5rem)) {
-    .title--small {
+    .title-small {
       font-size: clamp(2.5rem ,1.0759043008rem + 6.3293142188vw ,5rem)
     }
   }
   @supports not (font-size:clamp(2.5rem ,1.0759043008rem + 6.3293142188vw ,5rem)) {
-    .title--small {
+    .title-small {
       font-size: calc(2.5rem + 2.5 * (100vw - 22.5rem)/ 39.49875)
     }
   }

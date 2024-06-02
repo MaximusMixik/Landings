@@ -383,15 +383,13 @@ body {
   transition-delay: 5s
 }
 .loaded .hero__dog {
-  -webkit-animation: moveInCircle 3s linear -1s infinite;
-  animation: moveInCircle 3s linear -1s infinite
+  transition-delay: 2s
 }
 .hero__fox {
   transition-delay: 2.5s
 }
 .loaded .hero__fox {
-  -webkit-animation: moveInCircle 3s linear -2s infinite;
-  animation: moveInCircle 3s linear -2s infinite
+  transition-delay: 1s
 }
 .hero__bg img {
   position: absolute;
@@ -422,76 +420,11 @@ body {
     transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn)
   }
 }
-@-webkit-keyframes eyeAnimate {
-  33% {
-    -webkit-transform: translate(-80%,-35%);
-    transform: translate(-80%,-35%)
-  }
-  66% {
-    -webkit-transform: translate(0,-60%);
-    transform: translate(0,-60%)
-  }
-  100% {
-    -webkit-transform: translate(0,-30%);
-    transform: translate(0,-30%)
-  }
-}
-@keyframes eyeAnimate {
-  33% {
-    -webkit-transform: translate(-80%,-35%);
-    transform: translate(-80%,-35%)
-  }
-  66% {
-    -webkit-transform: translate(0,-60%);
-    transform: translate(0,-60%)
-  }
-  100% {
-    -webkit-transform: translate(0,-30%);
-    transform: translate(0,-30%)
-  }
-}
 .chameleon {
   margin: 0 auto
 }
-.chameleon__body {
-  position: relative
-}
 .chameleon__main {
   max-width: 100%
-}
-.chameleon__pupil {
-  position: absolute;
-  width: 35%;
-  height: 31%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(0,-30%);
-  transform: translate(0,-30%);
-  -webkit-animation: eyeAnimate 3s ease infinite;
-  animation: eyeAnimate 3s ease infinite
-}
-.chameleon__cornea,
-.chameleon__eyelid {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -o-object-fit: contain;
-  object-fit: contain
-}
-.chameleon__left,
-.chameleon__right {
-  position: absolute;
-  top: 12%;
-  width: 36%;
-  height: 39%
-}
-.chameleon__right {
-  right: 0
-}
-.chameleon__left {
-  left: 0
 }
 .prizes__wrapper {
   background-color: var(--bg-secondary);
@@ -747,43 +680,21 @@ body {
   text-align: center
 }
 .roadmap__slider {
+  height: 25rem;
   position: relative;
   z-index: 2
-}
-.roadmap__slide {
-  flex: 0 0 max-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-inline: auto;
-  opacity: 0!important
-}
-.roadmap__slide.swiper-slide-active {
-  opacity: 1!important
 }
 .roadmap__content {
   text-align: center;
   margin-inline: auto
-}
-.roadmap__pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
-.roadmap__pagination span {
-  background-color: var(--text-white);
-  opacity: .1;
-  border-radius: 50%
-}
-.roadmap__pagination span.swiper-pagination-bullet-active {
-  opacity: 1
 }
 .slide-roadmap__date:not(:last-child) {
   margin-bottom: .5rem
 }
 .media {
   position: relative;
-  z-index: 1
+  z-index: 1;
+  padding: 0 3.125rem
 }
 .media::before {
   content: "";
@@ -1037,9 +948,6 @@ body {
   .sphere__actions {
     font-size: 1rem;
     padding: 1.0625rem 1.5rem
-  }
-  .media {
-    padding-inline: 3.125rem
   }
   .header-buy {
     font-size: 1rem
@@ -1332,9 +1240,6 @@ body {
   .roadmap__content {
     max-width: 28.75rem
   }
-  .roadmap__pagination {
-    margin-top: 3.75rem
-  }
   .roadmap__media {
     margin-top: -15%
   }
@@ -1494,18 +1399,6 @@ body {
   }
   .sphere__wrapper {
     max-width: 28.875rem
-  }
-  .roadmap__pagination {
-    gap: 1rem
-  }
-  .roadmap__pagination span {
-    width: 1rem
-  }
-  .roadmap__pagination span {
-    height: 1rem
-  }
-  .roadmap__pagination span {
-    flex-basis: 1rem
   }
 }
 @media (max-width:47.99875em) {
@@ -1677,18 +1570,6 @@ body {
   .sphere__actions {
     font-size: .75rem;
     padding: .4375rem .75rem
-  }
-  .roadmap__media {
-    margin-top: 2.5rem
-  }
-  .media {
-    padding-inline: .625rem;
-    -webkit-transform: translateX(-20%) scale(1.4);
-    transform: translateX(-20%) scale(1.4)
-  }
-  .media__sun {
-    left: 30%;
-    top: -25%
   }
   .header-buy {
     font-size: .75rem
@@ -1947,21 +1828,6 @@ body {
   }
   .roadmap__content {
     max-width: 16rem
-  }
-  .roadmap__pagination {
-    margin-top: 1.5rem
-  }
-  .roadmap__pagination {
-    gap: .25rem
-  }
-  .roadmap__pagination span {
-    width: .25rem
-  }
-  .roadmap__pagination span {
-    height: .25rem
-  }
-  .roadmap__pagination span {
-    flex-basis: .25rem
   }
   .slide-roadmap__title:not(:last-child) {
     margin-bottom: 1.5rem
@@ -2466,16 +2332,6 @@ body {
       max-width: calc(16rem + 12.75 * (100vw - 22.5rem)/ 25.49875)
     }
   }
-  @supports (margin-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
-    .roadmap__pagination {
-      margin-top: clamp(1.5rem ,-.4853914408rem + 8.8239619589vw ,3.75rem)
-    }
-  }
-  @supports not (margin-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
-    .roadmap__pagination {
-      margin-top: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.49875)
-    }
-  }
   @supports (margin-bottom:clamp(1.5rem ,0.8382028531rem + 2.941320653vw ,2.25rem)) {
     .slide-roadmap__title:not(:last-child) {
       margin-bottom: clamp(1.5rem ,.8382028531rem + 2.941320653vw ,2.25rem)
@@ -2956,46 +2812,6 @@ body {
   @supports not (max-width:clamp(10.125rem ,5.1323964497rem + 22.1893491124vw ,28.875rem)) {
     .sphere__wrapper {
       max-width: calc(10.125rem + 18.75 * (100vw - 22.5rem)/ 84.5)
-    }
-  }
-  @supports (gap:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination {
-      gap: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
-    }
-  }
-  @supports not (gap:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination {
-      gap: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
-    }
-  }
-  @supports (width:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      width: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
-    }
-  }
-  @supports not (width:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      width: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
-    }
-  }
-  @supports (height:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      height: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
-    }
-  }
-  @supports not (height:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      height: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
-    }
-  }
-  @supports (flex-basis:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      flex-basis: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
-    }
-  }
-  @supports not (flex-basis:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
-    .roadmap__pagination span {
-      flex-basis: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
     }
   }
 }

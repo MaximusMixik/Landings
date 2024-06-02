@@ -1,6 +1,29 @@
 (() => {
     "use strict";
     const modules_flsModules = {};
+    let isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+        }
+    };
+    function addTouchClass() {
+        if (isMobile.any()) document.documentElement.classList.add("touch");
+    }
     function addLoadedClass() {
         if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
             setTimeout((function() {
@@ -3748,6 +3771,7 @@
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 0,
+                autoHeight: true,
                 speed: 800,
                 mousewheel: {
                     invert: false,
@@ -4086,7 +4110,35 @@
     }
     const da = new DynamicAdapt("max");
     da.init();
+    function copyLink() {
+        const body = document.querySelector(".sphere__actions");
+        const successButton = document.querySelector(".sphere__success");
+        if (body && successButton) {
+            const copyLinkButtons = document.querySelectorAll(".sphere__button");
+            copyLinkButtons.forEach((button => {
+                button.addEventListener("click", (() => {
+                    const link = button.parentElement.querySelector(".sphere__input");
+                    const linkText = link.value.trim();
+                    const tempInput = document.createElement("input");
+                    tempInput.value = linkText;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(tempInput);
+                    body.classList.add("success-open");
+                }));
+            }));
+            successButton.addEventListener("click", (() => {
+                body.classList.remove("success-open");
+            }));
+        }
+    }
+    window.addEventListener("load", windowLoaded);
+    function windowLoaded() {
+        copyLink();
+    }
     window["FLS"] = false;
+    addTouchClass();
     addLoadedClass();
     pageNavigation();
     headerScroll();

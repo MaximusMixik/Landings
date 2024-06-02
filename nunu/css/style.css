@@ -316,16 +316,24 @@ body {
 .footer__copy {
   text-align: center
 }
-@-webkit-keyframes flying {
-  50% {
-    -webkit-transform: translate(-1.875rem,-1.875rem);
-    transform: translate(-1.875rem,-1.875rem)
+@-webkit-keyframes moveInCircle {
+  from {
+    -webkit-transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn);
+    transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn)
+  }
+  to {
+    -webkit-transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn);
+    transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn)
   }
 }
-@keyframes flying {
-  50% {
-    -webkit-transform: translate(-1.875rem,-1.875rem);
-    transform: translate(-1.875rem,-1.875rem)
+@keyframes moveInCircle {
+  from {
+    -webkit-transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn);
+    transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn)
+  }
+  to {
+    -webkit-transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn);
+    transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn)
   }
 }
 .hero {
@@ -383,13 +391,15 @@ body {
   transition-delay: 5s
 }
 .loaded .hero__dog {
-  transition-delay: 2s
+  -webkit-animation: moveInCircle 3s linear -1s infinite;
+  animation: moveInCircle 3s linear -1s infinite
 }
 .hero__fox {
   transition-delay: 2.5s
 }
 .loaded .hero__fox {
-  transition-delay: 1s
+  -webkit-animation: moveInCircle 3s linear -2s infinite;
+  animation: moveInCircle 3s linear -2s infinite
 }
 .hero__bg img {
   position: absolute;
@@ -400,31 +410,78 @@ body {
   -o-object-fit: cover;
   object-fit: cover
 }
-@-webkit-keyframes moveInCircle {
-  from {
-    -webkit-transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn);
-    transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn)
+@-webkit-keyframes eyeAnimate {
+  33% {
+    -webkit-transform: translate(-80%,-35%);
+    transform: translate(-80%,-35%)
   }
-  to {
-    -webkit-transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn);
-    transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn)
+  66% {
+    -webkit-transform: translate(0,-60%);
+    transform: translate(0,-60%)
+  }
+  100% {
+    -webkit-transform: translate(0,-30%);
+    transform: translate(0,-30%)
   }
 }
-@keyframes moveInCircle {
-  from {
-    -webkit-transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn);
-    transform: rotate(0turn) translateY(-.625rem) translateY(10%) rotate(1turn)
+@keyframes eyeAnimate {
+  33% {
+    -webkit-transform: translate(-80%,-35%);
+    transform: translate(-80%,-35%)
   }
-  to {
-    -webkit-transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn);
-    transform: rotate(1turn) translateY(-.625rem) translateY(10%) rotate(0turn)
+  66% {
+    -webkit-transform: translate(0,-60%);
+    transform: translate(0,-60%)
+  }
+  100% {
+    -webkit-transform: translate(0,-30%);
+    transform: translate(0,-30%)
   }
 }
 .chameleon {
   margin: 0 auto
 }
+.chameleon__body {
+  position: relative
+}
 .chameleon__main {
   max-width: 100%
+}
+.chameleon__pupil {
+  position: absolute;
+  width: 35%;
+  height: 31%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(0,-30%);
+  transform: translate(0,-30%)
+}
+.loaded .chameleon__pupil {
+  -webkit-animation: eyeAnimate 3s ease 4s infinite;
+  animation: eyeAnimate 3s ease 4s infinite
+}
+.chameleon__cornea,
+.chameleon__eyelid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.chameleon__left,
+.chameleon__right {
+  position: absolute;
+  top: 12%;
+  width: 36%;
+  height: 39%
+}
+.chameleon__right {
+  right: 0
+}
+.chameleon__left {
+  left: 0
 }
 .prizes__wrapper {
   background-color: var(--bg-secondary);
@@ -587,17 +644,20 @@ body {
 }
 .sphere__actions {
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   border-radius: 1.875rem;
   border: .125rem solid rgba(113,205,195,.3);
   background-color: #091c18;
   color: var(--text-white);
-  width: 100%
+  width: 100%;
+  max-width: 28.875rem
 }
 .sphere__input {
   margin-left: auto;
-  text-align: right
+  text-align: right;
+  outline: transparent
 }
 .sphere__button {
   flex: 0 0 1.5rem;
@@ -607,6 +667,23 @@ body {
 .sphere__button svg {
   width: 1.5rem;
   height: 1.5rem
+}
+.sphere__success {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  background-color: var(--bg-button-secondary);
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease,-webkit-transform .3s ease
+}
+.success-open .sphere__success {
+  -webkit-transform: scale(1);
+  transform: scale(1)
 }
 .sphere__bg img {
   position: absolute;
@@ -673,28 +750,47 @@ body {
     transform: rotate(15deg)
   }
 }
-.roadmap {
-  overflow: hidden
-}
 .roadmap__title {
   text-align: center
 }
 .roadmap__slider {
-  height: 25rem;
   position: relative;
   z-index: 2
+}
+.roadmap__slide {
+  flex: 0 0 max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  opacity: 0!important
+}
+.roadmap__slide.swiper-slide-active {
+  opacity: 1!important
 }
 .roadmap__content {
   text-align: center;
   margin-inline: auto
+}
+.roadmap__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.roadmap__pagination span {
+  background-color: var(--text-white);
+  opacity: .1;
+  border-radius: 50%
+}
+.roadmap__pagination span.swiper-pagination-bullet-active {
+  opacity: 1
 }
 .slide-roadmap__date:not(:last-child) {
   margin-bottom: .5rem
 }
 .media {
   position: relative;
-  z-index: 1;
-  padding: 0 3.125rem
+  z-index: 1
 }
 .media::before {
   content: "";
@@ -785,6 +881,15 @@ body {
 .buy__wrapper {
   margin-inline: auto;
   max-width: 51.25rem
+}
+.touch .buy__wrapper .buy__header,
+.touch .buy__wrapper .buy__steps {
+  opacity: .4;
+  pointer-events: none
+}
+.touch .buy__wrapper .form__cover {
+  opacity: 1;
+  pointer-events: none
 }
 .buy__header,
 .buy__steps {
@@ -948,6 +1053,9 @@ body {
   .sphere__actions {
     font-size: 1rem;
     padding: 1.0625rem 1.5rem
+  }
+  .media {
+    padding-inline: 3.125rem
   }
   .header-buy {
     font-size: 1rem
@@ -1234,11 +1342,14 @@ body {
   .sphere__actions {
     gap: .75rem
   }
-  .roadmap__title:not(:last-child) {
-    margin-bottom: 3.75rem
+  .roadmap__slider {
+    padding-top: 3.75rem
   }
   .roadmap__content {
     max-width: 28.75rem
+  }
+  .roadmap__pagination {
+    margin-top: 3.75rem
   }
   .roadmap__media {
     margin-top: -15%
@@ -1400,6 +1511,18 @@ body {
   .sphere__wrapper {
     max-width: 28.875rem
   }
+  .roadmap__pagination {
+    gap: 1rem
+  }
+  .roadmap__pagination span {
+    width: 1rem
+  }
+  .roadmap__pagination span {
+    height: 1rem
+  }
+  .roadmap__pagination span {
+    flex-basis: 1rem
+  }
 }
 @media (max-width:47.99875em) {
   .button {
@@ -1535,8 +1658,7 @@ body {
   }
   .footer__actions {
     display: flex;
-    justify-content: space-between;
-    gap: 1.5rem
+    justify-content: space-between
   }
   .footer__bg img {
     bottom: 4%;
@@ -1571,6 +1693,18 @@ body {
     font-size: .75rem;
     padding: .4375rem .75rem
   }
+  .roadmap__media {
+    margin-top: 2.5rem
+  }
+  .media {
+    padding-inline: .625rem;
+    -webkit-transform: translateX(-20%) scale(1.4);
+    transform: translateX(-20%) scale(1.4)
+  }
+  .media__sun {
+    left: 30%;
+    top: -25%
+  }
   .header-buy {
     font-size: .75rem
   }
@@ -1584,6 +1718,11 @@ body {
   .header-buy__exchange svg {
     height: .75rem;
     width: .75rem
+  }
+}
+@media (max-width:29.99875em) and (max-width:20em) {
+  .footer__actions {
+    gap: 1rem
   }
 }
 @media (max-width:29.99875em) and (max-width:22.5em) {
@@ -1823,11 +1962,26 @@ body {
   .sphere__actions {
     gap: .25rem
   }
-  .roadmap__title:not(:last-child) {
-    margin-bottom: 1.5rem
+  .roadmap__slider {
+    padding-top: 1.5rem
   }
   .roadmap__content {
     max-width: 16rem
+  }
+  .roadmap__pagination {
+    margin-top: 1.5rem
+  }
+  .roadmap__pagination {
+    gap: .25rem
+  }
+  .roadmap__pagination span {
+    width: .25rem
+  }
+  .roadmap__pagination span {
+    height: .25rem
+  }
+  .roadmap__pagination span {
+    flex-basis: .25rem
   }
   .slide-roadmap__title:not(:last-child) {
     margin-bottom: 1.5rem
@@ -2312,14 +2466,14 @@ body {
       gap: calc(.25rem + .5 * (100vw - 22.5rem)/ 25.49875)
     }
   }
-  @supports (margin-bottom:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
-    .roadmap__title:not(:last-child) {
-      margin-bottom: clamp(1.5rem ,-.4853914408rem + 8.8239619589vw ,3.75rem)
+  @supports (padding-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
+    .roadmap__slider {
+      padding-top: clamp(1.5rem ,-.4853914408rem + 8.8239619589vw ,3.75rem)
     }
   }
-  @supports not (margin-bottom:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
-    .roadmap__title:not(:last-child) {
-      margin-bottom: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.49875)
+  @supports not (padding-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
+    .roadmap__slider {
+      padding-top: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.49875)
     }
   }
   @supports (max-width:clamp(16rem ,4.7494485024rem + 50.0024511005vw ,28.75rem)) {
@@ -2330,6 +2484,16 @@ body {
   @supports not (max-width:clamp(16rem ,4.7494485024rem + 50.0024511005vw ,28.75rem)) {
     .roadmap__content {
       max-width: calc(16rem + 12.75 * (100vw - 22.5rem)/ 25.49875)
+    }
+  }
+  @supports (margin-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
+    .roadmap__pagination {
+      margin-top: clamp(1.5rem ,-.4853914408rem + 8.8239619589vw ,3.75rem)
+    }
+  }
+  @supports not (margin-top:clamp(1.5rem ,-0.4853914408rem + 8.8239619589vw ,3.75rem)) {
+    .roadmap__pagination {
+      margin-top: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.49875)
     }
   }
   @supports (margin-bottom:clamp(1.5rem ,0.8382028531rem + 2.941320653vw ,2.25rem)) {
@@ -2814,6 +2978,46 @@ body {
       max-width: calc(10.125rem + 18.75 * (100vw - 22.5rem)/ 84.5)
     }
   }
+  @supports (gap:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination {
+      gap: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
+    }
+  }
+  @supports not (gap:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination {
+      gap: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
+    }
+  }
+  @supports (width:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      width: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
+    }
+  }
+  @supports not (width:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      width: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
+    }
+  }
+  @supports (height:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      height: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
+    }
+  }
+  @supports not (height:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      height: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
+    }
+  }
+  @supports (flex-basis:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      flex-basis: clamp(.25rem ,.050295858rem + .8875739645vw ,1rem)
+    }
+  }
+  @supports not (flex-basis:clamp(0.25rem ,0.050295858rem + 0.8875739645vw ,1rem)) {
+    .roadmap__pagination span {
+      flex-basis: calc(.25rem + .75 * (100vw - 22.5rem)/ 84.5)
+    }
+  }
 }
 @media (max-width:47.99875em) and (min-width:47.99875em) {
   .footer__body {
@@ -2962,6 +3166,23 @@ body {
   @supports not (font-size:clamp(1rem ,0.329787234rem + 2.9787234043vw ,2.75rem)) {
     .footer__title {
       font-size: calc(1rem + 1.75 * (100vw - 22.5rem)/ 58.75)
+    }
+  }
+}
+@media (max-width:29.99875em) and (min-width:22.5em) {
+  .footer__actions {
+    gap: 1.5rem
+  }
+}
+@media (max-width:29.99875em) and (min-width:20em) and (max-width:22.5em) {
+  @supports (gap:clamp(1rem ,-3rem + 20vw ,1.5rem)) {
+    .footer__actions {
+      gap: clamp(1rem ,-3rem + 20vw ,1.5rem)
+    }
+  }
+  @supports not (gap:clamp(1rem ,-3rem + 20vw ,1.5rem)) {
+    .footer__actions {
+      gap: calc(1rem + .5 * (100vw - 20rem)/ 2.5)
     }
   }
 }

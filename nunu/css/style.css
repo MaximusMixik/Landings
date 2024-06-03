@@ -381,9 +381,13 @@ body {
 .loaded .hero__frog {
   -webkit-transform: translate(0);
   transform: translate(0);
-  scale: 1;
-  -webkit-animation: moveInCircle 3s linear infinite;
-  animation: moveInCircle 3s linear infinite
+  scale: 1
+}
+.loaded.init-animate .hero__dog,
+.loaded.init-animate .hero__fox,
+.loaded.init-animate .hero__frog {
+  -webkit-animation: moveInCircle 3s linear -1s infinite;
+  animation: moveInCircle 3s linear -1s infinite
 }
 .hero__dog img,
 .hero__fox img,
@@ -394,13 +398,19 @@ body {
   transition-delay: 5s
 }
 .loaded .hero__dog {
-  -webkit-animation: moveInCircle 3s linear -1s infinite;
-  animation: moveInCircle 3s linear -1s infinite
+  transition-delay: 2s
+}
+.loaded.init-animate .hero__dog {
+  -webkit-animation: moveInCircle 3s linear -3s infinite;
+  animation: moveInCircle 3s linear -3s infinite
 }
 .hero__fox {
   transition-delay: 2.5s
 }
 .loaded .hero__fox {
+  transition-delay: 1s
+}
+.loaded.init-animate .hero__fox {
   -webkit-animation: moveInCircle 3s linear -2s infinite;
   animation: moveInCircle 3s linear -2s infinite
 }

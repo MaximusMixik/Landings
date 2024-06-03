@@ -28,6 +28,9 @@
         if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
             setTimeout((function() {
                 document.documentElement.classList.add("loaded");
+                if (document.documentElement.classList.contains("loaded")) setTimeout((() => {
+                    document.documentElement.classList.add("init-animate");
+                }), 3e3);
             }), 0);
         }));
     }
@@ -4194,10 +4197,10 @@
         }
         initializeClock(".countdown");
     }
-    countDown();
     window.addEventListener("load", windowLoaded);
     function windowLoaded() {
         copyLink();
+        countDown();
     }
     window["FLS"] = false;
     addTouchClass();

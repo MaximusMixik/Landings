@@ -180,7 +180,6 @@ body {
   color: var(--text-secondary);
   text-align: center;
   font-weight: 700;
-  border: .125rem solid var(--text-secondary);
   box-shadow: .25rem .25rem 0 var(--bg-button-white),.25rem .0625rem 0 var(--bg-button-white),0 .3125rem 0 var(--bg-button-white);
   border-radius: 2.5rem;
   display: block;
@@ -214,7 +213,8 @@ body {
   align-items: center
 }
 .socials__item {
-  border: .125rem solid var(--text-secondary);
+  border-style: solid;
+  border-color: var(--text-secondary);
   background-color: var(--bg-button-white);
   border-radius: 50%;
   display: grid;
@@ -233,16 +233,14 @@ body {
   transform: scale(1.001)
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 50;
   width: 100%;
-  background-color: transparent;
-  transition: background-color .3s ease
-}
-.header._header-scroll {
-  background-color: rgba(10,27,25,.9)
+  height: -webkit-max-content;
+  height: max-content;
+  background-color: transparent
 }
 .header__container {
   display: flex;
@@ -250,8 +248,7 @@ body {
   gap: 1.25rem;
   align-items: center;
   padding-top: .5rem;
-  padding-bottom: .5rem;
-  transition: min-height .3s ease
+  padding-bottom: .5rem
 }
 .header__left {
   display: flex;
@@ -394,23 +391,19 @@ body {
 .hero__frog img {
   max-width: 100%
 }
-.hero__dog {
+.loaded .hero__dog {
   transition-delay: 5s
 }
-.loaded .hero__dog {
-  transition-delay: 2s
-}
 .loaded.init-animate .hero__dog {
+  transition-delay: 2s;
   -webkit-animation: moveInCircle 3s linear -3s infinite;
   animation: moveInCircle 3s linear -3s infinite
 }
-.hero__fox {
+.loaded .hero__fox {
   transition-delay: 2.5s
 }
-.loaded .hero__fox {
-  transition-delay: 1s
-}
 .loaded.init-animate .hero__fox {
+  transition-delay: 1s;
   -webkit-animation: moveInCircle 3s linear -2s infinite;
   animation: moveInCircle 3s linear -2s infinite
 }
@@ -466,12 +459,14 @@ body {
   height: 31%;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(0,-30%);
-  transform: translate(0,-30%)
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
 }
 .loaded .chameleon__pupil {
-  -webkit-animation: eyeAnimate 3s ease 4s infinite;
-  animation: eyeAnimate 3s ease 4s infinite
+  -webkit-transform: translate(0,-30%);
+  transform: translate(0,-30%);
+  -webkit-animation: eyeAnimate 6s cubic-bezier(.86,0,.07,1) 3s infinite;
+  animation: eyeAnimate 6s cubic-bezier(.86,0,.07,1) 3s infinite
 }
 .chameleon__cornea,
 .chameleon__eyelid {
@@ -555,14 +550,14 @@ body {
 }
 @-webkit-keyframes flame {
   to {
-    -webkit-transform: scale(1.2) rotate(-10deg);
-    transform: scale(1.2) rotate(-10deg)
+    -webkit-filter: blur(.5rem);
+    filter: blur(.5rem)
   }
 }
 @keyframes flame {
   to {
-    -webkit-transform: scale(1.2) rotate(-10deg);
-    transform: scale(1.2) rotate(-10deg)
+    -webkit-filter: blur(.5rem);
+    filter: blur(.5rem)
   }
 }
 .camin__body {
@@ -581,8 +576,8 @@ body {
   height: 80%;
   background: radial-gradient(71.2% 57.68% at 45.35% 49.72%,#ca3cf7 0,rgba(202,60,247,0) 100%);
   border-radius: 30% 70% 59% 41%/26% 44% 56% 74%;
-  -webkit-filter: blur(.75rem);
-  filter: blur(.75rem);
+  -webkit-filter: blur(1.25rem);
+  filter: blur(1.25rem);
   -webkit-animation: flame 1.5s linear infinite alternate;
   animation: flame 1.5s linear infinite alternate
 }
@@ -770,17 +765,6 @@ body {
   position: relative;
   z-index: 2
 }
-.roadmap__slide {
-  flex: 0 0 max-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-inline: auto;
-  opacity: 0!important
-}
-.roadmap__slide.swiper-slide-active {
-  opacity: 1!important
-}
 .roadmap__content {
   text-align: center;
   margin-inline: auto
@@ -839,8 +823,8 @@ body {
   left: -10%;
   background: url(../img/roadmap/bottom.webp) 0 0/contain repeat-x;
   z-index: -1;
-  -webkit-animation: mountains 15s linear -8s infinite;
-  animation: mountains 15s linear -8s infinite
+  -webkit-animation: mountains 20s linear -8s infinite;
+  animation: mountains 20s linear -8s infinite
 }
 .media__action::after {
   left: 0;
@@ -849,21 +833,21 @@ body {
   top: 68%;
   background: url(../img/roadmap/top.webp) 0 0/contain repeat-x;
   z-index: 3;
-  -webkit-animation: mountains 3s linear -1.5s infinite;
-  animation: mountains 3s linear -1.5s infinite
+  -webkit-animation: mountains 8s linear -1.5s infinite;
+  animation: mountains 8s linear -1.5s infinite
 }
 .media__body {
   flex: 0 0 93%;
   margin-right: -20%;
-  -webkit-animation: bodyRotate 1s linear infinite alternate forwards;
-  animation: bodyRotate 1s linear infinite alternate forwards
+  -webkit-animation: bodyRotate 2s linear infinite alternate forwards;
+  animation: bodyRotate 2s linear infinite alternate forwards
 }
 .media__rider {
   flex: 0 0 29%;
   margin-bottom: 5%;
   position: relative;
-  -webkit-animation: persRotate 1s linear infinite alternate forwards;
-  animation: persRotate 1s linear infinite alternate forwards
+  -webkit-animation: persRotate 2s linear infinite alternate forwards;
+  animation: persRotate 2s linear infinite alternate forwards
 }
 .media__rider::before {
   content: "";
@@ -875,8 +859,8 @@ body {
   background: url(../img/roadmap/cloak.webp) 0 0/contain no-repeat;
   -webkit-transform-origin: top right;
   transform-origin: top right;
-  -webkit-animation: cloakRotate 1s ease-in-out .8s infinite alternate forwards;
-  animation: cloakRotate 1s ease-in-out .8s infinite alternate forwards
+  -webkit-animation: cloakRotate 2s ease-in-out .8s infinite alternate forwards;
+  animation: cloakRotate 2s ease-in-out .8s infinite alternate forwards
 }
 .media img {
   max-width: 100%
@@ -1168,6 +1152,9 @@ body {
   .button {
     padding-right: 1.75rem
   }
+  .button {
+    border: .25rem solid var(--text-secondary)
+  }
   .socials {
     gap: 1rem
   }
@@ -1180,11 +1167,11 @@ body {
   .socials__item {
     height: 3.625rem
   }
+  .socials__item {
+    border-width: .1875rem
+  }
   .header__container {
     min-height: 7.875rem
-  }
-  ._header-scroll .header__container {
-    min-height: 5rem
   }
   .header__logo {
     flex-basis: 3.75rem
@@ -1207,6 +1194,9 @@ body {
   .header__button {
     min-height: 3.375rem
   }
+  .header__button {
+    border-width: .1875rem
+  }
   .footer__wrapper {
     border-radius: 1.5rem
   }
@@ -1228,6 +1218,9 @@ body {
   }
   .footer__socials:not(:last-child) {
     margin-bottom: 2.75rem
+  }
+  .footer__button {
+    border-width: .1875rem
   }
   .footer__chameleon {
     position: absolute;
@@ -1363,6 +1356,17 @@ body {
   }
   .roadmap__slider {
     padding-top: 3.75rem
+  }
+  .roadmap__slide {
+    flex: 0 0 max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    opacity: 0!important
+  }
+  .roadmap__slide.swiper-slide-active {
+    opacity: 1!important
   }
   .roadmap__content {
     max-width: 28.75rem
@@ -1545,13 +1549,20 @@ body {
 }
 @media (max-width:47.99875em) {
   .button {
+    border: .125rem solid var(--text-secondary);
     box-shadow: .125rem .125rem 0 var(--bg-button-white),.125rem 0 0 var(--bg-button-white),0 .1875rem 0 var(--bg-button-white)
+  }
+  .socials__item {
+    border-width: .125rem
   }
   .header__left {
     gap: .875rem
   }
   .header__nav {
     display: none
+  }
+  .header__button {
+    border-width: .125rem
   }
   .menu__list {
     gap: .875rem
@@ -1565,6 +1576,9 @@ body {
   }
   .footer__button {
     font-size: 1rem
+  }
+  .footer__button {
+    border-width: .125rem
   }
   .footer__chameleon {
     max-width: 100%;
@@ -1668,7 +1682,8 @@ body {
     z-index: 2;
     max-width: 120%;
     margin: 0 -1.875rem;
-    width: 120%
+    width: 120%;
+    padding-bottom: 1.25rem
   }
 }
 @media (max-width:29.99875em) {
@@ -1680,7 +1695,7 @@ body {
     justify-content: space-between
   }
   .footer__bg img {
-    bottom: 4%;
+    bottom: 7%;
     z-index: 1
   }
   .about__content {
@@ -1800,9 +1815,6 @@ body {
   }
   .header__container {
     min-height: 3.75rem
-  }
-  ._header-scroll .header__container {
-    min-height: 3.125rem
   }
   .header__logo {
     flex-basis: 2.25rem
@@ -2163,16 +2175,6 @@ body {
   @supports not (min-height:clamp(3.75rem ,0.1101156919rem + 16.1772635914vw ,7.875rem)) {
     .header__container {
       min-height: calc(3.75rem + 4.125 * (100vw - 22.5rem)/ 25.49875)
-    }
-  }
-  @supports (min-height:clamp(3.125rem ,1.4705071327rem + 7.3533016324vw ,5rem)) {
-    ._header-scroll .header__container {
-      min-height: clamp(3.125rem ,1.4705071327rem + 7.3533016324vw ,5rem)
-    }
-  }
-  @supports not (min-height:clamp(3.125rem ,1.4705071327rem + 7.3533016324vw ,5rem)) {
-    ._header-scroll .header__container {
-      min-height: calc(3.125rem + 1.875 * (100vw - 22.5rem)/ 25.49875)
     }
   }
   @supports (flex-basis:clamp(2.25rem ,0.9264057062rem + 5.8826413059vw ,3.75rem)) {

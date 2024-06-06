@@ -3767,20 +3767,18 @@
     }
     function initSliders() {
         if (document.querySelector(".swiper-roadmap")) {
-            let delay = false;
             new swiper_core_Swiper(".swiper-roadmap", {
                 modules: [ Pagination, EffectFade, Mousewheel ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 0,
-                autoHeight: true,
                 speed: 800,
                 mousewheel: {
                     invert: false,
                     releaseOnEdges: true,
-                    thresholdDelta: 1,
-                    sensitivity: .9
+                    thresholdDelta: .5,
+                    sensitivity: .5
                 },
                 effect: "fade",
                 fadeEffect: {
@@ -3790,23 +3788,13 @@
                     el: ".roadmap__pagination",
                     clickable: true
                 },
-                direction: "vertical",
-                on: {
-                    slideChangeTransitionEnd: function() {
-                        delay = true;
-                        setTimeout((() => {
-                            delay = false;
-                        }), 500);
-                    },
-                    slideChange: function() {
-                        if (this.isEnd) {
-                            this.mousewheel.disable();
-                            setTimeout((() => {
-                                this.mousewheel.enable();
-                            }), 500);
-                        }
+                breakpoints: {
+                    768: {
+                        direction: "vertical",
+                        autoHeight: true
                     }
-                }
+                },
+                on: {}
             });
         }
     }
@@ -3961,32 +3949,6 @@
             if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
             goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
         }
-    }
-    function headerScroll() {
-        addWindowScrollEvent = true;
-        const header = document.querySelector("header.header");
-        const headerShow = header.hasAttribute("data-scroll-show");
-        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
-        const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
-        let scrollDirection = 0;
-        let timer;
-        document.addEventListener("windowScroll", (function(e) {
-            const scrollTop = window.scrollY;
-            clearTimeout(timer);
-            if (scrollTop >= startPoint) {
-                !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
-                if (headerShow) {
-                    if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
-                    timer = setTimeout((() => {
-                        !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
-                    }), headerShowTimer);
-                }
-            } else {
-                header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
-                if (headerShow) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null;
-            }
-            scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
-        }));
     }
     function digitsCounter() {
         function digitsCountersInit(digitsCountersItem) {
@@ -4206,6 +4168,5 @@
     addTouchClass();
     addLoadedClass();
     pageNavigation();
-    headerScroll();
     digitsCounter();
 })();

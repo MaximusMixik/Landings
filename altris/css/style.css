@@ -230,6 +230,12 @@ h6 {
 .page__review {
   background-color: var(--bg-accent)
 }
+.tabs .excurs {
+  padding-top: 0
+}
+.tabs .presentation {
+  background-color: var(--bg-primary)
+}
 .cover__container {
   color: var(--text-secondary);
   text-align: center;
@@ -416,9 +422,6 @@ h6 {
   border-radius: 50%;
   height: .75rem
 }
-.tabs__presentation {
-  background-color: var(--bg-primary)
-}
 .review__container {
   max-width: 77.5rem
 }
@@ -560,9 +563,6 @@ h6 {
   .page__poster {
     padding-bottom: 1.5rem
   }
-  .page__tabs {
-    padding-bottom: 6rem
-  }
   .page__excurs,
   .page__outro,
   .page__presentation,
@@ -574,6 +574,12 @@ h6 {
   .page__presentation,
   .page__review {
     padding-bottom: 6rem
+  }
+  .tabs .presentation {
+    padding-top: 3.5rem
+  }
+  .tabs .presentation {
+    padding-bottom: 3.5rem
   }
   .cover__container {
     border-radius: 1.5rem
@@ -645,12 +651,6 @@ h6 {
   .item-excurs__text > :not(:last-child) {
     margin-bottom: 1.25rem
   }
-  .tabs__presentation {
-    padding-top: 3.5rem
-  }
-  .tabs__presentation {
-    padding-bottom: 3.5rem
-  }
   .review__wrapper {
     padding: 1rem
   }
@@ -707,9 +707,6 @@ h6 {
   .page__poster {
     padding-bottom: 1rem
   }
-  .page__tabs {
-    padding-bottom: 1.875rem
-  }
   .page__excurs,
   .page__outro,
   .page__presentation,
@@ -721,6 +718,12 @@ h6 {
   .page__presentation,
   .page__review {
     padding-bottom: 1.875rem
+  }
+  .tabs .presentation {
+    padding-top: 1.25rem
+  }
+  .tabs .presentation {
+    padding-bottom: 1.25rem
   }
   .cover__container {
     border-radius: .75rem
@@ -791,12 +794,6 @@ h6 {
   }
   .item-excurs__text > :not(:last-child) {
     margin-bottom: .75rem
-  }
-  .tabs__presentation {
-    padding-top: 1.25rem
-  }
-  .tabs__presentation {
-    padding-bottom: 1.25rem
   }
   .review__wrapper {
     padding: .5rem
@@ -948,16 +945,6 @@ h6 {
       padding-bottom: calc(1rem + .5 * (100vw - 20rem)/ 64)
     }
   }
-  @supports (padding-bottom:clamp(1.875rem ,0.5859375rem + 6.4453125vw ,6rem)) {
-    .page__tabs {
-      padding-bottom: clamp(1.875rem ,.5859375rem + 6.4453125vw ,6rem)
-    }
-  }
-  @supports not (padding-bottom:clamp(1.875rem ,0.5859375rem + 6.4453125vw ,6rem)) {
-    .page__tabs {
-      padding-bottom: calc(1.875rem + 4.125 * (100vw - 20rem)/ 64)
-    }
-  }
   @supports (padding-top:clamp(1.875rem ,0.5859375rem + 6.4453125vw ,6rem)) {
     .page__excurs,
     .page__outro,
@@ -988,6 +975,26 @@ h6 {
     .page__presentation,
     .page__review {
       padding-bottom: calc(1.875rem + 4.125 * (100vw - 20rem)/ 64)
+    }
+  }
+  @supports (padding-top:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
+    .tabs .presentation {
+      padding-top: clamp(1.25rem ,.546875rem + 3.515625vw ,3.5rem)
+    }
+  }
+  @supports not (padding-top:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
+    .tabs .presentation {
+      padding-top: calc(1.25rem + 2.25 * (100vw - 20rem)/ 64)
+    }
+  }
+  @supports (padding-bottom:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
+    .tabs .presentation {
+      padding-bottom: clamp(1.25rem ,.546875rem + 3.515625vw ,3.5rem)
+    }
+  }
+  @supports not (padding-bottom:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
+    .tabs .presentation {
+      padding-bottom: calc(1.25rem + 2.25 * (100vw - 20rem)/ 64)
     }
   }
   @supports (border-radius:clamp(0.75rem ,0.515625rem + 1.171875vw ,1.5rem)) {
@@ -1220,26 +1227,6 @@ h6 {
   @supports not (margin-bottom:clamp(0.75rem ,0.59375rem + 0.78125vw ,1.25rem)) {
     .item-excurs__text > :not(:last-child) {
       margin-bottom: calc(.75rem + .5 * (100vw - 20rem)/ 64)
-    }
-  }
-  @supports (padding-top:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
-    .tabs__presentation {
-      padding-top: clamp(1.25rem ,.546875rem + 3.515625vw ,3.5rem)
-    }
-  }
-  @supports not (padding-top:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
-    .tabs__presentation {
-      padding-top: calc(1.25rem + 2.25 * (100vw - 20rem)/ 64)
-    }
-  }
-  @supports (padding-bottom:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
-    .tabs__presentation {
-      padding-bottom: clamp(1.25rem ,.546875rem + 3.515625vw ,3.5rem)
-    }
-  }
-  @supports not (padding-bottom:clamp(1.25rem ,0.546875rem + 3.515625vw ,3.5rem)) {
-    .tabs__presentation {
-      padding-bottom: calc(1.25rem + 2.25 * (100vw - 20rem)/ 64)
     }
   }
   @supports (padding:clamp(0.5rem ,0.34375rem + 0.78125vw ,1rem)) {

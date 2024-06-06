@@ -30,7 +30,7 @@
                 document.documentElement.classList.add("loaded");
                 if (document.documentElement.classList.contains("loaded")) setTimeout((() => {
                     document.documentElement.classList.add("init-animate");
-                }), 3e3);
+                }), 2e3);
             }), 0);
         }));
     }

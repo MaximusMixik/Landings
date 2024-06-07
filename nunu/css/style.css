@@ -379,10 +379,16 @@ body {
   transition-delay: .2s
 }
 .loaded .hero__fox {
-  transition-delay: .6s
+  transition-delay: .5s
+}
+.loaded.init-animate .hero__fox {
+  transition-delay: -.6s
 }
 .loaded .hero__dog {
-  transition-delay: 1s
+  transition-delay: .8s
+}
+.loaded.init-animate .hero__dog {
+  transition-delay: -.4s
 }
 .hero__bg img {
   position: absolute;
@@ -437,14 +443,14 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  transition: -webkit-transform .6s ease;
-  transition: transform .6s ease;
-  transition: transform .6s ease,-webkit-transform .6s ease
+  transform: translate(-50%,-50%)
 }
 .loaded .chameleon__pupil {
-  -webkit-transform: translate(0,-30%);
-  transform: translate(0,-30%)
+  -webkit-transform: translate(0,-60%);
+  transform: translate(0,-60%);
+  transition: -webkit-transform .3s ease 1.5s;
+  transition: transform .3s ease 1.5s;
+  transition: transform .3s ease 1.5s,-webkit-transform .3s ease 1.5s
 }
 .loaded.init-animate .chameleon__pupil {
   -webkit-transform: translate(0,-60%);
@@ -750,6 +756,14 @@ body {
 .roadmap__slider {
   position: relative;
   z-index: 2
+}
+.roadmap__slider.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden
 }
 .roadmap__content {
   text-align: center;

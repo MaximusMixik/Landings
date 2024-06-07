@@ -30,7 +30,7 @@
                 document.documentElement.classList.add("loaded");
                 if (document.documentElement.classList.contains("loaded")) setTimeout((() => {
                     document.documentElement.classList.add("init-animate");
-                }), 2e3);
+                }), 3e3);
             }), 0);
         }));
     }
@@ -2659,7 +2659,7 @@
         classes
     };
     const extendedDefaults = {};
-    class swiper_core_Swiper {
+    class Swiper {
         constructor() {
             let el;
             let params;
@@ -2675,7 +2675,7 @@
                     const newParams = utils_extend({}, params, {
                         el: containerEl
                     });
-                    swipers.push(new swiper_core_Swiper(newParams));
+                    swipers.push(new Swiper(newParams));
                 }));
                 return swipers;
             }
@@ -3047,25 +3047,25 @@
             return defaults;
         }
         static installModule(mod) {
-            if (!swiper_core_Swiper.prototype.__modules__) swiper_core_Swiper.prototype.__modules__ = [];
-            const modules = swiper_core_Swiper.prototype.__modules__;
+            if (!Swiper.prototype.__modules__) Swiper.prototype.__modules__ = [];
+            const modules = Swiper.prototype.__modules__;
             if (typeof mod === "function" && modules.indexOf(mod) < 0) modules.push(mod);
         }
         static use(module) {
             if (Array.isArray(module)) {
-                module.forEach((m => swiper_core_Swiper.installModule(m)));
-                return swiper_core_Swiper;
+                module.forEach((m => Swiper.installModule(m)));
+                return Swiper;
             }
-            swiper_core_Swiper.installModule(module);
-            return swiper_core_Swiper;
+            Swiper.installModule(module);
+            return Swiper;
         }
     }
     Object.keys(prototypes).forEach((prototypeGroup => {
         Object.keys(prototypes[prototypeGroup]).forEach((protoMethod => {
-            swiper_core_Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
         }));
     }));
-    swiper_core_Swiper.use([ Resize, Observer ]);
+    Swiper.use([ Resize, Observer ]);
     function Mousewheel(_ref) {
         let {swiper, extendParams, on, emit} = _ref;
         const window = ssr_window_esm_getWindow();
@@ -3767,7 +3767,7 @@
     }
     function initSliders() {
         if (document.querySelector(".swiper-roadmap")) {
-            new swiper_core_Swiper(".swiper-roadmap", {
+            new Swiper(".swiper-roadmap", {
                 modules: [ Pagination, EffectFade, Mousewheel ],
                 observer: true,
                 observeParents: true,

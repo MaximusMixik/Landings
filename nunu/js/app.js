@@ -3777,8 +3777,8 @@
                 mousewheel: {
                     invert: false,
                     releaseOnEdges: true,
-                    thresholdDelta: .5,
-                    sensitivity: .5
+                    thresholdDelta: .2,
+                    sensitivity: .2
                 },
                 effect: "fade",
                 fadeEffect: {
@@ -3793,8 +3793,7 @@
                         direction: "vertical",
                         autoHeight: true
                     }
-                },
-                on: {}
+                }
             });
         }
     }

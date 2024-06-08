@@ -199,15 +199,11 @@ body {
   display: flex;
   align-items: center
 }
-.socials__item {
+.socials__link {
   border-style: solid;
   border-color: var(--text-secondary);
   background-color: var(--bg-button-white);
   border-radius: 50%;
-  display: grid;
-  place-items: center
-}
-.socials__link {
   display: grid;
   place-items: center
 }
@@ -353,9 +349,9 @@ body {
   -webkit-transform: translateY(1000%);
   transform: translateY(1000%);
   scale: .2;
-  transition: scale 2s ease-in,-webkit-transform 2s ease;
-  transition: transform 2s ease,scale 2s ease-in;
-  transition: transform 2s ease,scale 2s ease-in,-webkit-transform 2s ease
+  transition: scale 2s cubic-bezier(.55,.055,.675,.19),-webkit-transform 2s ease;
+  transition: transform 2s ease,scale 2s cubic-bezier(.55,.055,.675,.19);
+  transition: transform 2s ease,scale 2s cubic-bezier(.55,.055,.675,.19),-webkit-transform 2s ease
 }
 .loaded .hero__dog,
 .loaded .hero__fox,
@@ -367,8 +363,10 @@ body {
 .loaded.init-animate .hero__dog,
 .loaded.init-animate .hero__fox,
 .loaded.init-animate .hero__frog {
-  -webkit-animation: moveInCircle 3s linear -3s infinite;
-  animation: moveInCircle 3s linear -3s infinite
+  -webkit-transform: translateY(-.625rem);
+  transform: translateY(-.625rem);
+  -webkit-animation: moveInCircle 3s linear -.2s infinite;
+  animation: moveInCircle 3s linear -.2s infinite
 }
 .hero__dog img,
 .hero__fox img,
@@ -381,14 +379,8 @@ body {
 .loaded .hero__fox {
   transition-delay: .5s
 }
-.loaded.init-animate .hero__fox {
-  transition-delay: -.6s
-}
 .loaded .hero__dog {
   transition-delay: .8s
-}
-.loaded.init-animate .hero__dog {
-  transition-delay: -.4s
 }
 .hero__bg img {
   position: absolute;
@@ -750,20 +742,23 @@ body {
     transform: rotate(15deg)
   }
 }
+.roadmap {
+  min-height: 230vh
+}
+.roadmap__sticky {
+  position: sticky;
+  left: 0;
+  top: -25%;
+  width: 100%;
+  height: 100%
+}
 .roadmap__title {
   text-align: center
 }
 .roadmap__slider {
   position: relative;
-  z-index: 2
-}
-.roadmap__slider.fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden
+  z-index: 2;
+  padding-bottom: 30%
 }
 .roadmap__content {
   text-align: center;
@@ -777,7 +772,8 @@ body {
 .roadmap__pagination span {
   background-color: var(--text-white);
   opacity: .1;
-  border-radius: 50%
+  border-radius: 50%;
+  cursor: pointer
 }
 .roadmap__pagination span.swiper-pagination-bullet-active {
   opacity: 1
@@ -1161,13 +1157,13 @@ body {
   .socials__item {
     flex-basis: 3.625rem
   }
-  .socials__item {
+  .socials__link {
     width: 3.625rem
   }
-  .socials__item {
+  .socials__link {
     height: 3.625rem
   }
-  .socials__item {
+  .socials__link {
     border-width: .1875rem
   }
   .header__container {
@@ -1358,8 +1354,8 @@ body {
   .sphere__actions {
     gap: .75rem
   }
-  .roadmap__slider {
-    padding-top: 3.75rem
+  .roadmap__title:not(:last-child) {
+    margin-bottom: 3.75rem
   }
   .roadmap__slide {
     flex: 0 0 max-content;
@@ -1379,7 +1375,7 @@ body {
     margin-top: 3.75rem
   }
   .roadmap__media {
-    margin-top: -15%
+    margin-top: -40%
   }
   .slide-roadmap__title:not(:last-child) {
     margin-bottom: 2.25rem
@@ -1556,7 +1552,7 @@ body {
     border: .125rem solid var(--text-secondary);
     box-shadow: .125rem .125rem 0 var(--bg-button-white),.125rem 0 0 var(--bg-button-white),0 .1875rem 0 var(--bg-button-white)
   }
-  .socials__item {
+  .socials__link {
     border-width: .125rem
   }
   .header__left {
@@ -1809,10 +1805,10 @@ body {
   .socials__item {
     flex-basis: 2.25rem
   }
-  .socials__item {
+  .socials__link {
     width: 2.25rem
   }
-  .socials__item {
+  .socials__link {
     height: 2.25rem
   }
   .socials__link svg {
@@ -2001,8 +1997,8 @@ body {
   .sphere__actions {
     gap: .25rem
   }
-  .roadmap__slider {
-    padding-top: 1.5rem
+  .roadmap__title:not(:last-child) {
+    margin-bottom: 1.5rem
   }
   .roadmap__content {
     max-width: 16rem
@@ -2156,22 +2152,22 @@ body {
     }
   }
   @supports (width:clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)) {
-    .socials__item {
+    .socials__link {
       width: clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)
     }
   }
   @supports not (width:clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)) {
-    .socials__item {
+    .socials__link {
       width: calc(2.25rem + 1.375 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (height:clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)) {
-    .socials__item {
+    .socials__link {
       height: clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)
     }
   }
   @supports not (height:clamp(2.25rem ,1.0396718666rem + 5.3792361485vw ,3.625rem)) {
-    .socials__item {
+    .socials__link {
       height: calc(2.25rem + 1.375 * (100vw - 22.5rem)/ 25.56125)
     }
   }
@@ -2495,14 +2491,14 @@ body {
       gap: calc(.25rem + .5 * (100vw - 22.5rem)/ 25.56125)
     }
   }
-  @supports (padding-top:clamp(1.5rem ,-0.4805369456rem + 8.8023864248vw ,3.75rem)) {
-    .roadmap__slider {
-      padding-top: clamp(1.5rem ,-.4805369456rem + 8.8023864248vw ,3.75rem)
+  @supports (margin-bottom:clamp(1.5rem ,-0.4805369456rem + 8.8023864248vw ,3.75rem)) {
+    .roadmap__title:not(:last-child) {
+      margin-bottom: clamp(1.5rem ,-.4805369456rem + 8.8023864248vw ,3.75rem)
     }
   }
-  @supports not (padding-top:clamp(1.5rem ,-0.4805369456rem + 8.8023864248vw ,3.75rem)) {
-    .roadmap__slider {
-      padding-top: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
+  @supports not (margin-bottom:clamp(1.5rem ,-0.4805369456rem + 8.8023864248vw ,3.75rem)) {
+    .roadmap__title:not(:last-child) {
+      margin-bottom: calc(1.5rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (max-width:clamp(16rem ,4.7769573084rem + 49.8801897403vw ,28.75rem)) {
@@ -3328,7 +3324,7 @@ body {
   .button--green:hover {
     box-shadow: .25rem .25rem 0 var(--bg-button-secondary),.25rem .0625rem 0 var(--bg-button-secondary),0 .3125rem 0 var(--bg-button-secondary)
   }
-  .socials__item:hover svg {
+  .socials__link:hover svg {
     -webkit-transform: scale(1.2);
     transform: scale(1.2)
   }

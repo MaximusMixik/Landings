@@ -742,23 +742,12 @@ body {
     transform: rotate(15deg)
   }
 }
-.roadmap {
-  min-height: 230vh
-}
-.roadmap__sticky {
-  position: sticky;
-  left: 0;
-  top: -25%;
-  width: 100%;
-  height: 100%
-}
 .roadmap__title {
   text-align: center
 }
 .roadmap__slider {
   position: relative;
-  z-index: 2;
-  padding-bottom: 30%
+  z-index: 2
 }
 .roadmap__content {
   text-align: center;
@@ -835,8 +824,8 @@ body {
 .media__body {
   flex: 0 0 93%;
   margin-right: -20%;
-  -webkit-animation: bodyRotate 2s linear infinite alternate forwards;
-  animation: bodyRotate 2s linear infinite alternate forwards
+  -webkit-animation: bodyRotate 1s linear infinite alternate forwards;
+  animation: bodyRotate 1s linear infinite alternate forwards
 }
 .media__rider {
   flex: 0 0 29%;
@@ -1354,8 +1343,21 @@ body {
   .sphere__actions {
     gap: .75rem
   }
+  .roadmap {
+    min-height: 250vh
+  }
+  .roadmap__sticky {
+    position: sticky;
+    left: 0;
+    top: -12.5rem;
+    width: 100%;
+    height: 100%
+  }
   .roadmap__title:not(:last-child) {
     margin-bottom: 3.75rem
+  }
+  .roadmap__slider {
+    padding-bottom: 30%
   }
   .roadmap__slide {
     flex: 0 0 max-content;

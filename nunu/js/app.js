@@ -3766,7 +3766,8 @@
         });
     }
     function initSliders() {
-        if (document.querySelector(".swiper-roadmap")) {
+        const swiperQuery = document.querySelector(".swiper-roadmap");
+        if (swiperQuery) {
             new Swiper(".swiper-roadmap", {
                 modules: [ Pagination, EffectFade, Mousewheel ],
                 observer: true,
@@ -3777,8 +3778,8 @@
                 mousewheel: {
                     invert: false,
                     releaseOnEdges: true,
-                    thresholdDelta: .2,
-                    sensitivity: .2
+                    thresholdDelta: .7,
+                    sensitivity: .7
                 },
                 effect: "fade",
                 fadeEffect: {
@@ -3864,7 +3865,6 @@
             return configWatcher;
         }
         scrollWatcherCreate(configWatcher) {
-            console.log(configWatcher);
             this.observer = new IntersectionObserver(((entries, observer) => {
                 entries.forEach((entry => {
                     this.scrollWatcherCallback(entry, observer);
@@ -4110,7 +4110,6 @@
         }
     }
     function countDown() {
-        console.log("fn countDown");
         function getTimeRemaining(endtime) {
             const t = Date.parse(endtime) - Date.parse(new Date);
             const seconds = Math.floor(t / 1e3 % 60);

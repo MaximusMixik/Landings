@@ -810,6 +810,9 @@ h1 {
   .whom__list {
     margin: 0 -.75rem
   }
+  .whom__item {
+    padding: 0 .75rem
+  }
   .item-integration__text:not(:last-child) {
     margin-bottom: 1.5rem
   }
@@ -1347,14 +1350,8 @@ h1 {
   .trial__bg {
     display: none
   }
-  .whom__list {
-    margin: 0 -1.25rem
-  }
   .whom__list:not(:last-child) {
     margin-bottom: 2.5rem
-  }
-  .whom__item {
-    padding: 0 .75rem
   }
   .whom__wrapper {
     gap: 1rem
@@ -1589,9 +1586,6 @@ h1 {
   }
   .whom__title:not(:last-child) {
     margin-bottom: 1.5rem
-  }
-  .whom__item {
-    min-height: 20.375rem
   }
   .integration {
     padding-top: 2.5rem
@@ -1912,16 +1906,6 @@ h1 {
   @supports not (margin-bottom:clamp(1.5rem ,0.824729892rem + 2.881152461vw ,3rem)) {
     .whom__title:not(:last-child) {
       margin-bottom: calc(1.5rem + 1.5 * (100vw - 23.4375rem)/ 52.0625)
-    }
-  }
-  @supports (min-height:clamp(20.375rem ,19.4183673469rem + 4.0816326531vw ,22.5rem)) {
-    .whom__item {
-      min-height: clamp(20.375rem ,19.4183673469rem + 4.0816326531vw ,22.5rem)
-    }
-  }
-  @supports not (min-height:clamp(20.375rem ,19.4183673469rem + 4.0816326531vw ,22.5rem)) {
-    .whom__item {
-      min-height: calc(20.375rem + 2.125 * (100vw - 23.4375rem)/ 52.0625)
     }
   }
   @supports (padding-top:clamp(2.5rem ,1.3745498199rem + 4.8019207683vw ,5rem)) {
@@ -2467,6 +2451,18 @@ h1 {
 @media (min-width:29.99875em) and (max-width:61.99875em) {
   .whom__item {
     max-width: 17.5rem
+  }
+}
+@media (min-width:29.99875em) and (max-width:75.5em) {
+  @supports (min-height:clamp(20.375rem ,18.9739979671rem + 4.6702013681vw ,22.5rem)) {
+    .whom__item {
+      min-height: clamp(20.375rem ,18.9739979671rem + 4.6702013681vw ,22.5rem)
+    }
+  }
+  @supports not (min-height:clamp(20.375rem ,18.9739979671rem + 4.6702013681vw ,22.5rem)) {
+    .whom__item {
+      min-height: calc(20.375rem + 2.125 * (100vw - 29.99875rem)/ 45.50125)
+    }
   }
 }
 @media (min-width:40.625em) and (min-width:23.4375em) and (max-width:75.5em) {

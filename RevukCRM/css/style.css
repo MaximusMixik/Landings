@@ -295,6 +295,13 @@ h1 {
 .binotel.dropdown-open {
   background-color: var(--blue-light-dark)
 }
+.binotel__socials {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0
+}
 .binotel__socials .socials-list__item {
   position: absolute;
   top: 20%;

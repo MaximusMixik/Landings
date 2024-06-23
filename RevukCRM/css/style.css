@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Nunito:regular,500,600,700,800,900&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600&display=swap);
 .footer__link,
@@ -155,11 +154,10 @@ body {
 }
 .menu__lang {
   width: 3rem;
-  height: 2.375rem;
   display: grid;
   place-items: center;
   line-height: 1.25;
-  border-radius: var(--button-border-radius)
+  transition: background-color .3s ease,color .3s ease
 }
 .icon-menu {
   display: none
@@ -201,8 +199,6 @@ body {
   max-width: -webkit-max-content;
   max-width: max-content;
   width: 100%;
-  -webkit-transform: scale(1.001);
-  transform: scale(1.001);
   transition: all .3s ease
 }
 .button__wrapper {
@@ -216,8 +212,6 @@ body {
   padding: .5rem 2.5rem;
   background: linear-gradient(180deg,rgba(255,255,255,.5) 0,rgba(255,255,255,.25) 100%);
   min-height: 2.75rem;
-  -webkit-transform: scale(1.001);
-  transform: scale(1.001);
   transition: all .3s ease
 }
 .title {
@@ -270,6 +264,7 @@ h1 {
   color: var(--blue-light)
 }
 .actions {
+  -webkit-tap-highlight-color: transparent;
   position: fixed;
   width: -webkit-max-content;
   width: max-content;
@@ -294,7 +289,30 @@ h1 {
   transition: background-color .3s ease
 }
 .binotel {
-  padding: .25rem
+  padding: .25rem;
+  position: relative
+}
+.binotel.dropdown-open {
+  background-color: var(--blue-light-dark)
+}
+.binotel__socials .socials-list__item {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transition: all .6s ease;
+  z-index: -1
+}
+.dropdown-open .binotel__socials .socials-list__item:nth-child(1) {
+  -webkit-transform: translateY(-180%);
+  transform: translateY(-180%)
+}
+.dropdown-open .binotel__socials .socials-list__item:nth-child(2) {
+  -webkit-transform: translate(-130%,-130%);
+  transform: translate(-130%,-130%)
+}
+.dropdown-open .binotel__socials .socials-list__item:nth-child(3) {
+  -webkit-transform: translate(-180%);
+  transform: translate(-180%)
 }
 .message {
   padding: .75rem
@@ -316,6 +334,38 @@ h1 {
     -webkit-transform: rotate(5deg) scale(1.1);
     transform: rotate(5deg) scale(1.1)
   }
+}
+.lang {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer
+}
+.lang.dropdown-open .lang__wrapper {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all
+}
+.lang__current {
+  color: inherit
+}
+.lang__wrapper {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  overflow: hidden;
+  transition: all .3s ease
+}
+.lang__list {
+  min-width: 2.9375rem;
+  display: grid;
+  padding: .625rem 0;
+  text-align: center
+}
+.lang__link {
+  padding: .25rem .25rem;
+  width: 100%;
+  transition: background-color .3s ease,color .3s ease
 }
 .header {
   position: sticky;
@@ -672,7 +722,12 @@ h1 {
   border-radius: 50%;
   overflow: hidden;
   pointer-events: all;
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
+  transition: all .3s ease
+}
+.navigation-reviews__button:active {
+  box-shadow: inset 0 0 0 .0625rem var(--blue);
+  background-color: var(--white-light)
 }
 .navigation-reviews__button.swiper-button-disabled {
   pointer-events: none!important;
@@ -1015,6 +1070,10 @@ h1 {
   font-weight: 500;
   letter-spacing: -.0225rem
 }
+.contacts__socials {
+  display: flex;
+  gap: 1.5rem
+}
 .item-contacts__link {
   display: inline-flex;
   align-items: center;
@@ -1039,16 +1098,13 @@ h1 {
 .item-contacts__caption::after {
   background-color: var(--blue)
 }
-.socials-list {
-  display: flex;
-  gap: 1.5rem
-}
 .socials-list__item {
   width: 2.5rem;
   height: 2.5rem;
   flex-basis: 2.5rem
 }
 .socials-list__link {
+  -webkit-tap-highlight-color: transparent;
   -webkit-transform: scale(1.001);
   transform: scale(1.001);
   transition: -webkit-transform .3s ease;
@@ -1202,6 +1258,11 @@ h1 {
     column-gap: 2rem;
     margin-right: 1rem
   }
+  .menu__lang {
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    height: 2.375rem
+  }
   .menu__button .button__wrapper {
     font-size: 1rem;
     padding-left: 1.25rem;
@@ -1222,6 +1283,31 @@ h1 {
   .message {
     width: 3.1875rem;
     height: 3.1875rem
+  }
+  .binotel__socials .socials-list__item {
+    width: 1.875rem;
+    height: 1.875rem;
+    flex-basis: 1.875rem
+  }
+  .lang {
+    z-index: 2;
+    position: relative
+  }
+  .lang.dropdown-open {
+    background-color: var(--white)
+  }
+  .lang__wrapper {
+    box-shadow: 0 .0625rem 0 0 rgba(0,0,0,.05),0 .25rem .25rem 0 rgba(0,0,0,.05),0 .625rem .625rem 0 rgba(0,0,0,.1);
+    position: absolute;
+    height: -webkit-max-content;
+    height: max-content;
+    right: 0;
+    width: -webkit-max-content;
+    width: max-content;
+    top: 100%
+  }
+  .lang__list {
+    background-color: var(--white)
   }
   .footer {
     padding-bottom: 1.625rem
@@ -1718,6 +1804,39 @@ h1 {
   .message {
     width: 3.9375rem;
     height: 3.9375rem
+  }
+  .lang {
+    padding: .0625rem;
+    width: -webkit-max-content;
+    width: max-content;
+    border-radius: .5rem;
+    overflow: hidden;
+    text-align: center
+  }
+  .lang.dropdown-open {
+    transition: all .3s ease;
+    background: linear-gradient(240deg,rgba(255,255,255,.2) 0,rgba(255,255,255,0) 70%)
+  }
+  .lang__current {
+    padding-top: .5rem;
+    width: 100%;
+    background-color: var(--blue-light-dark);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem
+  }
+  .lang__wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s linear;
+    padding: .375rem;
+    width: 100%;
+    background-color: var(--blue-light-dark);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem
+  }
+  .dropdown-open .lang__wrapper {
+    max-height: 21.875rem;
+    opacity: 1
   }
   .footer {
     padding-bottom: 2.5rem
@@ -3154,20 +3273,21 @@ h1 {
     color: var(--blue)
   }
   .button:hover {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
     box-shadow: 0 .0625rem 0 0 rgba(0,0,0,.05),0 .25rem .25rem 0 rgba(0,0,0,.05),0 .625rem .625rem 0 rgba(0,0,0,.1),inset 0 -.3125rem 2.5rem 0 rgba(103,119,239,.3)
-  }
-  .button:hover .button__wrapper {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05)
   }
   .binotel:hover,
   .message:hover {
     background-color: var(--blue-light-dark)
   }
+  .lang__link:hover {
+    color: var(--blue);
+    background-color: var(--white-light)
+  }
   .footer__link:hover {
     color: var(--white)
+  }
+  .navigation-reviews__button:hover {
+    box-shadow: inset 0 0 0 .0625rem var(--blue)
   }
   .item-blog__wrapper:hover .item-blog__image img {
     -webkit-transform: scale(1.05);

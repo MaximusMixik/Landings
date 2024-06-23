@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240622124908">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240623151530">
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<meta name="description" content="Author: Max.S.O, Збирайте ліди з вебсайтів, маркетплейсів та месенджерів. Інтегруйтеся з інтернет-магазинами, службами доставки та банківськими сервісами. Керуйте продажами, контактами, складом і завданнями. Спілкуйтеся з клієнтами через Instagram, Facebook, Telegram, Viber.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -25,14 +25,39 @@
 					<button type="button" class="menu__icon icon-menu" aria-label="burger menu"><span></span></button>
 					<nav class="menu__body">
 						<ul class="menu__list">
-							<li class="menu__item"><a href="#" class="menu__link">Про продукт</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">Функціонал</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">Інтеграції</a></li>
-							<li class="menu__item"><a href="#" class="menu__link">Ціна</a></li>
+							<li class="menu__item"><a data-goto-header data-goto=".hero" href="#" class="menu__link">Про продукт</a></li>
+							<li data-goto-header data-goto=".possibilities" class="menu__item"><a href="#" class="menu__link">Функціонал</a></li>
+							<li data-goto-header data-goto=".integration" class="menu__item"><a href="#" class="menu__link">Інтеграції</a>
+							</li>
+							<li data-goto-header data-goto=".price" class="menu__item"><a href="#" class="menu__link">Ціна</a></li>
 						</ul>
-						<a href="#" class="menu__lang">
-							UA
-						</a>
+						<div class="menu__lang lang dropdown">
+							<div class="lang__current">UA</div>
+							<div class="lang__wrapper">
+								<ul class="lang__list">
+									<li class="lang__item">
+										<a href="#" class="lang__link">
+											ENG
+										</a>
+									</li>
+									<li class="lang__item">
+										<a href="#" class="lang__link">
+											FR
+										</a>
+									</li>
+									<li class="lang__item">
+										<a href="#" class="lang__link">
+											PL
+										</a>
+									</li>
+									<li class="lang__item">
+										<a href="#" class="lang__link">
+											DE
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
 						<button type="button" class="menu__button button">
 							<span class="button__wrapper">Спробувати</span>
 						</button>
@@ -438,7 +463,6 @@
 				</div>
 
 			</section>
-
 
 			<section class="page__whom whom">
 				<div class="whom__container">
@@ -1529,6 +1553,8 @@
 				</div>
 
 			</section>
+
+
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -1601,19 +1627,36 @@
 		</footer>
 
 
-
 		<div class="actions">
-			<div class="binotel">
+			<div class="binotel dropdown">
 				КНОПКА ЗВ’ЯЗКУ
+				<ul class="binotel__socials socials-list ">
+					<li class="socials-list__item">
+						<a href="#" class="socials-list__link">
+							<img loading="lazy" src="img/contacts/instagram.webp" alt="instagram">
+						</a>
+					</li>
+					<li class="socials-list__item">
+						<a href="#" class="socials-list__link">
+							<img loading="lazy" src="img/contacts/facebook.webp" alt="facebook">
+						</a>
+					</li>
+					<li class="socials-list__item">
+						<a href="#" class="socials-list__link">
+							<img loading="lazy" src="img/contacts/telegram.webp" alt="telegram">
+						</a>
+					</li>
+				</ul>
 			</div>
 			<div class="message">
 				<svg>
 					<use xlink:href="img/icons/icons.svg#talk"></use>
 				</svg>
 			</div>
+
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240622124908"></script>
+	<script src="js/app.min.js?_v=20240623151530"></script>
 </body>
 
 </html>

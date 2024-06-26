@@ -266,10 +266,6 @@ h1 {
 .actions {
   -webkit-tap-highlight-color: transparent;
   position: fixed;
-  width: -webkit-max-content;
-  width: max-content;
-  height: -webkit-max-content;
-  height: max-content;
   display: grid;
   z-index: 12;
   cursor: pointer
@@ -1280,6 +1276,8 @@ h1 {
     font-size: 2.5rem
   }
   .actions {
+    width: 3.1875rem;
+    height: 7.875rem;
     bottom: 4rem;
     right: 2.625rem;
     gap: 1.5rem
@@ -1803,6 +1801,8 @@ h1 {
     letter-spacing: .02rem
   }
   .actions {
+    width: 3.9375rem;
+    height: 9.75rem;
     bottom: 6.5625rem;
     right: 1rem;
     gap: 1.875rem

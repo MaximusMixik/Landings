@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240527194706">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240703114428">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="description" content="Author: Max.S.O, 	Надежный и быстрый VPN Aegis. Мы используем клиент Outline. Для подключения к VPN не потребуются сложные настройки. Одна подписка будет работать на всех устройствах.">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -42,7 +42,7 @@
 					<span>AegisVPN</span>
 				</a>
 				<div class="header__action">
-					<button data-popup="#popup" class="header__button button button--gold">Приобрести</button>
+					<button data-popup="#popup-contact" class="header__button button button--gold">Приобрести</button>
 					<button id="cabinet" class="header__button button button--dark">Кабинет</button>
 					<!-- data-popup="#popup" -->
 				</div>
@@ -974,7 +974,7 @@
 	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__body">
-				<div class="popup__content">
+				<div class="popup__content popup-content">
 					<h2 class="popup__title subtitle">
 						приложения <br> в разработке
 					</h2>
@@ -990,7 +990,39 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240527194706"></script>
+
+
+	<div id="popup-contact" aria-hidden="true" class=" popup-contact">
+		<div class="popup-contact__wrapper">
+			<div class="popup-contact__border ">
+				<div class="popup-contact__body popup-content">
+					<button type="button" type="button" data-close class="popup-contact__close"></button>
+					<div class="popup-contact__content">
+						<h2 class="popup-contact__title  ">
+							Тест Аegis на 1 день
+						</h2>
+						<div class="popup-contact__text ">
+							Полный доступ к сервису для всех устройств
+						</div>
+						<!-- action="#" -->
+						<form data-dev class="form-popup" method="POST">
+
+							<div class="form-popup__item">
+								<input type="text" name="email" data-required="email" data-error="Не верный Email" placeholder="Укажите ваш Email" class="form-popup__input input">
+							</div>
+							<div class="form-popup__text">
+								На ваш Email мы отправим ключ безопасности
+							</div>
+							<button type="submit" class="form-popup__button button button--gold">
+								Оплатить картой
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240703114428"></script>
 </body>
 
 </html>

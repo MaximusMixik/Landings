@@ -183,7 +183,8 @@ body::after {
   overflow: auto;
   pointer-events: auto
 }
-.popup {
+.popup,
+.popup-contact {
   position: fixed;
   top: 0;
   left: 0;
@@ -194,14 +195,14 @@ body::after {
   visibility: hidden;
   pointer-events: none
 }
+.popup-contact__wrapper,
 .popup__wrapper {
   align-items: center;
   min-height: 100%;
   flex: 1 1 auto;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center
+  justify-content: center
 }
 .popup__body {
   visibility: hidden;
@@ -230,6 +231,120 @@ body::after {
 }
 .popup__close {
   margin: 0 auto
+}
+.popup-contact__border {
+  padding: .0625rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(130deg,#807d7b 0,#0d0b0b 14%,#0d0b0b 83%,#807d7b 100%);
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  width: 100%;
+  max-width: 71.25rem
+}
+.lock .popup-contact__border {
+  visibility: visible
+}
+.popup_show .popup-contact__border {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  pointer-events: all
+}
+.popup-contact__body {
+  position: relative;
+  width: 100%;
+  background-color: #0e0c0c;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  text-align: center
+}
+.popup-contact__body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0
+}
+.popup-contact__close {
+  position: absolute;
+  z-index: 3
+}
+.popup-contact__close::after,
+.popup-contact__close::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: .125rem;
+  background-color: var(--text-accent);
+  border-radius: .3125rem
+}
+.popup-contact__close::before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+.popup-contact__close::after {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+.popup-contact__content {
+  text-align: center;
+  max-width: 56.25rem;
+  margin-inline: auto;
+  position: relative;
+  z-index: 2
+}
+.popup-contact__title {
+  text-shadow: 0 .25rem .5rem rgba(155,155,155,.24);
+  background: linear-gradient(280deg,#696969 -17%,#fff 13%,#afafaf 80%,#555353 100%)
+}
+.popup-contact__text {
+  max-width: 35rem;
+  margin-inline: auto
+}
+.form-popup__item {
+  position: relative
+}
+.form-popup__item .form__error {
+  position: absolute;
+  width: 100%;
+  height: -webkit-max-content;
+  height: max-content;
+  top: 105%;
+  left: 0;
+  color: red;
+  font-size: .75rem;
+  transition: all .3s ease
+}
+.form-popup__input {
+  border-radius: 1rem;
+  border: .0625rem solid #696969;
+  background-color: #0d0b0b;
+  max-width: 34.5rem;
+  margin-inline: auto;
+  width: 100%;
+  transition: border-color .3s ease,opacity .3s ease
+}
+.form-popup__input._form-error {
+  border-color: red
+}
+.form-popup__input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 3.125rem #0d0b0b!important;
+  -webkit-text-fill-color: #fff!important;
+  color: #fff!important
+}
+.form-popup__text {
+  color: var(--text-secondary);
+  opacity: .3
+}
+.form-popup__button {
+  margin-inline: auto
 }
 .ibg {
   width: 100%;
@@ -1199,6 +1314,7 @@ body::after {
 .description-buy__title span,
 .hero__title,
 .logo span,
+.popup-contact__title,
 .referral--active .referral__content,
 .referral__content,
 .subtitle,
@@ -1256,6 +1372,48 @@ body::after {
   }
   .popup__close {
     max-width: 16.5rem
+  }
+  .popup-contact__body {
+    padding: 5rem
+  }
+  .popup-contact__body::before {
+    background: url(../../img/popup/bg-desk.svg) 0 0/cover no-repeat
+  }
+  .popup-contact__title {
+    font-size: 5.5rem
+  }
+  .popup-contact__title:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .popup-contact__text {
+    font-size: 2.875rem
+  }
+  .popup-contact__text:not(:last-child) {
+    margin-bottom: 2.75rem
+  }
+  .form-popup__item:not(:last-child) {
+    margin-bottom: 1.875rem
+  }
+  .form-popup__input {
+    font-size: 1.5rem
+  }
+  .form-popup__input {
+    min-height: 5rem
+  }
+  .form-popup__input {
+    padding: 1.5rem
+  }
+  .form-popup__text {
+    font-size: 1.25rem
+  }
+  .form-popup__text:not(:last-child) {
+    margin-bottom: 2.75rem
+  }
+  .form-popup__button {
+    max-width: 16.5rem
+  }
+  .form-popup__button {
+    min-height: 5rem
   }
   .logo {
     gap: .6875rem
@@ -2008,6 +2166,18 @@ body::after {
   }
 }
 @media (min-width:110em) {
+  .popup-contact__close {
+    top: 2.75rem
+  }
+  .popup-contact__close {
+    right: 2.75rem
+  }
+  .popup-contact__close {
+    width: 2.25rem
+  }
+  .popup-contact__close {
+    height: 2.25rem
+  }
   .header__action {
     gap: 1.5rem
   }
@@ -2021,12 +2191,29 @@ body::after {
     font-size: 2.875rem
   }
 }
+@media (max-width:20em) {
+  .popup-contact__close {
+    top: 1rem
+  }
+  .popup-contact__close {
+    right: 1rem
+  }
+  .popup-contact__close {
+    width: 1rem
+  }
+  .popup-contact__close {
+    height: 1rem
+  }
+}
 @media (max-width:61.99875em) {
   .footer__wrapper {
     flex-wrap: wrap
   }
 }
 @media (max-width:48.06125em) {
+  .popup-contact__body::before {
+    background: url(../../img/popup/bg-mob.svg) 0 0/cover no-repeat
+  }
   .logo {
     gap: .5rem
   }
@@ -2193,6 +2380,9 @@ body::after {
   .popup__body {
     padding: 2.25rem 1.5rem
   }
+  .popup-contact__body {
+    padding: 2.25rem 1.5rem
+  }
   .navigation__list {
     padding-left: 1.25rem
   }
@@ -2258,6 +2448,45 @@ body::after {
   }
   .popup__close {
     max-width: 9.875rem
+  }
+  .popup-contact__body {
+    padding: 2.25rem
+  }
+  .popup-contact__title {
+    font-size: 1.5rem
+  }
+  .popup-contact__title:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .popup-contact__text {
+    font-size: 1rem
+  }
+  .popup-contact__text:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .form-popup__item:not(:last-child) {
+    margin-bottom: 1.25rem
+  }
+  .form-popup__input {
+    font-size: 1rem
+  }
+  .form-popup__input {
+    min-height: 2.75rem
+  }
+  .form-popup__input {
+    padding: .75rem
+  }
+  .form-popup__text {
+    font-size: .75rem
+  }
+  .form-popup__text:not(:last-child) {
+    margin-bottom: 1rem
+  }
+  .form-popup__button {
+    max-width: 9.75rem
+  }
+  .form-popup__button {
+    min-height: 2.75rem
   }
   .logo img,
   .logo svg {
@@ -2749,6 +2978,136 @@ body::after {
   @supports not (max-width:clamp(9.875rem ,4.0434189936rem + 25.9181378062vw ,16.5rem)) {
     .popup__close {
       max-width: calc(9.875rem + 6.625 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (padding:clamp(2.25rem ,-0.1706562668rem + 10.7584722969vw ,5rem)) {
+    .popup-contact__body {
+      padding: clamp(2.25rem ,-.1706562668rem + 10.7584722969vw ,5rem)
+    }
+  }
+  @supports not (padding:clamp(2.25rem ,-0.1706562668rem + 10.7584722969vw ,5rem)) {
+    .popup-contact__body {
+      padding: calc(2.25rem + 2.75 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (font-size:clamp(1.5rem ,-2.0209545699rem + 15.6486869774vw ,5.5rem)) {
+    .popup-contact__title {
+      font-size: clamp(1.5rem ,-2.0209545699rem + 15.6486869774vw ,5.5rem)
+    }
+  }
+  @supports not (font-size:clamp(1.5rem ,-2.0209545699rem + 15.6486869774vw ,5.5rem)) {
+    .popup-contact__title {
+      font-size: calc(1.5rem + 4 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (margin-bottom:clamp(0.5rem ,0.2799403394rem + 0.9780429361vw ,0.75rem)) {
+    .popup-contact__title:not(:last-child) {
+      margin-bottom: clamp(.5rem ,.2799403394rem + .9780429361vw ,.75rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(0.5rem ,0.2799403394rem + 0.9780429361vw ,0.75rem)) {
+    .popup-contact__title:not(:last-child) {
+      margin-bottom: calc(.5rem + .25 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (font-size:clamp(1rem ,-0.6504474546rem + 7.3353220206vw ,2.875rem)) {
+    .popup-contact__text {
+      font-size: clamp(1rem ,-.6504474546rem + 7.3353220206vw ,2.875rem)
+    }
+  }
+  @supports not (font-size:clamp(1rem ,-0.6504474546rem + 7.3353220206vw ,2.875rem)) {
+    .popup-contact__text {
+      font-size: calc(1rem + 1.875 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (margin-bottom:clamp(0.75rem ,-1.010477285rem + 7.8243434887vw ,2.75rem)) {
+    .popup-contact__text:not(:last-child) {
+      margin-bottom: clamp(.75rem ,-1.010477285rem + 7.8243434887vw ,2.75rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(0.75rem ,-1.010477285rem + 7.8243434887vw ,2.75rem)) {
+    .popup-contact__text:not(:last-child) {
+      margin-bottom: calc(.75rem + 2 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (margin-bottom:clamp(1.25rem ,0.6998508485rem + 2.4451073402vw ,1.875rem)) {
+    .form-popup__item:not(:last-child) {
+      margin-bottom: clamp(1.25rem ,.6998508485rem + 2.4451073402vw ,1.875rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(1.25rem ,0.6998508485rem + 2.4451073402vw ,1.875rem)) {
+    .form-popup__item:not(:last-child) {
+      margin-bottom: calc(1.25rem + .625 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
+    .form-popup__input {
+      font-size: clamp(1rem ,.5598806788rem + 1.9560858722vw ,1.5rem)
+    }
+  }
+  @supports not (font-size:clamp(1rem ,0.5598806788rem + 1.9560858722vw ,1.5rem)) {
+    .form-popup__input {
+      font-size: calc(1rem + .5 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
+    .form-popup__input {
+      min-height: clamp(2.75rem ,.7694630544rem + 8.8023864248vw ,5rem)
+    }
+  }
+  @supports not (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
+    .form-popup__input {
+      min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (padding:clamp(0.75rem ,0.0898210181rem + 2.9341288083vw ,1.5rem)) {
+    .form-popup__input {
+      padding: clamp(.75rem ,.0898210181rem + 2.9341288083vw ,1.5rem)
+    }
+  }
+  @supports not (padding:clamp(0.75rem ,0.0898210181rem + 2.9341288083vw ,1.5rem)) {
+    .form-popup__input {
+      padding: calc(.75rem + .75 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (font-size:clamp(0.75rem ,0.3098806788rem + 1.9560858722vw ,1.25rem)) {
+    .form-popup__text {
+      font-size: clamp(.75rem ,.3098806788rem + 1.9560858722vw ,1.25rem)
+    }
+  }
+  @supports not (font-size:clamp(0.75rem ,0.3098806788rem + 1.9560858722vw ,1.25rem)) {
+    .form-popup__text {
+      font-size: calc(.75rem + .5 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (margin-bottom:clamp(1rem ,-0.5404176243rem + 6.8463005526vw ,2.75rem)) {
+    .form-popup__text:not(:last-child) {
+      margin-bottom: clamp(1rem ,-.5404176243rem + 6.8463005526vw ,2.75rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(1rem ,-0.5404176243rem + 6.8463005526vw ,2.75rem)) {
+    .form-popup__text:not(:last-child) {
+      margin-bottom: calc(1rem + 1.75 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (max-width:clamp(9.75rem ,3.8083891633rem + 26.4071592743vw ,16.5rem)) {
+    .form-popup__button {
+      max-width: clamp(9.75rem ,3.8083891633rem + 26.4071592743vw ,16.5rem)
+    }
+  }
+  @supports not (max-width:clamp(9.75rem ,3.8083891633rem + 26.4071592743vw ,16.5rem)) {
+    .form-popup__button {
+      max-width: calc(9.75rem + 6.75 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+  @supports (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
+    .form-popup__button {
+      min-height: clamp(2.75rem ,.7694630544rem + 8.8023864248vw ,5rem)
+    }
+  }
+  @supports not (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
+    .form-popup__button {
+      min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
     }
   }
   @supports (flex-basis:clamp(2.25rem ,0.9296420363rem + 5.8682576165vw ,3.75rem)) {
@@ -3739,6 +4098,48 @@ body::after {
   @supports not (min-height:clamp(2.75rem ,0.7694630544rem + 8.8023864248vw ,5rem)) {
     .support__button {
       min-height: calc(2.75rem + 2.25 * (100vw - 22.5rem)/ 25.56125)
+    }
+  }
+}
+@media (min-width:20em) and (max-width:110em) {
+  @supports (top:clamp(1rem ,0.6111111111rem + 1.9444444444vw ,2.75rem)) {
+    .popup-contact__close {
+      top: clamp(1rem ,.6111111111rem + 1.9444444444vw ,2.75rem)
+    }
+  }
+  @supports not (top:clamp(1rem ,0.6111111111rem + 1.9444444444vw ,2.75rem)) {
+    .popup-contact__close {
+      top: calc(1rem + 1.75 * (100vw - 20rem)/ 90)
+    }
+  }
+  @supports (right:clamp(1rem ,0.6111111111rem + 1.9444444444vw ,2.75rem)) {
+    .popup-contact__close {
+      right: clamp(1rem ,.6111111111rem + 1.9444444444vw ,2.75rem)
+    }
+  }
+  @supports not (right:clamp(1rem ,0.6111111111rem + 1.9444444444vw ,2.75rem)) {
+    .popup-contact__close {
+      right: calc(1rem + 1.75 * (100vw - 20rem)/ 90)
+    }
+  }
+  @supports (width:clamp(1rem ,0.7222222222rem + 1.3888888889vw ,2.25rem)) {
+    .popup-contact__close {
+      width: clamp(1rem ,.7222222222rem + 1.3888888889vw ,2.25rem)
+    }
+  }
+  @supports not (width:clamp(1rem ,0.7222222222rem + 1.3888888889vw ,2.25rem)) {
+    .popup-contact__close {
+      width: calc(1rem + 1.25 * (100vw - 20rem)/ 90)
+    }
+  }
+  @supports (height:clamp(1rem ,0.7222222222rem + 1.3888888889vw ,2.25rem)) {
+    .popup-contact__close {
+      height: clamp(1rem ,.7222222222rem + 1.3888888889vw ,2.25rem)
+    }
+  }
+  @supports not (height:clamp(1rem ,0.7222222222rem + 1.3888888889vw ,2.25rem)) {
+    .popup-contact__close {
+      height: calc(1rem + 1.25 * (100vw - 20rem)/ 90)
     }
   }
 }

@@ -222,28 +222,59 @@ body {
 .content-header__discount {
   margin-top: -4.8125rem
 }
-.faq__item,
-.program__item {
-  position: relative;
-  padding: .9375rem 1.25rem;
-  border-radius: 1.875rem;
-  background: linear-gradient(270deg,#11080a 0,#481e31 100%)
+[data-watch] {
+  opacity: 0;
+  transition: opacity .5s ease,-webkit-transform .5s ease;
+  transition: opacity .5s ease,transform .5s ease;
+  transition: opacity .5s ease,transform .5s ease,-webkit-transform .5s ease
 }
-.faq__item::before,
-.program__item::before {
-  content: "";
-  position: absolute;
-  width: calc(100% + .125rem);
-  height: calc(100% + .125rem);
-  top: -.0625rem;
-  left: -.0625rem;
-  z-index: -1;
-  background: linear-gradient(260deg,rgba(255,255,255,.4) 0,rgba(255,255,255,0) 100%);
-  border-radius: 1.875rem
+[data-watch].show-bottom {
+  -webkit-transform: translateY(6.25rem);
+  transform: translateY(6.25rem)
+}
+[data-watch].show-left {
+  -webkit-transform: translateX(6.25rem);
+  transform: translateX(6.25rem)
+}
+[data-watch].show-right {
+  -webkit-transform: translateX(-6.25rem);
+  transform: translateX(-6.25rem)
+}
+[data-watch].show-scale {
+  -webkit-transform: scale(.7);
+  transform: scale(.7)
+}
+[data-watch].delay-1 {
+  transition-delay: .2s
+}
+[data-watch].delay-2 {
+  transition-delay: .4s
+}
+[data-watch].delay-3 {
+  transition-delay: .6s
+}
+[data-watch].delay-4 {
+  transition-delay: .8s
+}
+[data-watch].delay-5 {
+  transition-delay: 1s
+}
+[data-watch].delay-6 {
+  transition-delay: 1.2s
+}
+[data-watch].delay-7 {
+  transition-delay: 1.4s
+}
+[data-watch]._watcher-view {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1
 }
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: -1;
   background-color: #441d2e;
   padding: .75rem
 }
@@ -252,8 +283,8 @@ body {
 }
 .footer__decoration {
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 5.0625rem;
+  height: 5.875rem;
   right: 0;
   bottom: 0
 }
@@ -285,7 +316,8 @@ body {
   z-index: 1
 }
 .hero__content {
-  text-align: center
+  text-align: center;
+  position: relative
 }
 .hero__label {
   letter-spacing: .0875rem;
@@ -316,8 +348,7 @@ body {
 .hero__image {
   margin-top: -2.3125rem;
   margin-bottom: -4.0625rem;
-  position: relative;
-  z-index: 1
+  position: relative
 }
 .hero__subtitle,
 .hero__text,
@@ -326,7 +357,6 @@ body {
   z-index: 2
 }
 .hero__discount {
-  z-index: 2;
   position: absolute;
   right: -1.5rem;
   top: 50%;
@@ -340,6 +370,10 @@ body {
 }
 .hero__text:not(:last-child) {
   margin-bottom: 1rem
+}
+.hero__action {
+  position: relative;
+  z-index: 2
 }
 .hero__bg,
 .hero__bg img {
@@ -391,40 +425,55 @@ body {
   margin-bottom: 1.25rem
 }
 .suitable__list>:nth-child(1) {
-  max-width: 100%;
+  max-width: 100%
+}
+.suitable__list>:nth-child(1)._watcher-view {
   -webkit-transform: rotate(-.489deg);
   transform: rotate(-.489deg)
 }
 .suitable__list>:nth-child(2) {
-  -webkit-transform: rotate(.6deg);
-  transform: rotate(.6deg);
   max-width: 90%
 }
+.suitable__list>:nth-child(2)._watcher-view {
+  -webkit-transform: rotate(.6deg);
+  transform: rotate(.6deg)
+}
 .suitable__list>:nth-child(3) {
-  max-width: 65%;
+  max-width: 65%
+}
+.suitable__list>:nth-child(3)._watcher-view {
   -webkit-transform: rotate(-.591deg);
   transform: rotate(-.591deg)
 }
 .suitable__list>:nth-child(3),
 .suitable__list>:nth-child(4) {
-  max-width: 65%;
+  max-width: 65%
+}
+.suitable__list>:nth-child(3)._watcher-view,
+.suitable__list>:nth-child(4)._watcher-view {
   -webkit-transform: rotate(1.013deg);
   transform: rotate(1.013deg)
 }
 .suitable__list>:nth-child(5) {
-  max-width: 80%;
+  max-width: 80%
+}
+.suitable__list>:nth-child(5)._watcher-view {
   -webkit-transform: rotate(1.811deg);
   transform: rotate(1.811deg)
 }
 .suitable__list>:nth-child(6) {
   max-width: 90%;
-  -webkit-transform: rotate(-1.753deg);
-  transform: rotate(-1.753deg);
   margin-top: .375rem;
   margin-bottom: .375rem
 }
+.suitable__list>:nth-child(6)._watcher-view {
+  -webkit-transform: rotate(-1.753deg);
+  transform: rotate(-1.753deg)
+}
 .suitable__list>:nth-child(7) {
-  max-width: 90%;
+  max-width: 90%
+}
+.suitable__list>:nth-child(7)._watcher-view {
   -webkit-transform: rotate(-.31deg);
   transform: rotate(-.31deg)
 }
@@ -444,6 +493,7 @@ body {
 }
 .intro-suitable__item {
   position: relative;
+  z-index: 2;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -506,9 +556,9 @@ body {
 }
 .intro-suitable__bg {
   position: absolute;
-  width: 12.5rem;
-  height: 12.5rem;
-  bottom: -3.125rem;
+  width: 17.5rem;
+  height: 17.5rem;
+  bottom: -3.75rem;
   z-index: 1;
   left: 0;
   -o-object-position: left bottom;
@@ -530,6 +580,14 @@ body {
   margin-bottom: 1.25rem
 }
 .program__item {
+  background: linear-gradient(260deg,rgba(255,255,255,.4) 0,rgba(255,255,255,0) 100%);
+  border-radius: 1.875rem;
+  padding: .0625rem
+}
+.program__box {
+  border-radius: 1.875rem;
+  padding: .9375rem 1.25rem;
+  background: linear-gradient(270deg,#11080a 0,#481e31 100%);
   position: relative;
   display: flex;
   flex-direction: row-reverse;
@@ -538,10 +596,10 @@ body {
   font-weight: 300;
   line-height: 1.5
 }
-.program__item strong {
+.program__box strong {
   font-weight: 600
 }
-.program__item::after {
+.program__box::after {
   content: counter(myCounter);
   counter-increment: myCounter;
   z-index: 1;
@@ -622,6 +680,10 @@ body {
 .item-prices__list>:nth-child(1) {
   justify-self: start
 }
+.item-prices__list>:nth-child(1)._watcher-view {
+  -webkit-transform: rotate(-2.845deg);
+  transform: rotate(-2.845deg)
+}
 .item-prices__list>:nth-child(2) {
   justify-self: end
 }
@@ -646,6 +708,10 @@ body {
 }
 .item-prices__new-price:not(:last-child) {
   margin-bottom: 1.0625rem
+}
+.item-prices__action.show-bottom {
+  -webkit-transform: translateY(.625rem);
+  transform: translateY(.625rem)
 }
 .bonus-prices {
   border-radius: 1.25rem;
@@ -716,6 +782,16 @@ body {
 }
 .faq__list:not(:last-child) {
   margin-bottom: 1.25rem
+}
+.faq__item {
+  background: linear-gradient(260deg,rgba(255,255,255,.4) 0,rgba(255,255,255,0) 100%);
+  border-radius: 1.875rem;
+  padding: .0625rem
+}
+.faq__box {
+  border-radius: 1.875rem;
+  padding: .9375rem 1.25rem;
+  background: linear-gradient(270deg,#11080a 0,#481e31 100%)
 }
 .faq__question {
   font-weight: 600

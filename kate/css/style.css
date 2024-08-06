@@ -17,7 +17,7 @@
 body,
 html {
   height: 100%;
-  min-width: 393px
+  min-width: 320px
 }
 body {
   color: #fff;
@@ -72,7 +72,8 @@ h6 {
 }
 body {
   background-color: #080707;
-  line-height: 1.2
+  line-height: 1.2;
+  overflow-x: hidden
 }
 .lock body {
   overflow: hidden;
@@ -84,9 +85,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  max-width: 25rem;
-  margin-inline: auto
+  overflow: hidden
 }
 @supports (overflow:clip) {
   .wrapper {
@@ -144,7 +143,7 @@ body {
 }
 .discount {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   width: 8.8125rem;
   height: 8.8125rem
 }
@@ -309,7 +308,7 @@ body {
   content: "";
   position: absolute;
   width: 100%;
-  height: 25%;
+  height: 35%;
   left: 0;
   bottom: 0;
   background: linear-gradient(180deg,rgba(255,255,255,0) 0,#000 100%);
@@ -324,14 +323,14 @@ body {
   text-transform: uppercase
 }
 .hero__title {
-  -webkit-text-stroke-width: 1;
-  -webkit-text-stroke-color: rgba(255,255,255,.1);
+  -webkit-text-stroke-width: .0625rem;
+  -webkit-text-stroke-color: rgba(252,252,252,.1);
   font-family: Oswald;
   font-size: 6.5rem;
   font-weight: 700;
   line-height: .9;
   text-transform: uppercase;
-  background: radial-gradient(170% 50% at 50% 50%,#fff 0,rgba(153,153,153,0) 100%);
+  background: linear-gradient(90deg,rgba(0,0,0,.1) 0,rgba(129,129,129,.6) 25%,#fff 50%,rgba(138,138,138,.6) 75%,rgba(0,0,0,.1) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent
@@ -350,6 +349,10 @@ body {
   margin-bottom: -4.0625rem;
   position: relative
 }
+.hero__image>img {
+  max-width: 80%;
+  margin-inline: auto
+}
 .hero__subtitle,
 .hero__text,
 .hero__title {
@@ -359,9 +362,11 @@ body {
 .hero__discount {
   position: absolute;
   right: -1.5rem;
-  top: 50%;
+  top: 40%;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+  width: 8.8125rem;
+  height: 8.8125rem
 }
 .hero__text {
   font-weight: 600;
@@ -392,15 +397,15 @@ body {
   position: relative;
   z-index: 1
 }
-.suitable__intro {
-  margin-bottom: -1.25rem
-}
-.suitable__content {
-  border-radius: 1.875rem;
+.suitable__container {
   background-color: #ffedf5;
+  border-radius: 1.875rem;
   padding: 2.3125rem .9375rem .9375rem;
   position: relative;
   z-index: 1
+}
+.suitable__intro {
+  margin-bottom: -1.25rem
 }
 .suitable__image {
   position: absolute;
@@ -541,7 +546,8 @@ body {
   padding: 3%;
   align-self: flex-end;
   background: linear-gradient(150deg,rgba(226,94,158,0) 0,rgba(226,94,158,.4) 100%);
-  margin-right: -1.875rem;
+  -webkit-transform: translateX(1.875rem);
+  transform: translateX(1.875rem);
   margin-top: -2.5rem
 }
 .intro-suitable__item:nth-child(3) .intro-suitable__decor {
@@ -622,6 +628,12 @@ body {
   z-index: 2;
   padding-top: 1.375rem
 }
+.prices__container {
+  padding: 0
+}
+.prices__header {
+  padding: 0 .9375rem
+}
 .prices__list {
   display: grid;
   gap: 1.25rem
@@ -633,7 +645,6 @@ body {
   overflow: hidden;
   background-color: #ffecf5;
   box-shadow: 0 .875rem 3.375rem 0 rgba(0,0,0,.25);
-  margin: 0 -.9375rem;
   color: #080707;
   position: relative;
   z-index: 1
@@ -713,6 +724,10 @@ body {
   -webkit-transform: translateY(.625rem);
   transform: translateY(.625rem)
 }
+.item-prices__action.show-bottom._watcher-view {
+  -webkit-transform: translate(0);
+  transform: translate(0)
+}
 .bonus-prices {
   border-radius: 1.25rem;
   border: .0625rem solid #e23589;
@@ -791,7 +806,9 @@ body {
 .faq__box {
   border-radius: 1.875rem;
   padding: .9375rem 1.25rem;
-  background: linear-gradient(270deg,#11080a 0,#481e31 100%)
+  background: linear-gradient(270deg,#11080a 0,#481e31 100%);
+  display: grid;
+  gap: .625rem
 }
 .faq__question {
   font-weight: 600

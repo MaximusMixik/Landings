@@ -65,6 +65,14 @@ a {
   color: inherit;
   text-decoration: none
 }
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+  border: 0;
+  outline: 0;
+  background: 0
+}
 ul li {
   list-style: none
 }
@@ -1524,7 +1532,7 @@ button.swiper-pagination-bullet {
     padding-top: 1.875rem
   }
   .delivery {
-    padding-bottom: 8.75rem
+    padding-bottom: 7.5rem
   }
   .delivery__header {
     margin-bottom: 1.875rem
@@ -1709,6 +1717,9 @@ button.swiper-pagination-bullet {
   .footer__container {
     align-items: start
   }
+  .footer__button {
+    margin-inline: auto
+  }
   .menu-footer__link::before {
     flex: 0 0 .5rem;
     width: .5rem;
@@ -1822,7 +1833,7 @@ button.swiper-pagination-bullet {
     padding-top: clamp(1.875rem ,1.1214204974rem + 3.7678975132vw ,5rem)
   }
   .delivery {
-    padding-bottom: clamp(8.75rem ,5.328749058rem + 17.1062547099vw ,22.9375rem)
+    padding-bottom: clamp(7.5rem ,3.777317257rem + 18.6134137151vw ,22.9375rem)
   }
   .delivery__header {
     margin-bottom: clamp(1.875rem ,1.0460625471rem + 4.1446872645vw ,5.3125rem)

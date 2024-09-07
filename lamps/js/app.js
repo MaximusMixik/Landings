@@ -3846,7 +3846,7 @@
             speed: 800,
             loop: true,
             autoplay: {
-                delay: 2e3,
+                delay: 1e4,
                 disableOnInteraction: false
             },
             pagination: {

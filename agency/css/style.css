@@ -293,9 +293,7 @@ body {
 }
 .header {
   position: sticky;
-  top: .75rem;
   left: 0;
-  padding: .75rem;
   z-index: 10
 }
 .header__container {
@@ -823,6 +821,10 @@ body {
   .spollers__body {
     max-width: 53.75rem
   }
+  .header {
+    padding: .75rem;
+    top: .75rem
+  }
   .header__container {
     backdrop-filter: blur(.5rem);
     transform: translate3d(0,0,0);
@@ -915,6 +917,9 @@ body {
   }
   .about__item {
     justify-content: space-between
+  }
+  .about__item:nth-child(even) {
+    flex-direction: row-reverse
   }
   .about__item:nth-child(4n+1)::before {
     top: 28%;
@@ -1103,6 +1108,10 @@ body {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
   }
+  .header {
+    padding: .375rem;
+    top: 0
+  }
   ._header-scroll .header__container {
     background-color: rgba(18,18,18,.95)
   }
@@ -1193,11 +1202,9 @@ body {
   .about__list {
     gap: 3.125rem
   }
-  .about__list>:nth-child(odd) {
-    flex-direction: column-reverse
-  }
   .about__item {
-    flex-direction: column
+    flex-direction: column;
+    flex-direction: column-reverse
   }
   .about__item:nth-child(4n+1)::before,
   .about__item:nth-child(4n+3)::before {

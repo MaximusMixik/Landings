@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250213164700">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250224192010">
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="description" content="Agency, Suspicious activity has been detected on your wallet.">
@@ -503,16 +503,23 @@
 							<span>Контакты</span> агентства
 						</h2>
 						<div class="contact__text">
-							Свяжитесь с нами, чтобы обсудить детали сотрудничества. Заполните анкету, и наш HR-отдел свяжется с вами
-							для организации
-							звонка с продюсерами.
+							Свяжитесь с нами, чтобы обсудить детали сотрудничества. Заполните форму, и наш HR-отдел свяжется с вами:
 						</div>
-						<a href="#" class="contact__button button button--accent">
-							<span>Написать в телеграм</span>
-							<svg>
-								<use xlink:href="img/icons/icons.svg#telegram"></use>
-							</svg>
-						</a>
+						<form class="contact__form form" action="#" method="POST">
+							<div class="form__row">
+								<div class="form__item">
+									<label for="user-name">Ваше имя</label>
+									<input type="text" name="user-name" id="user-name" placeholder="Введите ваше имя">
+								</div>
+								<div class="form__item">
+									<label for="user-nick">Ваш ник в Telegram</label>
+									<input type="text" name="user-nick" id="user-nick" placeholder="@niktelegram">
+								</div>
+							</div>
+							<button type="submit" href="#" class="form__button button button--accent">
+								Отправить заявку
+							</button>
+						</form>
 					</div>
 					<div class="contact__image">
 						<img loading="lazy" src="img/contact/girl.webp" alt="girl">
@@ -583,7 +590,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20250213164700"></script>
+	<script src="js/app.min.js?_v=20250224192010"></script>
 </body>
 
 </html>

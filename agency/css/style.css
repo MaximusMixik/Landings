@@ -183,7 +183,7 @@ textarea {
   -webkit-appearance: none;
   appearance: none
 }
-.form input {
+.form input:not([disabled]):not([type=submit]) {
   font-size: .875rem;
   line-height: 1.5;
   width: 100%;
@@ -196,43 +196,43 @@ textarea {
   color: var(--primary);
   min-height: 3.125rem
 }
-.form input::-webkit-input-placeholder {
+.form input:not([disabled]):not([type=submit])::-webkit-input-placeholder {
   color: rgba(255,255,255,.4)
 }
-.form input:-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit]):-ms-input-placeholder {
   color: rgba(255,255,255,.4)
 }
-.form input::-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit])::-ms-input-placeholder {
   color: rgba(255,255,255,.4)
 }
-.form input::placeholder {
+.form input:not([disabled]):not([type=submit])::placeholder {
   color: rgba(255,255,255,.4)
 }
-.form input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
   -webkit-transition: opacity .3s;
   transition: opacity .3s
 }
-.form input[placeholder]:not([data-placeholder-nohiden]):-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden]):-ms-input-placeholder {
   -ms-transition: opacity .3s;
   transition: opacity .3s
 }
-.form input[placeholder]:not([data-placeholder-nohiden])::-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden])::-ms-input-placeholder {
   -ms-transition: opacity .3s;
   transition: opacity .3s
 }
-.form input[placeholder]:not([data-placeholder-nohiden])::placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden])::placeholder {
   transition: opacity .3s
 }
-.form input[placeholder]:not([data-placeholder-nohiden]):focus::-webkit-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden]):focus::-webkit-input-placeholder {
   opacity: 0
 }
-.form input[placeholder]:not([data-placeholder-nohiden]):focus:-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden]):focus:-ms-input-placeholder {
   opacity: 0
 }
-.form input[placeholder]:not([data-placeholder-nohiden]):focus::-ms-input-placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden]):focus::-ms-input-placeholder {
   opacity: 0
 }
-.form input[placeholder]:not([data-placeholder-nohiden]):focus::placeholder {
+.form input:not([disabled]):not([type=submit])[placeholder]:not([data-placeholder-nohiden]):focus::placeholder {
   opacity: 0
 }
 .menu__list {
@@ -424,7 +424,7 @@ textarea {
   align-self: center
 }
 .header-min {
-  position: fixed;
+  position: absolute;
   left: 0;
   z-index: 10;
   width: 100%;
@@ -894,7 +894,8 @@ textarea {
   z-index: 1;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 1.875rem
+  border-radius: 1.875rem;
+  pointer-events: none
 }
 .thanks {
   position: relative;

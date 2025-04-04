@@ -304,6 +304,10 @@ textarea {
 .spollers__body {
   padding: 1rem 1.6875rem .625rem
 }
+.spollers__body span {
+  font-weight: 700;
+  color: var(--text-secondary)
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -676,7 +680,8 @@ textarea {
   text-align: center
 }
 .review__container {
-  position: relative
+  position: relative;
+  overflow: hidden
 }
 .review__navigation {
   position: absolute;
@@ -700,6 +705,9 @@ textarea {
   max-width: 100%;
   aspect-ratio: 33/47;
   border-radius: .75rem
+}
+.navigation {
+  padding-inline: .625rem
 }
 .navigation__button {
   flex: 0 0 3rem;
@@ -1096,7 +1104,7 @@ textarea {
     min-width: 22.1875rem
   }
   .learn {
-    overflow: clip;
+    overflow-x: clip;
     padding-block: 3.75rem
   }
   .learn__container {
@@ -1153,6 +1161,20 @@ textarea {
   }
   .review__title:not(:last-child) {
     margin-bottom: 3.125rem
+  }
+  .review__wrapper {
+    padding-block: 1.75rem
+  }
+  .review__slide {
+    opacity: .5;
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+    transition: all .5s ease
+  }
+  .review__slide.swiper-slide-active {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
   }
   .review__button {
     margin-top: 2.5rem;

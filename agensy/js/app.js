@@ -3466,6 +3466,7 @@
             modules: [ Navigation ],
             observer: true,
             observeParents: true,
+            centeredSlides: true,
             spaceBetween: 0,
             speed: 800,
             spaceBetween: 20,

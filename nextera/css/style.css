@@ -1146,7 +1146,7 @@ body.lock {
   }
   .footer__container {
     flex-direction: column;
-    padding-bottom: 212px
+    padding-block: 6.375rem 13.25rem
   }
   .footer__logo img {
     -webkit-transform: translateX(11px);
@@ -1269,6 +1269,11 @@ body.lock {
   }
   .error__title {
     font-size: 1.75rem
+  }
+}
+@media (max-width:29.99875em) {
+  .footer__container {
+    padding-block: 5rem 12.125rem
   }
 }
 @media (any-hover:hover) {

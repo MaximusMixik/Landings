@@ -36,12 +36,34 @@
         }
     };
     function menuInit() {
-        if (document.querySelector(".icon-menu")) document.addEventListener("click", (function(e) {
-            if (bodyLockStatus && e.target.closest(".icon-menu")) {
+        const iconMenu = document.querySelector(".icon-menu");
+        document.querySelector(".menu__body");
+        if (iconMenu) {
+            iconMenu.addEventListener("click", (function(e) {
+                e.stopPropagation();
                 bodyLockToggle();
                 document.documentElement.classList.toggle("menu-open");
+            }));
+            document.querySelectorAll(".menu__link").forEach((link => {
+                link.addEventListener("click", functions_menuClose);
+            }));
+            document.addEventListener("click", (function(e) {
+                if (document.documentElement.classList.contains("menu-open")) if (!e.target.closest(".menu__body") && !e.target.closest(".icon-menu")) functions_menuClose();
+            }));
+            const heroIframe = document.querySelector(".hero iframe");
+            if (heroIframe) {
+                heroIframe.addEventListener("mouseenter", (function() {
+                    this.style.pointerEvents = "none";
+                }));
+                window.addEventListener("mousemove", (function(e) {
+                    if (!e.target.closest(".menu__body") && !e.target.closest(".icon-menu") && document.documentElement.classList.contains("menu-open")) functions_menuClose();
+                }));
             }
-        }));
+        }
+    }
+    function functions_menuClose() {
+        bodyUnlock();
+        document.documentElement.classList.remove("menu-open");
     }
     function ssr_window_esm_isObject(obj) {
         return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
@@ -3485,25 +3507,45 @@
             slidesPerView: 1,
             spaceBetween: 20,
             speed: 800,
+            autoHeight: true,
             navigation: {
                 prevEl: ".popup__swiper-button-prev",
                 nextEl: ".popup__swiper-button-next"
             }
         });
+        popupSlider.allowTouchMove = false;
         const popup = document.getElementById("portfolioPopup");
         const closeButton = document.querySelector(".popup__close");
         const closePopup = () => {
             popup.classList.add("hidden");
             document.body.classList.remove("lock");
         };
-        if (mainSlider && popupSlider && popup) mainSlider.on("click", (swiper => {
-            const clickedIndex = swiper.clickedIndex;
-            if (clickedIndex !== void 0 && clickedIndex !== null) {
+        if (mainSlider && popupSlider && popup) {
+            const resetPopupScroll = () => {
+                popup.scrollTop = 0;
+                popup.scrollTo({
+                    top: 0,
+                    behavior: "instant"
+                });
+            };
+            mainSlider.on("click", (swiper => {
+                const clickedIndex = swiper.clickedIndex;
+                if (clickedIndex === void 0 || clickedIndex === null) return;
+                resetPopupScroll();
                 popup.classList.remove("hidden");
                 document.body.classList.add("lock");
                 popupSlider.slideTo(clickedIndex);
-            }
-        }));
+                requestAnimationFrame(resetPopupScroll);
+            }));
+            const closeButtons = document.querySelectorAll(".popup__close");
+            closeButtons.forEach((btn => {
+                btn.addEventListener("click", (() => {
+                    resetPopupScroll();
+                    popup.classList.add("hidden");
+                    document.body.classList.remove("lock");
+                }));
+            }));
+        }
         if (closeButton && popup) closeButton.addEventListener("click", closePopup);
         document.addEventListener("keydown", (e => {
             if (e.key === "Escape" && !popup.classList.contains("hidden")) closePopup();

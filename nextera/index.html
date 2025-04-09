@@ -6,9 +6,21 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250409082409">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250409205802">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="We stands at the forefront of consulting excellence, offering insights across sectors like safety,
 							defense">
@@ -512,7 +524,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20250409082409"></script>
+	<script src="js/app.min.js?_v=20250409205802"></script>
 </body>
 
 </html>

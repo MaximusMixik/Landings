@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let auto = {
+      //   model: 'Audi',
+      //   owner: 'Ivan',
+
+      //   showInfo: function () {
+      //     document.write(`Власником ${this.model} є ${this.owner}`)
+      //   },
+      // }
+      // let person = {
+      //   name: 'Ivan',
+
+      //   printName: function () {
+      //     document.write(this.name)
+      //   },
+      // }
+
+      // document.write(auto.model)
+
+      // auto.showInfo()
+      //=====================================================
+      // Приклад. Створити об’єкт товар.
+      // ----------- Властивості - характеристики ---------
+      // назва товару
+      // ціна
+      // кількість
+      // вартість зберігання в день
+      // ------------ Методи (функіональні можливості) -------------
+      // визначення загальної вартості наявної кількості одиниць
+      // визначити вартість зберігання для заданої кількості днів
+      // зменшення ціни на вказану кількість відсотків
+      // збільшення ціни на вказану кількість відсотків
+
+      // let product = {
+      //   // ----------- Властивості - характеристики ---------
+      //   // назва товару
+      //   title: 'Coffee',
+      //   // ціна
+      //   price: 430,
+      //   // кількість
+      //   count: 32,
+      //   // вартість зберігання в день
+      //   storePricePerDay: 3,
+
+      //   //------------ Методи (функіональні можливості) -------------
+      //   // визначення загальної вартості наявної кількості одиниць
+      //   getTotalPrice: function () {
+      //     return this.price * this.count
+      //   },
+      //   // визначити вартість зберігання для заданої кількості днів
+      //   getStorePriceForDays: function (daysCount) {
+      //     return this.storePricePerDay * daysCount
+      //   },
+      //   // зменшення ціни на вказану кількість відсотків
+      //   reducePrice: function (percent) {
+      //     this.price = this.price * (1 - percent / 100)
+      //   },
+      //   // збільшення ціни на вказану кількість відсотків
+      //   increasePrice: function (percent) {
+      //     this.price *= 1 + percent / 100
+      //   },
+      //   //
+      //   toString: function () {
+      //     return `${this.title} : ${this.price}`
+      //   },
+      //   valueOf: function () {
+      //     return this.getTotalPrice()
+      //   },
+      // }
+
+      // let price10 = product.getStorePriceForDays(10)
+      // document.write(price10)
+      // document.write(`Total: ${product.getTotalPrice()} <br>`)
+      // product.increasePrice(20)
+      // document.write(`Total: ${product.getTotalPrice()} <br>`)
+
+      // document.write(product) //      document.write(product.toString() )
+      // document.write('<br>')
+      // document.write(product * 7) //      document.write(product.toString() )
+      // document.write('Hello' + product) //document.write('Hello' + product.toString())
+
+      //=====================================================
+      //       Приклад. Описати об’єкт «Інвойс»
+      // ----- Властивості-характеристики (дані) ----
+      // номер інвойса
+      // перелік виконаних робіт
+      // сума грошей
+      // ----- Методи --------------------
+      // перетворення у рядок (вивести номер інвойса, кількість виконаних робіт, сума грошей
+      // перетворення у число (повертається сума грошей)
+      // const invoice = {
+      //   // ----- Властивості-характеристики (дані) ----
+      //   // номер інвойса
+      //   number: 23123454,
+      //   // перелік виконаних робіт
+      //   completedTasks: ['created login page', 'created menu'],
+      //   // сума грошей
+      //   money: 32452,
+      //   // ----- Методи --------------------
+      //   // перетворення у рядок (вивести номер інвойса, кількість виконаних робіт, сума грошей
+      //   toString: function () {
+      //     return `${this.number} - ${this.completedTasks.length} - ${this.money}`
+      //   },
+      //   // перетворення у число (повертається сума грошей)
+      //   valueOf: function () {
+      //     return this.money
+      //   },
+      // }
+      // // document.write(invoice) // document.write(invoice.toString())
+      // // document.write(invoice * 10) // document.write(invoice.valueOf()*10)
+
+      // Object.freeze(invoice)
+      // invoice.money = 9999
+      // // document.write(invoice) // document.write(invoice.toString())
+      // invoice.completedTasks[0] = 'Hello'
+      // document.write(invoice.completedTasks)
+
+      // Використовуючи такий опис створити масив інвойсів. Вивести інформацію про інвойси у формі нумерованого списку
+      //  та знайти загальну вартість використовуючи метод перетворення об’єкта у число
+
+      //=====================================================
+      //----- 1) функція фабрика
+      // function getPlayer(initName, initNumber, initAge) {
+      //   return {
+      //     name: initName,
+      //     number: initNumber,
+      //     age: initAge,
+      //   }
+      // }
+
+      // function getPlayer(initName, initNumber, initAge) {
+      //   let obj = {}
+
+      //   obj.name = initName // {name: initName}
+      //   obj.number = initNumber // {name: initName, number: initNumber}
+      //   obj.age = initAge // {name: initName, number: initNumber, age: initAge}
+
+      //   return obj
+      // }
+      //---- 2) функція-конструктор (з великої літери - назва об"єкта реальної дійсності)
+      // function Player(initName, initNumber, initAge = 10) {
+      //   //this={}
+      //   //---- описуємо властивості індивідуальні (у кожного свої)
+      //   this.name = initName // {name: initName}
+      //   this.number = initNumber // {name: initName, number: initNumber}
+      //   this.age = initAge // {name: initName, number: initNumber, age: initAge}
+      //   //return this
+      // }
+
+      // //---- описуємо властивості і методи спільні для усіх
+      // Player.prototype.teamTitle = 'Real'
+      // Player.prototype.isPensioner = function (pensinerAge = 65) {
+      //   return pensinerAge - this.age
+      // }
+
+      // let pl1 = new Player('Pele', 9, 21)
+      // // document.write(pl1.teamTitle)
+      // document.write(pl1.age)
+
+      // console.log(pl1)
+
+      // let team = [
+      //   new Player('Pele1', 9, 21),
+      //   new Player('Pele2', 9, 21),
+      //   new Player('Pele3', 9, 21),
+      //   new Player('Pele4', 9, 21),
+      // ]
+      // console.log(team)
+
+      //=====================================================
+      //       Приклад. Гра «Рулетка»
+      // ----- Властивості -------
+      // кількість полів рулетки
+      // мінімальне значення балів
+      // максимальне значення балів
+      // список згенерованих значень
+
+      // ----- Методи ----------
+      // генерування полів рулетки
+      // виведення списку згенерованих значень
+      // приведення до рядка
+      // крутити рулетку (отримання випадкового балу)
+      // метод гри (користувач крутить рулетку поки не відмовиться)
+      //           поки користувач хоче крутити
+      //                визначаємо рандомне значення рулетки
+      //                додаємо до загальної суми
+      //                повідомляємо користувача про результат та загальну кількість балів
+
+      // function Roulette(cellsNumber, minScore = -100, maxScore = 100) {
+      //   //---- властивості характеристики (у кожного свої)
+      //   this.cellsNumber = cellsNumber
+      //   this.minScore = minScore
+      //   this.maxScore = maxScore
+      //   this.gameField = this.generateGameField()
+      // }
+
+      // // ----- Методи (спільні для всіх)----------
+      // Roulette.prototype.getRandomNumber = function (minValue, maxValue) {
+      //   minValue ??= this.minScore //якщо minValue===undefined то minValue = this.minScore
+      //   maxValue ??= this.maxScore
+      //   return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      // }
+      // // генерування полів рулетки
+      // Roulette.prototype.generateGameField = function () {
+      //   let gameField = []
+      //   for (let cellNum = 0; cellNum < this.cellsNumber; cellNum++) {
+      //     let randScore = this.getRandomNumber()
+      //     gameField.push(randScore)
+      //   }
+      //   return gameField
+      // }
+      // let r1 = new Roulette(20, -500, 500)
+      // // виведення списку згенерованих значень
+      // Roulette.prototype.showField = function () {
+      //   document.write(this.gameField)
+      // }
+      // // приведення до рядка
+      // Roulette.prototype.toString = function () {
+      //   return `Roulette: ${this.minScore} - ${this.maxScore}`
+      // }
+      // // крутити рулетку (отримання випадкового балу)
+      // Roulette.prototype.getRandomScore = function () {
+      //   const randomIndex = this.getRandomNumber(0, this.cellsNumber)
+      //   return this.gameField[randomIndex]
+      // }
+      // // метод гри (користувач крутить рулетку поки не відмовиться)
+      // //           поки користувач хоче крутити
+      // //                визначаємо рандомне значення рулетки
+      // //                додаємо до загальної суми
+      // //                повідомляємо користувача про результат та загальну кількість балів
+      // Roulette.prototype.playGame = function () {
+      //   let totalSum = 0
+      //   while (confirm('Хочете ще грати?')) {
+      //     //                визначаємо рандомне значення рулетки
+      //     const randScore = this.getRandomScore()
+      //     //                додаємо до загальної суми
+      //     totalSum += randScore
+      //     //                повідомляємо користувача про результат та загальну кількість балів
+      //     alert(`Score =${randScore}/nTotal = ${totalSum}`)
+      //   }
+      // }
+      // //---------------
+      // let roulette1 = new Roulette(10, -200, 200)
+      // roulette1.playGame()
+      //=====================================================
+      //       Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+      // іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+      // Використати обидва методи стосовно обидвох об’єктів.
+
+      //=====================================================
+      // Приклад. Дано функцію без формальних параметрів. Знайти суму усіх аргументів, які буде передано у функцію,
+      // використатавши reduce стосовно argumnets
+
+      //=====================================================
+      //   Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+      //=====================================================
+
+      // Приклад. Розробити клас «Передбачувач». Дозволяє кожні вказані кількість секунд отримувати передбачення
+      // Властивості :
+      //      масив можливоих передбачень,
+      //      інтервал між передбаченнями
+      // Методи:
+      //      вибір випадкового передбачення
+      //      метод run, що ініціює запуск таймера і генерування передбачень
+      class Predictor {
+        //--- властвості-характеристики (у кожного свої, і можемо використати у інших методах)
+        constructor(predictionInterval, predictionList) {
+          this.predictionInterval = predictionInterval
+          this.predictionList = predictionList
+        }
+        // ----- Методи:
+        //      вибір випадкового передбачення
+        getRandomPrediction() {
+          const randIndex = Math.floor(
+            Math.random() * this.predictionList.length
+          )
+          return this.predictionList[randIndex]
+        }
+        //      метод run, що ініціює запуск таймера і генерування передбачень
+        run() {
+          setInterval(() => {
+            console.log(this)
+            alert(this.getRandomPrediction())
+          }, this.predictionInterval)
+        }
+      }
+
+      let pr1 = new Predictor(1000, [
+        'PEACE',
+        'LOVE',
+        'MONEY',
+        'BIG MONEY',
+        'BEER',
+        'Шовдарь',
+        'Пікниця',
+      ])
+      // console.log(pr1)
+      pr1.run()
+      //=====================================================
+      //=====================================================
+      //=====================================================
+      //=====================================================
+    </script>
+  </body>
+</html>

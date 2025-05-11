@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    Задача №3
+  </h1>
+  <p>
+    Задача 2. Створити об’єкт «Авто».-
+
+    Поля(властивості)
+    Марка
+    Розмір бака
+    Кількість наявних літрів
+    Кількість місць
+    Кількість пасажирів
+
+    Методи(дії)
+    Заправка на вказану кількість літрів
+    Виведення кількості пасажирів
+    Додавання пасажирів
+    Висадка пасажирів
+
+  </p>
+  <script>
+    class Auto {
+      constructor(mark, tankSize, availableLitersNumber, seatsNumber, passengersNumber) {
+        // Поля(властивості)
+        // Марка
+        this.mark = mark
+
+        // Розмір бака
+        this.tankSize = tankSize
+        // Кількість наявних літрів
+        this.availableLitersNumber = availableLitersNumber
+
+        // Кількість місць
+        this.seatsNumber = seatsNumber
+        // Кількість пасажирів
+        this.passengersNumber = passengersNumber
+      }
+
+      // Методи(дії)
+      // Заправка на вказану кількість літрів
+      refueling = (fuelLiters = 1) => {
+        this.availableLitersNumber += fuelLiters
+        if (this.availableLitersNumber > this.tankSize) {
+          let moreThen = this.availableLitersNumber - this.tankSize
+          this.availableLitersNumber -= moreThen
+          return console.log(`Бак заправлено, надлишок ${moreThen} літрів`)
+        }
+        else return this.tankSize === this.availableLitersNumber ? console.log('Запрвлено повний бак') : console.log(`Бак заповнено, можна дозаправити ${this.tankSize - this.availableLitersNumber} літрів`)
+      }
+
+      // Виведення кількості пасажирів
+      getPassengersNumber = () => console.log(`Виведення кількості пасажирів - ${this.passengersNumber}-пасажирів`)
+
+      // Додавання пасажирів
+      addPassenger = (newPassangers = 1) => {
+        this.passengersNumber += newPassangers
+        if (this.passengersNumber > this.seatsNumber) {
+          let moreThen = this.passengersNumber - this.seatsNumber
+          this.passengersNumber -= moreThen
+          return console.log(`Нажаль це не рукавичка, сюди стільки  не влізе), ${moreThen} людей піде пішки`)
+        }
+        else {
+          return this.passengersNumber === this.seatsNumber
+            ? console.log(`Всі пасажири сіли, більше місць немає`)
+            : console.log(`Всі пасажири сіли, лишилось вільних місць ${this.seatsNumber - this.passengersNumber}`)
+        }
+      }
+      // Висадка пасажирів
+      unloadingPassenger = (outPassangers = 1) => {
+        this.passengersNumber -= outPassangers
+        if (this.passengersNumber > 0) return console.log(`Лишилось пасажирів ${this.passengersNumber}`)
+        else return console.log('Нікого висаджувати')
+      }
+    }
+
+    // const auto1 = new Auto(mark, tankSize, availableLitersNumber, seatsNumber, passengersNumber);
+    const auto1 = new Auto('Audi ', 60, 30, 5, 2);
+    // console.log(auto1)
+
+
+    // Заправка на вказану кількість літрів
+    // auto1.refueling()
+    auto1.refueling(40)
+
+
+    // Виведення кількості пасажирів
+    auto1.getPassengersNumber()
+
+    // Додавання пасажирів
+    auto1.addPassenger(0)
+
+    // Висадка пасажирів
+    auto1.unloadingPassenger(0)
+
+
+    // хардкор-краштест =D
+    // auto1.addPassenger(2)
+    // auto1.unloadingPassenger(3)
+    // auto1.addPassenger(20)
+    // auto1.unloadingPassenger(2)
+  </script>
+</body>
+
+</html>

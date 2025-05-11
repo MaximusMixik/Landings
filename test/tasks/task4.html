@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    Задача №4
+  </h1>
+  <p>
+    Задача 3.
+    Розробити клас MultChecker для перевірки таблиці множення
+    Поля Число, яке перевіряємо(наприклад, перевірка частини таблиці множення на 7)
+    Кількість правильних відповідей
+    Кількість неправильних відповідей
+
+    Методи
+    Генерування прикладу(метод випадковим чином визначає друге число, перше число фіксоване)
+    Перевірка правильності вказаної відповіді
+    render
+  </p>
+  <script>
+    // Задача 3.
+    // Розробити клас MultChecker для перевірки таблиці множення
+    // Поля	Число, яке перевіряємо(наприклад, перевірка частини таблиці множення на 7)
+    // Кількість правильних відповідей
+    // Кількість неправильних відповідей
+
+    // Методи	
+    // Генерування прикладу(метод випадковим чином визначає друге число, перше число фіксоване)
+    // Перевірка правильності вказаної відповіді
+    // render
+
+    class Multichecker {
+      constructor(number = 7) {
+        // Поля	Число, яке перевіряємо(наприклад, перевірка частини таблиці множення на 7)
+        this.number = number
+        // Кількість правильних відповідей
+        this.correctAnswers = 0
+        // Кількість неправильних відповідей
+        this.wrongAnswers = 0
+        this.render = this.render()
+      }
+
+      getRandobNumber = () => 1 + Math.floor(Math.random() * 9)
+      //  Генерування прикладу(метод випадковим чином визначає друге число, перше число фіксоване)
+      generatingExample = () => parseInt(prompt(`${this.number} * ${this.randomNumber} = ?`))
+      // Перевірка правильності вказаної відповіді
+      checkingAnswer() {
+        let result = this.randomNumber * this.number
+        if (isNaN(this.example)) return this.example = false
+        if (this.example === result) {
+          this.correctAnswers++
+          return alert(`${result} - Все вірно.
+      ${this.correctAnswers} - правильних відповідей
+      ${this.wrongAnswers} - неправильних відповідей`)
+        }
+        else {
+          this.wrongAnswers++
+          return alert(`${this.example} - Не вірно. ${result} - Вірна відповідь.
+      ${this.correctAnswers} - правильних відповідей
+      ${this.wrongAnswers} - неправильних відповідей`)
+        }
+      }
+      // render
+      render() {
+        this.randomNumber, this.example, this.checking
+        do {
+          do {
+            this.randomNumber = this.getRandobNumber()
+            this.example = this.generatingExample()
+            this.checking = this.checkingAnswer()
+          } while (this.example)
+          this.number = parseInt(prompt(`бажаєте замінити число ? зараз стоїть ${this.number} `))
+        } while (this.number)
+        return alert(`Щасти!)`)
+      }
+    }
+
+    const multichecker = new Multichecker()
+  </script>
+</body>
+
+</html>

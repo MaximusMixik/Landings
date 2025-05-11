@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    Задача №6
+  </h1>
+  <p>
+    Задача 5. Розробити клас «Керівник танців»
+    Поля
+    Масив імен хлопців
+    Масив імен дівчат
+
+
+    Методи
+    Метод випадкового вибору імені хлопця
+    Метод випадкового вибору імені дівчини
+    Метод виведення пари для танців
+    Метод run, який ініціює через кожні 5 секунд виведення нової пари для танців
+  </p>
+  <script>
+    let boysArray = ['Billy', 'Deny', 'Andrew', 'Adam', 'Sam']
+    let girlsArray = ['Sarah', 'Monica', 'Jessica', 'Nina']
+    class DanceCurator {
+      constructor(boys, girls) {
+        // Масив імен хлопців
+        this.boys = boys
+        // Масив імен дівчат
+        this.girls = girls
+      }
+      // Методи
+      getRandomNumber(arr) {
+        let randIndex = Math.floor(Math.random() * arr.length)
+        return arr[randIndex]
+      }
+      // Метод випадкового вибору імені хлопця
+      getRandBoy = () => this.getRandomNumber(this.boys)
+      // Метод випадкового вибору імені дівчини
+      getRandGirl = () => this.getRandomNumber(this.girls)
+      // Метод виведення пари для танців
+      getCouple = () => `${this.getRandBoy()} and ${this.getRandGirl()}`
+      // Метод run, який ініціює через кожні 5 секунд виведення нової пари для танців
+      run = () => {
+        setInterval(() => {
+          console.log(this.getCouple())
+        }, 5000)
+      }
+    }
+    const group = new DanceCurator(boysArray, girlsArray)
+    group.run()
+  </script>
+</body>
+
+</html>

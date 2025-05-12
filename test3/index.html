@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>iOS WebAudio Player</title>
+	<style>
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f7;
+		}
+
+		.container {
+			max-width: 600px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			font-size: 24px;
+			margin-top: 0;
+			color: #333;
+			text-align: center;
+		}
+
+		.player {
+			margin-top: 20px;
+		}
+
+		.button {
+			display: inline-block;
+			padding: 12px 20px;
+			margin: 5px;
+			border: none;
+			border-radius: 8px;
+			background-color: #007aff;
+			color: white;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
+			transition: background-color 0.2s;
+			width: 120px;
+			text-align: center;
+		}
+
+		.button:active {
+			background-color: #0051a8;
+		}
+
+		.volume-controls {
+			margin: 20px 0;
+		}
+
+		.volume-display {
+			margin: 10px 0;
+			font-size: 18px;
+			font-weight: bold;
+			color: #333;
+			text-align: center;
+		}
+
+		.controls {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.volume-slider {
+			width: 100%;
+			margin: 15px 0;
+			-webkit-appearance: none;
+			appearance: none;
+			height: 8px;
+			border-radius: 4px;
+			background: #e0e0e0;
+			outline: none;
+		}
+
+		.volume-slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: #007aff;
+			cursor: pointer;
+			border: 2px solid #fff;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		}
+
+		.status {
+			margin-top: 20px;
+			padding: 10px;
+			border-radius: 8px;
+			background-color: #f0f0f0;
+			color: #666;
+			font-size: 14px;
+			text-align: center;
+		}
+
+		.volume-buttons {
+			display: flex;
+			justify-content: space-around;
+			margin: 15px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>iOS Compatible Audio Player</h1>
+
+		<div class="player">
+			<div class="controls">
+				<button id="playButton" class="button">▶️ Play</button>
+			</div>
+
+			<div class="volume-controls">
+				<div class="volume-display">Volume: <span id="volumeValue">50%</span></div>
+
+				<input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+
+				<div class="volume-buttons">
+					<button id="decreaseVolume" class="button">- Volume</button>
+					<button id="increaseVolume" class="button">+ Volume</button>
+				</div>
+			</div>
+
+			<div id="status" class="status">Tap anywhere to activate audio</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Получаем элементы управления
+			const playButton = document.getElementById('playButton');
+			const volumeSlider = document.getElementById('volumeSlider');
+			const volumeValue = document.getElementById('volumeValue');
+			const decreaseVolumeButton = document.getElementById('decreaseVolume');
+			const increaseVolumeButton = document.getElementById('increaseVolume');
+			const statusDisplay = document.getElementById('status');
+
+			// Настройка аудио контекста и компонентов
+			let audioContext = null;
+			let gainNode = null;
+			let audioBuffer = null;
+			let audioSource = null;
+			let startTime = 0;
+			let pausedTime = 0;
+			let isPlaying = false;
+
+			// URL аудиофайла
+			const audioURL = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/Swing_Jazz_Drum.mp3';
+
+			// Функция для отображения статуса
+			function showStatus(message) {
+				statusDisplay.textContent = message;
+				console.log(message);
+			}
+
+			// Инициализация аудиоконтекста при взаимодействии пользователя
+			function initAudioContext() {
+				if (audioContext) return Promise.resolve();
+
+				showStatus('Initializing audio context...');
+
+				// Создаем аудиконтекст
+				audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+				// Создаем узел усиления для управления громкостью
+				gainNode = audioContext.createGain();
+				gainNode.connect(audioContext.destination);
+
+				// Устанавливаем начальную громкость
+				setVolume(volumeSlider.value);
+
+				// Загружаем аудиофайл
+				return fetch(audioURL)
+					.then(response => response.arrayBuffer())
+					.then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+					.then(buffer => {
+						audioBuffer = buffer;
+						showStatus('Audio ready');
+					})
+					.catch(error => {
+						showStatus('Error loading audio: ' + error.message);
+						console.error('Error loading audio:', error);
+					});
+			}
+
+			// Функция для установки громкости
+			function setVolume(value) {
+				// Убеждаемся, что значение в допустимом диапазоне
+				value = Math.max(0, Math.min(1, parseFloat(value)));
+
+				if (gainNode) {
+					// Устанавливаем значение для узла усиления
+					gainNode.gain.setValueAtTime(value, audioContext.currentTime);
+				}
+
+				// Обновляем ползунок и отображение
+				volumeSlider.value = value;
+				volumeValue.textContent = Math.round(value * 100) + '%';
+
+				return value;
+			}
+
+			// Функция для воспроизведения аудио
+			function playAudio() {
+				if (!audioContext || !audioBuffer) return;
+
+				// Останавливаем текущий источник, если есть
+				stopAudio();
+
+				// Создаем новый источник
+				audioSource = audioContext.createBufferSource();
+				audioSource.buffer = audioBuffer;
+
+				// Подключаем к узлу усиления
+				audioSource.connect(gainNode);
+
+				// Начинаем воспроизведение с учетом паузы
+				startTime = audioContext.currentTime - pausedTime;
+				audioSource.start(0, pausedTime);
+
+				isPlaying = true;
+				playButton.textContent = '⏸️ Pause';
+				showStatus('Playing');
+			}
+
+			// Функция для остановки аудио
+			function stopAudio() {
+				if (audioSource) {
+					audioSource.stop(0);
+					audioSource = null;
+				}
+			}
+
+			// Функция для паузы
+			function pauseAudio() {
+				if (!isPlaying) return;
+
+				// Запоминаем текущую позицию
+				pausedTime = audioContext.currentTime - startTime;
+
+				// Останавливаем воспроизведение
+				stopAudio();
+				isPlaying = false;
+				playButton.textContent = '▶️ Play';
+				showStatus('Paused');
+			}
+
+			// Функция для увеличения громкости
+			function increaseVolume() {
+				const currentVolume = parseFloat(volumeSlider.value);
+				const step = 0.1; // Шаг изменения
+				const newVolume = Math.min(1, currentVolume + step);
+				setVolume(newVolume);
+				showStatus(`Volume increased to ${Math.round(newVolume * 100)}%`);
+			}
+
+			// Функция для уменьшения громкости
+			function decreaseVolume() {
+				const currentVolume = parseFloat(volumeSlider.value);
+				const step = 0.1; // Шаг изменения
+				const newVolume = Math.max(0, currentVolume - step);
+				setVolume(newVolume);
+				showStatus(`Volume decreased to ${Math.round(newVolume * 100)}%`);
+			}
+
+			// Обработчики событий
+
+			// Инициализация при первом взаимодействии пользователя
+			function initializeOnInteraction() {
+				initAudioContext().then(() => {
+					// Удаляем обработчик после успешной инициализации
+					document.removeEventListener('click', initializeOnInteraction);
+					document.removeEventListener('touchstart', initializeOnInteraction);
+				});
+			}
+
+			// Добавляем обработчики событий для инициализации
+			document.addEventListener('click', initializeOnInteraction);
+			document.addEventListener('touchstart', initializeOnInteraction);
+
+			// Обработчик для кнопки воспроизведения
+			playButton.addEventListener('click', function () {
+				initAudioContext().then(() => {
+					if (isPlaying) {
+						pauseAudio();
+					} else {
+						playAudio();
+					}
+				});
+			});
+
+			// Обработчик для ползунка громкости
+			volumeSlider.addEventListener('input', function () {
+				setVolume(this.value);
+			});
+
+			// Обработчики для кнопок громкости
+			decreaseVolumeButton.addEventListener('click', function () {
+				initAudioContext().then(decreaseVolume);
+			});
+
+			increaseVolumeButton.addEventListener('click', function () {
+				initAudioContext().then(increaseVolume);
+			});
+
+			// Предварительная настройка отображения
+			showStatus('Ready. Tap anywhere to activate audio.');
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>iOS WebAudio Player</title>
+	<style>
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f7;
+		}
+
+		.container {
+			max-width: 600px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			font-size: 24px;
+			margin-top: 0;
+			color: #333;
+			text-align: center;
+		}
+
+		.player {
+			margin-top: 20px;
+		}
+
+		.button {
+			display: inline-block;
+			padding: 12px 20px;
+			margin: 5px;
+			border: none;
+			border-radius: 8px;
+			background-color: #007aff;
+			color: white;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
+			transition: background-color 0.2s;
+			width: 120px;
+			text-align: center;
+		}
+
+		.button:active {
+			background-color: #0051a8;
+		}
+
+		.volume-controls {
+			margin: 20px 0;
+		}
+
+		.volume-display {
+			margin: 10px 0;
+			font-size: 18px;
+			font-weight: bold;
+			color: #333;
+			text-align: center;
+		}
+
+		.controls {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.volume-slider {
+			width: 100%;
+			margin: 15px 0;
+			-webkit-appearance: none;
+			appearance: none;
+			height: 8px;
+			border-radius: 4px;
+			background: #e0e0e0;
+			outline: none;
+		}
+
+		.volume-slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: #007aff;
+			cursor: pointer;
+			border: 2px solid #fff;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		}
+
+		.status {
+			margin-top: 20px;
+			padding: 10px;
+			border-radius: 8px;
+			background-color: #f0f0f0;
+			color: #666;
+			font-size: 14px;
+			text-align: center;
+		}
+
+		.volume-buttons {
+			display: flex;
+			justify-content: space-around;
+			margin: 15px 0;
+		}
+
+		/* Добавим стиль для индикатора загрузки */
+		.loader {
+			border: 3px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 3px solid #007aff;
+			width: 20px;
+			height: 20px;
+			animation: spin 1s linear infinite;
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 10px;
+			display: none;
+		}
+
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>iOS Compatible Audio Player</h1>
+
+		<div class="player">
+			<div class="controls">
+				<button id="playButton" class="button">▶️ Play</button>
+			</div>
+
+			<div class="volume-controls">
+				<div class="volume-display">Volume: <span id="volumeValue">50%</span></div>
+
+				<input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+
+				<div class="volume-buttons">
+					<button id="decreaseVolume" class="button">- Volume</button>
+					<button id="increaseVolume" class="button">+ Volume</button>
+				</div>
+			</div>
+
+			<div id="status" class="status">Tap Play to activate audio <span id="loader" class="loader"></span></div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Получаем элементы управления
+			const playButton = document.getElementById('playButton');
+			const volumeSlider = document.getElementById('volumeSlider');
+			const volumeValue = document.getElementById('volumeValue');
+			const decreaseVolumeButton = document.getElementById('decreaseVolume');
+			const increaseVolumeButton = document.getElementById('increaseVolume');
+			const statusDisplay = document.getElementById('status');
+			const loader = document.getElementById('loader');
+
+			// Настройка аудио контекста и компонентов
+			let audioContext = null;
+			let gainNode = null;
+			let audioBuffer = null;
+			let audioSource = null;
+			let startTime = 0;
+			let pausedTime = 0;
+			let isPlaying = false;
+			let audioLoaded = false;
+
+			// URL аудиофайла - проверенный рабочий URL
+			const audioURL = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/Swing_Jazz_Drum.mp3';
+
+			// Функция для отображения статуса
+			function showStatus(message, isLoading = false) {
+				statusDisplay.textContent = message;
+				if (isLoading) {
+					loader.style.display = 'inline-block';
+				} else {
+					loader.style.display = 'none';
+				}
+				console.log(message);
+			}
+
+			// Инициализация аудиоконтекста при взаимодействии пользователя
+			function initAudioContext() {
+				if (audioContext) {
+					// Если контекст существует, но в состоянии suspended (особенность iOS)
+					if (audioContext.state === 'suspended') {
+						audioContext.resume();
+					}
+					return Promise.resolve();
+				}
+
+				showStatus('Initializing audio context...', true);
+
+				// Создаем аудиконтекст с опциями для iOS
+				const AudioContext = window.AudioContext || window.webkitAudioContext;
+				audioContext = new AudioContext({
+					latencyHint: 'interactive',
+					sampleRate: 44100
+				});
+
+				// Создаем узел усиления для управления громкостью
+				gainNode = audioContext.createGain();
+				gainNode.connect(audioContext.destination);
+
+				// Устанавливаем начальную громкость
+				setVolume(volumeSlider.value);
+
+				// Загружаем аудиофайл
+				return loadAudio();
+			}
+
+			// Отдельная функция для загрузки аудио
+			function loadAudio() {
+				if (audioLoaded && audioBuffer) {
+					return Promise.resolve();
+				}
+
+				showStatus('Loading audio file...', true);
+
+				return fetch(audioURL)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(`HTTP error! Status: ${response.status}`);
+						}
+						return response.arrayBuffer();
+					})
+					.then(arrayBuffer => {
+						showStatus('Decoding audio data...', true);
+						return audioContext.decodeAudioData(arrayBuffer);
+					})
+					.then(buffer => {
+						audioBuffer = buffer;
+						audioLoaded = true;
+						showStatus('Audio ready');
+						return buffer;
+					})
+					.catch(error => {
+						showStatus('Error loading audio: ' + error.message);
+						console.error('Error loading audio:', error);
+						throw error;
+					});
+			}
+
+			// Функция для установки громкости
+			function setVolume(value) {
+				// Убеждаемся, что значение в допустимом диапазоне
+				value = Math.max(0, Math.min(1, parseFloat(value)));
+
+				if (gainNode) {
+					// Устанавливаем значение для узла усиления
+					gainNode.gain.value = value;
+				}
+
+				// Обновляем ползунок и отображение
+				volumeSlider.value = value;
+				volumeValue.textContent = Math.round(value * 100) + '%';
+
+				return value;
+			}
+
+			// Функция для воспроизведения аудио
+			function playAudio() {
+				if (!audioContext || !audioBuffer) {
+					showStatus('Error: Audio not initialized');
+					return;
+				}
+
+				// Проверяем и восстанавливаем приостановленный контекст (особенность iOS)
+				if (audioContext.state === 'suspended') {
+					audioContext.resume();
+				}
+
+				// Останавливаем текущий источник, если есть
+				stopAudio();
+
+				// Создаем новый источник
+				audioSource = audioContext.createBufferSource();
+				audioSource.buffer = audioBuffer;
+
+				// Подключаем к узлу усиления
+				audioSource.connect(gainNode);
+
+				// Обработчик окончания воспроизведения
+				audioSource.onended = function () {
+					if (isPlaying) {
+						isPlaying = false;
+						playButton.textContent = '▶️ Play';
+						pausedTime = 0;
+						showStatus('Playback completed');
+					}
+				};
+
+				// Начинаем воспроизведение с учетом паузы
+				startTime = audioContext.currentTime - pausedTime;
+				audioSource.start(0, pausedTime);
+
+				isPlaying = true;
+				playButton.textContent = '⏸️ Pause';
+				showStatus('Playing');
+
+				// Отлаживаем состояние
+				console.log({
+					audioContext: audioContext.state,
+					startTime,
+					pausedTime,
+					isPlaying
+				});
+			}
+
+			// Функция для остановки аудио
+			function stopAudio() {
+				if (audioSource) {
+					try {
+						audioSource.stop(0);
+					} catch (e) {
+						console.log('Error stopping audio source:', e);
+					}
+					audioSource.disconnect();
+					audioSource = null;
+				}
+			}
+
+			// Функция для паузы
+			function pauseAudio() {
+				if (!isPlaying) return;
+
+				// Запоминаем текущую позицию
+				pausedTime = audioContext.currentTime - startTime;
+				console.log('Pausing at position:', pausedTime);
+
+				// Останавливаем воспроизведение
+				stopAudio();
+				isPlaying = false;
+				playButton.textContent = '▶️ Play';
+				showStatus('Paused');
+			}
+
+			// Функция для увеличения громкости
+			function increaseVolume() {
+				const currentVolume = parseFloat(volumeSlider.value);
+				const step = 0.1; // Шаг изменения
+				const newVolume = Math.min(1, currentVolume + step);
+				setVolume(newVolume);
+				showStatus(`Volume: ${Math.round(newVolume * 100)}%`);
+			}
+
+			// Функция для уменьшения громкости
+			function decreaseVolume() {
+				const currentVolume = parseFloat(volumeSlider.value);
+				const step = 0.1; // Шаг изменения
+				const newVolume = Math.max(0, currentVolume - step);
+				setVolume(newVolume);
+				showStatus(`Volume: ${Math.round(newVolume * 100)}%`);
+			}
+
+			// Простой звуковой тест для проверки работы аудио
+			// function testAudio() {
+			// 	if (!audioContext) {
+			// 		audioContext = new (window.AudioContext || window.webkitAudioContext)();
+			// 	}
+
+			// 	if (audioContext.state === 'suspended') {
+			// 		audioContext.resume();
+			// 	}
+
+			// 	const oscillator = audioContext.createOscillator();
+			// 	const gainNode = audioContext.createGain();
+
+			// 	oscillator.type = 'sine';
+			// 	oscillator.frequency.value = 440; // A4 note
+			// 	oscillator.connect(gainNode);
+			// 	gainNode.connect(audioContext.destination);
+
+			// 	gainNode.gain.value = 0.1; // Низкая громкость
+
+			// 	oscillator.start();
+			// 	setTimeout(() => {
+			// 		oscillator.stop();
+			// 		showStatus('Audio system test successful');
+			// 	}, 500);
+			// }
+
+			// Обработчик для кнопки воспроизведения
+			playButton.addEventListener('click', function () {
+				// Инициализация контекста при нажатии
+				showStatus('Initializing...', true);
+
+				// Сначала проверим работу аудио системы
+				// try {
+				// 	testAudio();
+				// } catch (e) {
+				// 	console.error('Audio test failed:', e);
+				// }
+
+				// Затем инициализируем контекст и загрузим аудио
+				initAudioContext()
+					.then(() => {
+						if (isPlaying) {
+							pauseAudio();
+						} else {
+							playAudio();
+						}
+					})
+					.catch(error => {
+						showStatus('Error: ' + error.message);
+						console.error(error);
+					});
+			});
+
+			// Обработчик для ползунка громкости
+			volumeSlider.addEventListener('input', function () {
+				if (!audioContext) {
+					initAudioContext();
+				}
+				setVolume(this.value);
+			});
+
+			// Обработчики для кнопок громкости
+			decreaseVolumeButton.addEventListener('click', function () {
+				if (!audioContext) {
+					initAudioContext();
+				}
+				decreaseVolume();
+			});
+
+			increaseVolumeButton.addEventListener('click', function () {
+				if (!audioContext) {
+					initAudioContext();
+				}
+				increaseVolume();
+			});
+
+			// Предварительная настройка отображения
+			showStatus('Ready. Tap Play to activate audio.');
+		});
+	</script>
+</body>
+
+</html>

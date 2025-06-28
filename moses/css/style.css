@@ -2584,11 +2584,11 @@ h3 span {
     gap: 1.5rem
   }
   .integrity__media {
-    border-radius: 1rem
+    border-radius: 1.5rem
   }
   .integrity__image,
   .integrity__video {
-    border-radius: 1rem
+    border-radius: 1.5rem
   }
   .item-integrity__icon {
     width: 2.5rem;
@@ -3158,6 +3158,9 @@ h3 span {
   .integrity__content {
     gap: 2.625rem
   }
+  .integrity__media {
+    aspect-ratio: 696/460
+  }
   .item-integrity {
     padding: 1.5rem;
     border-radius: 1rem;
@@ -3412,11 +3415,11 @@ h3 span {
     gap: .5rem
   }
   .integrity__media {
-    border-radius: 1.5rem
+    border-radius: 1rem
   }
   .integrity__image,
   .integrity__video {
-    border-radius: 1.5rem
+    border-radius: 1rem
   }
   .item-integrity {
     padding: 1rem 1rem 1rem .75rem;

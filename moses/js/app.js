@@ -4228,6 +4228,11 @@
             speed: 4e3,
             loop: true,
             centeredSlides: false,
+            autoplay: {
+                delay: 500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
             freeMode: {
                 enabled: true,
                 momentum: false

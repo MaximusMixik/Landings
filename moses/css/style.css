@@ -91,6 +91,10 @@ a {
   color: inherit;
   text-decoration: none
 }
+a,
+button {
+  -webkit-tap-highlight-color: transparent
+}
 ul li {
   list-style: none
 }
@@ -181,6 +185,125 @@ body {
 .menu__info {
   color: var(--text-primary-light)
 }
+.spollers {
+  display: grid
+}
+.spollers__item {
+  -webkit-tap-highlight-color: transparent;
+  border: .0625rem solid rgba(25,22,21,.3);
+  background-color: #f8f8f8;
+  cursor: pointer
+}
+.spollers__header {
+  width: 100%;
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem
+}
+.spollers__header::-webkit-details-marker,
+.spollers__header::marker {
+  display: none
+}
+.spollers__title {
+  flex: 1 1 auto
+}
+.spollers__icon {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  border: .0625rem solid rgba(25,22,21,.4);
+  position: relative;
+  transition: all .3s ease;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  line-height: 1;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.spollers__icon svg path {
+  transition: stroke .3s ease
+}
+._spoller-init .spollers__icon {
+  cursor: pointer
+}
+._spoller-active .spollers__icon {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+  background-color: var(--bg-accent);
+  border-color: var(--bg-accent)
+}
+._spoller-active .spollers__icon svg path {
+  stroke: var(--bg-primary)
+}
+.spollers__body {
+  color: var(--text-primary-light)
+}
+@-webkit-keyframes scrollDown {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+  100% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+}
+@keyframes scrollDown {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+  100% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+}
+@-webkit-keyframes scrollUp {
+  0% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}
+@keyframes scrollUp {
+  0% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}
+.tabs__navigation {
+  display: flex;
+  justify-content: center;
+  background-color: #161414;
+  max-width: -moz-fit-content;
+  max-width: -webkit-fit-content;
+  max-width: fit-content;
+  margin-inline: auto
+}
+.tabs__title {
+  font-weight: 500;
+  color: rgba(255,255,255,.6);
+  transition: all .3s ease
+}
+.tabs__title._tab-active {
+  background-color: var(--bg-primary);
+  color: var(--text-primary)
+}
+.tabs__list {
+  display: grid
+}
 [data-showmore-button] span:last-child {
   display: none
 }
@@ -203,6 +326,9 @@ body {
 [data-watch].bottom {
   -webkit-transform: translateY(6.25rem);
   transform: translateY(6.25rem)
+}
+[data-watch].show {
+  opacity: 100%
 }
 [data-watch].left {
   -webkit-transform: translateX(-6.25rem);
@@ -311,13 +437,11 @@ h3 span {
 }
 .button--white {
   color: var(--text-primary);
-  padding: .8125rem 1.375rem;
-  border-radius: 1.875rem;
-  min-height: 3.75rem;
   box-shadow: 0 .5rem 1rem 0 rgba(0,0,0,.1);
   background: var(--bg-primary);
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  border-radius: 1.875rem
 }
 .button--white span {
   position: relative;
@@ -556,7 +680,7 @@ h3 span {
   padding: .625rem .625rem .625rem 2.25rem
 }
 .header__logo {
-  font-family: Mazda;
+  font-family: Mazda,sans-serif;
   flex-shrink: 0
 }
 .header__actions {
@@ -565,6 +689,29 @@ h3 span {
 }
 .header__button {
   flex-shrink: 0
+}
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center
+}
+.footer__logo {
+  text-align: center;
+  font-family: Mazda,sans-serif;
+  margin-inline: auto
+}
+.footer__description {
+  color: var(--text-primary-light)
+}
+.footer__description:not(:last-child) {
+  margin-bottom: .5rem
+}
+.footer__privacy {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+  text-align: center;
+  color: var(--text-primary-light)
 }
 .hero__container {
   overflow: hidden;
@@ -2500,6 +2647,30 @@ h3 span {
   display: none!important
 }
 @media (min-width:29.99875em) {
+  .spollers {
+    gap: 1.5rem
+  }
+  .spollers__body {
+    padding-top: 1rem
+  }
+  .tabs__navigation {
+    border-radius: 2.5rem;
+    padding: .625rem
+  }
+  .tabs__navigation:not(:last-child) {
+    margin-bottom: 2.75rem
+  }
+  .tabs__title {
+    border-radius: 1.875rem;
+    min-width: 12.5rem;
+    min-height: 3.75rem;
+    padding: .8125rem
+  }
+  .button--white {
+    padding: .8125rem 1.375rem;
+    border-radius: 1.875rem;
+    min-height: 3.75rem
+  }
   .button--black {
     min-height: 5rem;
     padding: 1.4375rem 2.25rem;
@@ -2528,6 +2699,16 @@ h3 span {
   }
   .navigation__pagination .swiper-pagination-bullet::before {
     height: 2.5rem
+  }
+  .footer {
+    padding-top: 6.25rem;
+    padding-bottom: 5rem
+  }
+  .footer__navigation:not(:last-child) {
+    margin-bottom: 3.75rem
+  }
+  .footer__mail:not(:last-child) {
+    margin-bottom: 2.75rem
   }
   .hero__container {
     padding-top: 11.5rem;
@@ -2655,6 +2836,51 @@ h3 span {
   body {
     font-size: 1.5rem
   }
+  .spollers__item {
+    padding: 1.5rem 2.25rem 2.25rem;
+    border-radius: 1.5rem
+  }
+  .spollers__body {
+    font-size: 2.25rem
+  }
+  .tabs__wrapper {
+    max-height: 83.25rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2.25rem
+  }
+  .tabs__wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: linear-gradient(0deg,#fff 0,rgba(255,255,255,0) 15%,rgba(255,255,255,0) 85%,#fff 100%)
+  }
+  .tabs__wrapper>:nth-child(even) {
+    -webkit-transform: translateY(3rem);
+    transform: translateY(3rem);
+    -webkit-animation: scrollDown 25s linear -20s infinite;
+    animation: scrollDown 25s linear -20s infinite
+  }
+  .tabs__wrapper>:nth-child(odd) {
+    -webkit-animation: scrollUp 25s linear -20s infinite;
+    animation: scrollUp 25s linear -20s infinite;
+    -webkit-transform: translateY(-9.25rem);
+    transform: translateY(-9.25rem)
+  }
+  .tabs__list {
+    position: relative;
+    pointer-events: all;
+    z-index: -1;
+    gap: 2.25rem;
+    will-change: transform
+  }
   .title-1,
   h1 {
     font-size: 9.375rem
@@ -2697,6 +2923,25 @@ h3 span {
   }
   .header__logo {
     font-size: 2rem
+  }
+  .footer__logo {
+    font-size: 3.5rem
+  }
+  .footer__logo:not(:last-child) {
+    margin-bottom: 1rem
+  }
+  .footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.75rem
+  }
+  .footer__description,
+  .footer__link {
+    font-size: 2.25rem
+  }
+  .footer__mail {
+    font-size: 3.5rem
   }
   .hero__title:not(:last-child) {
     margin-bottom: .5rem
@@ -2920,6 +3165,12 @@ h3 span {
     font-size: 2.25rem
   }
 }
+@media (min-width:48.06125em)and (any-hover:hover) {
+  .tabs__list:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused
+  }
+}
 @media (min-width:61.99875em) {
   [class*=__container] {
     padding-inline: 2.75rem
@@ -2936,6 +3187,21 @@ h3 span {
   }
   .icon-menu {
     display: none
+  }
+  .spollers__title {
+    font-size: 3.375rem
+  }
+  .spollers__icon {
+    width: 3.75rem
+  }
+  .spollers__icon {
+    height: 3.75rem
+  }
+  .spollers__icon svg {
+    width: 2rem
+  }
+  .spollers__icon svg {
+    height: 2rem
   }
   .header__actions {
     gap: 4.4375rem;
@@ -3100,8 +3366,29 @@ h3 span {
   html {
     scroll-padding-top: 7.5rem
   }
+  .spollers__item {
+    padding: 1.6875rem 1.5rem;
+    border-radius: 1rem
+  }
+  .tabs__wrapper>:nth-child(1),
+  .tabs__wrapper>:nth-child(2)>:nth-child(n+5),
+  .tabs__wrapper>:nth-child(3) {
+    display: none
+  }
+  .tabs__list {
+    gap: 1.5rem
+  }
   .header__container {
     min-height: 3.75rem
+  }
+  .footer__logo:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .footer__list {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2.25rem 7rem;
+    text-align: center
   }
   .hero__body {
     text-align: center
@@ -3246,6 +3533,38 @@ h3 span {
   .menu__mail {
     font-size: 1.125rem
   }
+  .spollers {
+    gap: .5rem
+  }
+  .spollers__item {
+    padding: .75rem 1rem 1rem;
+    border-radius: .75rem
+  }
+  .spollers__body {
+    font-size: 1.125rem
+  }
+  .spollers__body {
+    padding-top: .5rem
+  }
+  .tabs__navigation {
+    border-radius: 1.5rem;
+    padding: .25rem;
+    gap: .75rem;
+    max-width: 100%
+  }
+  .tabs__navigation:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .tabs__title {
+    border-radius: 1.125rem;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 2.25rem;
+    padding: .4375rem .75rem
+  }
+  .tabs__list {
+    gap: 1rem
+  }
   .title-1,
   h1 {
     font-size: 3.75rem
@@ -3257,6 +3576,10 @@ h3 span {
   .title-3,
   h3 {
     font-size: 1.125rem
+  }
+  .button--white {
+    padding: .4375rem .75rem;
+    min-height: 2.25rem
   }
   .button--black {
     min-height: 2.75rem;
@@ -3309,6 +3632,29 @@ h3 span {
   }
   .header__logo {
     font-size: 1.25rem
+  }
+  .footer {
+    padding-top: 3.125rem;
+    padding-bottom: 2.25rem
+  }
+  .footer__logo:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .footer__navigation:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .footer__list {
+    gap: 1rem .5rem
+  }
+  .footer__description,
+  .footer__link {
+    font-size: 1.125rem
+  }
+  .footer__mail {
+    font-size: 1.5rem
+  }
+  .footer__mail:not(:last-child) {
+    margin-bottom: 1.5rem
   }
   .hero {
     padding: .5rem 1rem
@@ -3541,10 +3887,31 @@ h3 span {
   body {
     font-size: 1rem
   }
+  .spollers__title {
+    font-size: 1.125rem
+  }
+  .spollers__icon {
+    width: 1.5rem
+  }
+  .spollers__icon {
+    height: 1.5rem
+  }
+  .spollers__icon svg {
+    width: .625rem
+  }
+  .spollers__icon svg {
+    height: .625rem
+  }
+  .footer__logo {
+    font-size: 2.25rem
+  }
 }
 @media (min-width:22.5em)and (max-width:48.06125em) {
   body {
     font-size: clamp(1rem ,.5598806788rem + 1.9560858722vw ,1.5rem)
+  }
+  .footer__logo {
+    font-size: clamp(2.25rem ,1.1497016969rem + 4.8902146804vw ,3.5rem)
   }
 }
 @media (min-width:29.99875em)and (max-width:61.99875em) {
@@ -3644,6 +4011,9 @@ h3 span {
   .menu__mail {
     font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
   }
+  .spollers__body {
+    font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
+  }
   .title-1,
   h1 {
     font-size: clamp(3.75rem ,-5.5921712803rem + 31.1418685121vw ,9.375rem)
@@ -3670,6 +4040,13 @@ h3 span {
   }
   .header__logo {
     font-size: clamp(1.25rem ,.0043771626rem + 4.1522491349vw ,2rem)
+  }
+  .footer__description,
+  .footer__link {
+    font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
+  }
+  .footer__mail {
+    font-size: clamp(1.5rem ,-1.8216608997rem + 11.0726643599vw ,3.5rem)
   }
   .hero__list-bg {
     width: clamp(13rem ,-20.631816609rem + 112.1107266436vw ,33.25rem)
@@ -3700,6 +4077,23 @@ h3 span {
   }
   .item-driver__value {
     font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
+  }
+}
+@media (min-width:22.5em)and (max-width:61.99875em) {
+  .spollers__title {
+    font-size: clamp(1.125rem ,-.1566861293rem + 5.6963827969vw ,3.375rem)
+  }
+  .spollers__icon {
+    width: clamp(1.5rem ,.2183138707rem + 5.6963827969vw ,3.75rem)
+  }
+  .spollers__icon {
+    height: clamp(1.5rem ,.2183138707rem + 5.6963827969vw ,3.75rem)
+  }
+  .spollers__icon svg {
+    width: clamp(.625rem ,-.1582526346rem + 3.4811228203vw ,2rem)
+  }
+  .spollers__icon svg {
+    height: clamp(.625rem ,-.1582526346rem + 3.4811228203vw ,2rem)
   }
 }
 @media (max-width:48.06125em)and (min-width:29.99875em) {
@@ -3735,6 +4129,18 @@ h3 span {
   .navigation__button:hover:active {
     -webkit-transform: scale(1.05);
     transform: scale(1.05)
+  }
+  .footer__link,
+  .footer__logo,
+  .footer__mail,
+  .footer__privacy {
+    transition: color .3s ease
+  }
+  .footer__link:hover,
+  .footer__logo:hover,
+  .footer__mail:hover,
+  .footer__privacy:hover {
+    color: var(--accent-secondary)
   }
 }
 @media (prefers-reduced-motion:reduce) {

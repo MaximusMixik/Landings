@@ -10512,32 +10512,82 @@
     _SplitText.version = "3.13.0";
     let SplitText = _SplitText;
     console.log("ScrollTrigger:", typeof ScrollTrigger_ScrollTrigger);
-    console.log("GSAP plugins:", gsapWithCSS.core.globals());
-    gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
-    gsapWithCSS.registerPlugin(SplitText);
+    console.log("SplitText:", typeof SplitText);
+    if (typeof ScrollTrigger_ScrollTrigger === "function") gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger); else console.error("ScrollTrigger plugin not available");
+    if (typeof SplitText === "function") gsapWithCSS.registerPlugin(SplitText); else console.error("SplitText plugin not available");
     function animateText() {
+        const elList = document.querySelectorAll(".text-animate");
+        console.log("Found text-animate elements:", elList.length);
+        if (elList.length === 0) return;
+        if (!gsapWithCSS.plugins.ScrollTrigger) {
+            console.error("ScrollTrigger not registered properly");
+            return;
+        }
+        elList.forEach(((el, index) => {
+            console.log(`Processing element ${index}:`, el);
+            if (typeof SplitText !== "function") {
+                console.error("SplitText not available for element:", el);
+                return;
+            }
+            try {
+                const split = new SplitText(el, {
+                    type: "words",
+                    wordsClass: "word-animate"
+                });
+                console.log(`Split words for element ${index}:`, split.words.length);
+                gsapWithCSS.fromTo(split.words, {
+                    yPercent: 100,
+                    opacity: 0
+                }, {
+                    yPercent: 0,
+                    opacity: 1,
+                    ease: "power4.out",
+                    duration: .9,
+                    stagger: .1,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                        onEnter: () => console.log("ScrollTrigger entered for:", el),
+                        onLeave: () => console.log("ScrollTrigger left for:", el),
+                        markers: false
+                    }
+                });
+            } catch (error) {
+                console.error("Error processing element:", el, error);
+            }
+        }));
+        ScrollTrigger_ScrollTrigger.refresh();
+    }
+    function animateTextFallback() {
         const elList = document.querySelectorAll(".text-animate");
         if (elList.length === 0) return;
         elList.forEach((el => {
-            const split = new SplitText(el, {
-                type: "words",
-                wordsClass: "word-animate"
+            const observer = new IntersectionObserver((entries => {
+                entries.forEach((entry => {
+                    if (entry.isIntersecting) {
+                        const split = new SplitText(entry.target, {
+                            type: "words",
+                            wordsClass: "word-animate"
+                        });
+                        gsapWithCSS.fromTo(split.words, {
+                            yPercent: 100,
+                            opacity: 0
+                        }, {
+                            yPercent: 0,
+                            opacity: 1,
+                            ease: "power4.out",
+                            duration: .9,
+                            stagger: .1
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                }));
+            }), {
+                threshold: .1,
+                rootMargin: "0px 0px -20% 0px"
             });
-            gsapWithCSS.fromTo(split.words, {
-                yPercent: 100,
-                opacity: 0
-            }, {
-                yPercent: 0,
-                opacity: 1,
-                ease: "power4.out",
-                duration: .9,
-                stagger: .1,
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 80%",
-                    toggleActions: "play none none none"
-                }
-            });
+            observer.observe(el);
         }));
     }
     function initHeroAnimationOnLoad() {
@@ -10545,7 +10595,7 @@
             delay: .5
         });
         const heroTitle = document.querySelector(".hero__title.text-animate");
-        if (heroTitle) {
+        if (heroTitle) try {
             const split = new SplitText(heroTitle, {
                 type: "words",
                 wordsClass: "word-animate"
@@ -10561,6 +10611,8 @@
                 duration: .6,
                 stagger: .1
             }, .3);
+        } catch (error) {
+            console.error("Error animating hero title:", error);
         }
         const animateElements = [ {
             selector: ".hero__label",
@@ -10711,9 +10763,19 @@
         }));
     };
     document.fonts.ready.then((() => {
-        animateText();
-        initHeroAnimationOnLoad();
-        initGSAPMenuAnimation();
+        console.log("Fonts loaded, initializing animations...");
+        setTimeout((() => {
+            if (gsapWithCSS.plugins.ScrollTrigger) {
+                console.log("Using ScrollTrigger for text animation");
+                animateText();
+            } else {
+                console.log("Using fallback method for text animation");
+                animateTextFallback();
+            }
+            initHeroAnimationOnLoad();
+            initGSAPMenuAnimation();
+            console.log("All animations initialized");
+        }), 100);
     }));
     class navigation_Navigation {
         constructor(options = {}) {

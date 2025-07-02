@@ -10511,26 +10511,12 @@
     };
     _SplitText.version = "3.13.0";
     let SplitText = _SplitText;
-    console.log("GSAP version:", gsapWithCSS.version);
-    console.log("ScrollTrigger:", typeof ScrollTrigger_ScrollTrigger);
-    console.log("SplitText:", typeof SplitText);
-    if (typeof ScrollTrigger_ScrollTrigger === "function") {
-        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
-        console.log("ScrollTrigger registered successfully");
-    } else console.error("ScrollTrigger plugin not loaded properly");
-    if (typeof SplitText === "function") {
-        gsapWithCSS.registerPlugin(SplitText);
-        console.log("SplitText registered successfully");
-    } else console.error("SplitText plugin not loaded properly");
+    if (typeof ScrollTrigger_ScrollTrigger === "function") gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger); else console.error("ScrollTrigger plugin not loaded properly");
+    if (typeof SplitText === "function") gsapWithCSS.registerPlugin(SplitText); else console.error("SplitText plugin not loaded properly");
     function animateText() {
         const elList = document.querySelectorAll(".text-animate");
-        if (elList.length === 0) {
-            console.log("No .text-animate elements found");
-            return;
-        }
-        console.log(`Found ${elList.length} .text-animate elements`);
+        if (elList.length === 0) return;
         elList.forEach(((el, index) => {
-            console.log(`Processing element ${index + 1}:`, el);
             if (typeof SplitText !== "function") {
                 console.error("SplitText not available, using fallback animation");
                 gsapWithCSS.fromTo(el, {
@@ -10544,9 +10530,7 @@
                     scrollTrigger: {
                         trigger: el,
                         start: "top 80%",
-                        toggleActions: "play none none none",
-                        onEnter: () => console.log("ScrollTrigger activated for:", el),
-                        onEnterBack: () => console.log("ScrollTrigger enter back for:", el)
+                        toggleActions: "play none none none"
                     }
                 });
                 return;
@@ -10556,7 +10540,6 @@
                     type: "words",
                     wordsClass: "word-animate"
                 });
-                console.log(`Split ${split.words.length} words for element ${index + 1}`);
                 if (typeof ScrollTrigger_ScrollTrigger !== "function") {
                     console.error("ScrollTrigger not available, using timeout fallback");
                     setTimeout((() => {
@@ -10585,10 +10568,7 @@
                     scrollTrigger: {
                         trigger: el,
                         start: "top 80%",
-                        toggleActions: "play none none none",
-                        onEnter: () => console.log("ScrollTrigger activated for:", el),
-                        onEnterBack: () => console.log("ScrollTrigger enter back for:", el),
-                        onRefresh: () => console.log("ScrollTrigger refreshed for:", el)
+                        toggleActions: "play none none none"
                     }
                 });
             } catch (error) {
@@ -10607,7 +10587,6 @@
         }));
         if (typeof ScrollTrigger_ScrollTrigger === "function" && ScrollTrigger_ScrollTrigger.refresh) setTimeout((() => {
             ScrollTrigger_ScrollTrigger.refresh();
-            console.log("ScrollTrigger refreshed");
         }), 100);
     }
     function initHeroAnimationOnLoad() {
@@ -10804,12 +10783,10 @@
         const maxAttempts = 5;
         function tryInit() {
             attempts++;
-            console.log(`Initialization attempt ${attempts}`);
             try {
                 animateText();
                 initHeroAnimationOnLoad();
-                initGSAPMenuAnimation();
-                console.log("All animations initialized successfully");
+                if (window.innerWidth > 768) initGSAPMenuAnimation();
             } catch (error) {
                 console.error(`Initialization attempt ${attempts} failed:`, error);
                 if (attempts < maxAttempts) setTimeout(tryInit, 500 * attempts); else console.error("Max initialization attempts reached");
@@ -10818,7 +10795,6 @@
         tryInit();
     }
     document.fonts.ready.then((() => {
-        console.log("Fonts loaded, initializing animations");
         setTimeout((() => {
             initWithRetry();
         }), 100);
@@ -10830,10 +10806,7 @@
     }));
     setTimeout((() => {
         const processedElements = document.querySelectorAll(".word-animate");
-        if (processedElements.length === 0) {
-            console.log("Fallback initialization triggered");
-            initWithRetry();
-        }
+        if (processedElements.length === 0) initWithRetry();
     }), 2e3);
     class navigation_Navigation {
         constructor(options = {}) {

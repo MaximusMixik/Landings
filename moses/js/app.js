@@ -10511,22 +10511,44 @@
     };
     _SplitText.version = "3.13.0";
     let SplitText = _SplitText;
+    console.log("GSAP version:", gsapWithCSS.version);
     console.log("ScrollTrigger:", typeof ScrollTrigger_ScrollTrigger);
     console.log("SplitText:", typeof SplitText);
-    if (typeof ScrollTrigger_ScrollTrigger === "function") gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger); else console.error("ScrollTrigger plugin not available");
-    if (typeof SplitText === "function") gsapWithCSS.registerPlugin(SplitText); else console.error("SplitText plugin not available");
+    if (typeof ScrollTrigger_ScrollTrigger === "function") {
+        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
+        console.log("ScrollTrigger registered successfully");
+    } else console.error("ScrollTrigger plugin not loaded properly");
+    if (typeof SplitText === "function") {
+        gsapWithCSS.registerPlugin(SplitText);
+        console.log("SplitText registered successfully");
+    } else console.error("SplitText plugin not loaded properly");
     function animateText() {
         const elList = document.querySelectorAll(".text-animate");
-        console.log("Found text-animate elements:", elList.length);
-        if (elList.length === 0) return;
-        if (!gsapWithCSS.plugins.ScrollTrigger) {
-            console.error("ScrollTrigger not registered properly");
+        if (elList.length === 0) {
+            console.log("No .text-animate elements found");
             return;
         }
+        console.log(`Found ${elList.length} .text-animate elements`);
         elList.forEach(((el, index) => {
-            console.log(`Processing element ${index}:`, el);
+            console.log(`Processing element ${index + 1}:`, el);
             if (typeof SplitText !== "function") {
-                console.error("SplitText not available for element:", el);
+                console.error("SplitText not available, using fallback animation");
+                gsapWithCSS.fromTo(el, {
+                    opacity: 0,
+                    y: 30
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: .8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                        onEnter: () => console.log("ScrollTrigger activated for:", el),
+                        onEnterBack: () => console.log("ScrollTrigger enter back for:", el)
+                    }
+                });
                 return;
             }
             try {
@@ -10534,7 +10556,23 @@
                     type: "words",
                     wordsClass: "word-animate"
                 });
-                console.log(`Split words for element ${index}:`, split.words.length);
+                console.log(`Split ${split.words.length} words for element ${index + 1}`);
+                if (typeof ScrollTrigger_ScrollTrigger !== "function") {
+                    console.error("ScrollTrigger not available, using timeout fallback");
+                    setTimeout((() => {
+                        gsapWithCSS.fromTo(split.words, {
+                            yPercent: 100,
+                            opacity: 0
+                        }, {
+                            yPercent: 0,
+                            opacity: 1,
+                            ease: "power4.out",
+                            duration: .9,
+                            stagger: .1
+                        });
+                    }), index * 200);
+                    return;
+                }
                 gsapWithCSS.fromTo(split.words, {
                     yPercent: 100,
                     opacity: 0
@@ -10548,54 +10586,36 @@
                         trigger: el,
                         start: "top 80%",
                         toggleActions: "play none none none",
-                        onEnter: () => console.log("ScrollTrigger entered for:", el),
-                        onLeave: () => console.log("ScrollTrigger left for:", el),
-                        markers: false
+                        onEnter: () => console.log("ScrollTrigger activated for:", el),
+                        onEnterBack: () => console.log("ScrollTrigger enter back for:", el),
+                        onRefresh: () => console.log("ScrollTrigger refreshed for:", el)
                     }
                 });
             } catch (error) {
-                console.error("Error processing element:", el, error);
+                console.error(`Error processing element ${index + 1}:`, error);
+                gsapWithCSS.fromTo(el, {
+                    opacity: 0,
+                    y: 30
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: .8,
+                    ease: "power2.out",
+                    delay: index * .1
+                });
             }
         }));
-        ScrollTrigger_ScrollTrigger.refresh();
-    }
-    function animateTextFallback() {
-        const elList = document.querySelectorAll(".text-animate");
-        if (elList.length === 0) return;
-        elList.forEach((el => {
-            const observer = new IntersectionObserver((entries => {
-                entries.forEach((entry => {
-                    if (entry.isIntersecting) {
-                        const split = new SplitText(entry.target, {
-                            type: "words",
-                            wordsClass: "word-animate"
-                        });
-                        gsapWithCSS.fromTo(split.words, {
-                            yPercent: 100,
-                            opacity: 0
-                        }, {
-                            yPercent: 0,
-                            opacity: 1,
-                            ease: "power4.out",
-                            duration: .9,
-                            stagger: .1
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                }));
-            }), {
-                threshold: .1,
-                rootMargin: "0px 0px -20% 0px"
-            });
-            observer.observe(el);
-        }));
+        if (typeof ScrollTrigger_ScrollTrigger === "function" && ScrollTrigger_ScrollTrigger.refresh) setTimeout((() => {
+            ScrollTrigger_ScrollTrigger.refresh();
+            console.log("ScrollTrigger refreshed");
+        }), 100);
     }
     function initHeroAnimationOnLoad() {
         const heroTl = gsapWithCSS.timeline({
             delay: .5
         });
         const heroTitle = document.querySelector(".hero__title.text-animate");
-        if (heroTitle) try {
+        if (heroTitle) if (typeof SplitText === "function") try {
             const split = new SplitText(heroTitle, {
                 type: "words",
                 wordsClass: "word-animate"
@@ -10612,8 +10632,25 @@
                 stagger: .1
             }, .3);
         } catch (error) {
-            console.error("Error animating hero title:", error);
-        }
+            console.error("Error with SplitText in hero:", error);
+            gsapWithCSS.fromTo(heroTitle, {
+                opacity: 0,
+                y: 30
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: .8,
+                ease: "power2.out"
+            });
+        } else gsapWithCSS.fromTo(heroTitle, {
+            opacity: 0,
+            y: 30
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .8,
+            ease: "power2.out"
+        });
         const animateElements = [ {
             selector: ".hero__label",
             delay: 0
@@ -10762,21 +10799,42 @@
             animation(targetItem);
         }));
     };
-    document.fonts.ready.then((() => {
-        console.log("Fonts loaded, initializing animations...");
-        setTimeout((() => {
-            if (gsapWithCSS.plugins.ScrollTrigger) {
-                console.log("Using ScrollTrigger for text animation");
+    function initWithRetry() {
+        let attempts = 0;
+        const maxAttempts = 5;
+        function tryInit() {
+            attempts++;
+            console.log(`Initialization attempt ${attempts}`);
+            try {
                 animateText();
-            } else {
-                console.log("Using fallback method for text animation");
-                animateTextFallback();
+                initHeroAnimationOnLoad();
+                initGSAPMenuAnimation();
+                console.log("All animations initialized successfully");
+            } catch (error) {
+                console.error(`Initialization attempt ${attempts} failed:`, error);
+                if (attempts < maxAttempts) setTimeout(tryInit, 500 * attempts); else console.error("Max initialization attempts reached");
             }
-            initHeroAnimationOnLoad();
-            initGSAPMenuAnimation();
-            console.log("All animations initialized");
+        }
+        tryInit();
+    }
+    document.fonts.ready.then((() => {
+        console.log("Fonts loaded, initializing animations");
+        setTimeout((() => {
+            initWithRetry();
         }), 100);
+    })).catch((error => {
+        console.error("Font loading error:", error);
+        setTimeout((() => {
+            initWithRetry();
+        }), 1e3);
     }));
+    setTimeout((() => {
+        const processedElements = document.querySelectorAll(".word-animate");
+        if (processedElements.length === 0) {
+            console.log("Fallback initialization triggered");
+            initWithRetry();
+        }
+    }), 2e3);
     class navigation_Navigation {
         constructor(options = {}) {
             this.settings = {

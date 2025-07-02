@@ -320,7 +320,7 @@ body {
   transition: opacity .5s ease,transform .5s ease,-webkit-transform .5s ease
 }
 [data-watch].duration-9 {
-  transition-duration: 1.5s
+  transition-duration: 2s
 }
 [data-watch].top {
   -webkit-transform: translateY(-6.25rem);
@@ -354,8 +354,8 @@ body {
   transform: rotate(-380deg) translateX(-3.125rem)
 }
 [data-watch].unscaleX {
-  -webkit-transform: scaleX(3);
-  transform: scaleX(3)
+  -webkit-transform: scaleX(2) scaleY(1.5);
+  transform: scaleX(2) scaleY(1.5)
 }
 [data-watch].unscaleY {
   -webkit-transform: scaleY(1.4);
@@ -774,8 +774,6 @@ h3 span {
 }
 .swiper-hero__slide img {
   position: absolute;
-  border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem;
   bottom: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -890,6 +888,7 @@ h3 span {
 .item-cargo {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(48deg,#fafafa 0,#f3f3f3 100%);
   box-shadow: inset 0 0 0 .125rem rgba(255,255,255,.6)
 }
 .item-cargo__bg {
@@ -1003,8 +1002,8 @@ h3 span {
   will-change: transform
 }
 .car1 {
-  -webkit-animation: car-drive-loop 3.5s linear -1s infinite,car-bounce-1 1.8s ease-in-out infinite;
-  animation: car-drive-loop 3.5s linear -1s infinite,car-bounce-1 1.8s ease-in-out infinite
+  -webkit-animation: car-drive-loop 3.2s linear -1s infinite,car-bounce-1 1.6s ease-in-out infinite;
+  animation: car-drive-loop 3.2s linear -1s infinite,car-bounce-1 1.6s ease-in-out infinite
 }
 .car1__body,
 .car1__wheels {
@@ -1021,8 +1020,8 @@ h3 span {
   transform-origin: center
 }
 .car2 {
-  -webkit-animation: car-drive-loop 7s linear -2s infinite,car-bounce-1 2.8s ease-in-out -.8s infinite;
-  animation: car-drive-loop 7s linear -2s infinite,car-bounce-1 2.8s ease-in-out -.8s infinite
+  -webkit-animation: car-drive-loop 6.5s linear -2s infinite,car-bounce-1 2.8s ease-in-out -.8s infinite;
+  animation: car-drive-loop 6.5s linear -2s infinite,car-bounce-1 2.8s ease-in-out -.8s infinite
 }
 .car2__body,
 .car2__wheels {
@@ -1039,8 +1038,8 @@ h3 span {
   transform-origin: center
 }
 .car3 {
-  -webkit-animation: car-drive-loop 5s linear -2s infinite,car-bounce-1 2.5s ease-in-out -.7s infinite;
-  animation: car-drive-loop 5s linear -2s infinite,car-bounce-1 2.5s ease-in-out -.7s infinite
+  -webkit-animation: car-drive-loop 4.5s linear -2s infinite,car-bounce-1 2.3s ease-in-out -.7s infinite;
+  animation: car-drive-loop 4.5s linear -2s infinite,car-bounce-1 2.3s ease-in-out -.7s infinite
 }
 .car3__body,
 .car3__wheels {
@@ -1057,9 +1056,8 @@ h3 span {
   transform-origin: center
 }
 .car4 {
-  display: none;
-  -webkit-animation: car-drive-loop 5s linear -5s infinite,car-bounce-1 2.5s ease-in-out -1.2s infinite;
-  animation: car-drive-loop 5s linear -5s infinite,car-bounce-1 2.5s ease-in-out -1.2s infinite
+  -webkit-animation: car-drive-loop 4.5s linear infinite,car-bounce-1 2.3s ease-in-out -1.2s infinite;
+  animation: car-drive-loop 4.5s linear infinite,car-bounce-1 2.3s ease-in-out -1.2s infinite
 }
 .car4__body,
 .car4__wheels {
@@ -1148,11 +1146,13 @@ h3 span {
 }
 .item-price__header {
   display: flex;
-  gap: 2.5rem;
   justify-content: space-between
 }
 .item-price__product {
   color: var(--accent-secondary)
+}
+.item-price__price {
+  flex-shrink: 0
 }
 .item-price__values {
   display: flex;
@@ -2991,6 +2991,9 @@ h3 span {
   .item-price {
     padding-block: 1rem
   }
+  .item-price__header {
+    gap: 2.5rem
+  }
   .item-price__header>:not(:last-child) {
     margin-bottom: .875rem
   }
@@ -3205,6 +3208,10 @@ h3 span {
   }
   .swiper-hero__slide img {
     height: 32.375rem
+  }
+  .swiper-hero__slide img {
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem
   }
   .item-hero {
     padding: 1.5rem 2.25rem 2.25rem;
@@ -3794,6 +3801,10 @@ h3 span {
     gap: 1.5rem;
     margin-top: 1.5rem
   }
+  .swiper-hero__slide img {
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem
+  }
   .item-hero {
     padding: 1rem 1.5rem 1.5rem;
     min-height: 9.625rem;
@@ -4057,7 +4068,7 @@ h3 span {
     font-size: 1.5rem
   }
   .block-header__text {
-    text-wrap: balance
+    margin-top: .75rem
   }
   .block-header__text br {
     display: none
@@ -4146,10 +4157,10 @@ h3 span {
     height: 13rem
   }
   .swiper-hero__slide img {
-    width: 13rem
+    width: 12.5rem
   }
   .swiper-hero__slide img {
-    height: 13rem
+    height: 12.75rem
   }
   .item-hero {
     padding: .75rem .75rem 1rem;
@@ -4344,6 +4355,9 @@ h3 span {
   }
   .item-price {
     padding-block: .75rem
+  }
+  .item-price__header {
+    gap: 1.25rem
   }
   .item-price__header>:not(:last-child) {
     margin-bottom: .5rem
@@ -4705,10 +4719,10 @@ h3 span {
     height: clamp(13rem ,-20.631816609rem + 112.1107266436vw ,33.25rem)
   }
   .swiper-hero__slide img {
-    width: clamp(13rem ,-17.3101557093rem + 101.0380622837vw ,31.25rem)
+    width: clamp(12.5rem ,-18.6405709343rem + 103.8062283737vw ,31.25rem)
   }
   .swiper-hero__slide img {
-    height: clamp(13rem ,-19.1785899654rem + 107.2664359862vw ,32.375rem)
+    height: clamp(12.75rem ,-19.8437975779rem + 108.6505190311vw ,32.375rem)
   }
   .item-cargo__icon:not(:last-child) {
     margin-bottom: clamp(.5rem ,-1.1608304498rem + 5.5363321799vw ,1.5rem)

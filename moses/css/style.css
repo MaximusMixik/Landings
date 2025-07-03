@@ -1272,6 +1272,187 @@ h3 span {
   -webkit-animation: pulseIcon 2s ease-in-out infinite;
   animation: pulseIcon 2s ease-in-out infinite
 }
+.insurance__content {
+  box-shadow: inset 0 0 0 .125rem rgba(255,255,255,.6);
+  border-radius: 2.75rem;
+  background: linear-gradient(48deg,#fafafa 0,#f3f3f3 100%)
+}
+.insurance__title {
+  max-width: 43.75rem
+}
+.insurance__text {
+  max-width: 43.75rem;
+  color: var(--text-primary-light)
+}
+.media-insurance {
+  position: relative;
+  aspect-ratio: 1/1
+}
+.media-insurance img {
+  max-width: 100%
+}
+.media-insurance__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.media-insurance__decor {
+  position: absolute;
+  top: 30%;
+  right: 11%;
+  width: 20.3%;
+  height: 28.2%
+}
+.item-tab {
+  background-color: rgba(233,231,231,.3);
+  border: .0625rem solid rgba(0,0,0,.2);
+  border-radius: 1.5rem
+}
+.item-tab__header {
+  display: flex;
+  align-items: center
+}
+.item-tab__avatar {
+  flex-shrink: 0;
+  border-radius: 50%
+}
+.item-tab__about {
+  flex: 1 1 auto
+}
+.item-tab__position {
+  font-weight: 500
+}
+.item-tab__footer {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  max-width: 26.875rem
+}
+.item-tab__date,
+.item-tab__position,
+.item-tab__time {
+  color: var(--text-primary-light)
+}
+.item-tab__time {
+  text-align: left
+}
+.item-tab__date {
+  text-align: right
+}
+.advantages-review {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 .125rem rgba(255,255,255,.6)
+}
+.advantages-review__list {
+  display: grid;
+  text-align: center;
+  position: relative;
+  z-index: 2
+}
+.advantages-review__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: -1
+}
+.advantages-review__value span {
+  color: var(--accent)
+}
+.advantages-review__description {
+  color: var(--text-primary-light)
+}
+.faq__container {
+  position: relative;
+  max-width: 74.25rem
+}
+.faq__bg-left,
+.faq__bg-right {
+  will-change: transform;
+  position: absolute;
+  z-index: -1
+}
+.faq__bg-left {
+  left: 0
+}
+.faq__bg-right {
+  right: 0
+}
+.cta {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 .125rem rgba(255,255,255,.6);
+  border-radius: 1.5rem
+}
+.cta__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: -1
+}
+.cta__text {
+  color: var(--text-primary-light)
+}
+.moves__wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.75rem
+}
+.moves__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.moves__button {
+  max-width: -moz-fit-content;
+  max-width: -webkit-fit-content;
+  max-width: fit-content;
+  margin-inline: auto
+}
+.moves__image {
+  width: 100%;
+  max-width: 68.75rem;
+  max-height: 41.125rem;
+  text-align: center
+}
+.moves__bg,
+.moves__bg-mob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.moves__list {
+  display: grid
+}
+.item-moves {
+  box-shadow: 0 .25rem 1rem 0 rgba(0,0,0,.1);
+  background-color: var(--bg-primary)
+}
+.item-moves__counter {
+  font-weight: 500;
+  background: linear-gradient(180deg,#11995a 0,#03c068 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
+}
 @-webkit-keyframes animate-svg-stroke-1 {
   0% {
     stroke-dashoffset: 914.5272216797px;
@@ -2857,6 +3038,30 @@ h3 span {
     width: 3.75rem;
     height: 3.75rem
   }
+  .review__advantages {
+    margin-top: 5rem
+  }
+  .item-tab__header {
+    gap: 1rem;
+    margin-bottom: 1rem
+  }
+  .item-tab__avatar {
+    width: 5rem;
+    flex-basis: 5rem;
+    height: 5rem
+  }
+  .item-tab__name {
+    margin-bottom: .25rem
+  }
+  .item-tab__footer {
+    gap: 2.25rem
+  }
+  .advantages-review {
+    border-radius: 2.75rem
+  }
+  .advantages-review__value {
+    margin-bottom: 1rem
+  }
 }
 @media (min-width:48.06125em) {
   html {
@@ -3274,6 +3479,101 @@ h3 span {
   .item-driver__value {
     font-size: 2.25rem
   }
+  .insurance__body {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2.25rem;
+    align-items: end
+  }
+  .insurance__media {
+    margin-top: -8rem
+  }
+  .insurance__content {
+    padding: 2.75rem 3.75rem 3.75rem
+  }
+  .insurance__content>:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .insurance__text {
+    font-size: 2.25rem
+  }
+  .item-tab {
+    padding: 2.25rem
+  }
+  .item-tab__text:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .advantages-review__list {
+    grid-template-columns: repeat(3,1fr);
+    padding: 5rem 2.25rem
+  }
+  .advantages-review__value {
+    font-size: 6.25rem
+  }
+  .advantages-review__description {
+    font-size: 2.25rem
+  }
+  .faq__bg-left,
+  .faq__bg-right {
+    width: 62.5rem;
+    height: 62.5rem
+  }
+  .faq__bg-left {
+    -webkit-transform: translateX(-61%);
+    transform: translateX(-61%);
+    top: 5.125rem
+  }
+  .faq__bg-right {
+    -webkit-transform: translateX(61%);
+    transform: translateX(61%);
+    bottom: -7.0625rem
+  }
+  .cta {
+    gap: 2.25rem;
+    margin-top: 2rem;
+    padding: 2.25rem 2.25rem 2.75rem
+  }
+  .cta__content {
+    flex: 1 1 auto
+  }
+  .cta__title {
+    font-size: 3.375rem
+  }
+  .cta__title:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .cta__button {
+    flex-shrink: 0
+  }
+  .moves__wrapper {
+    padding: 5rem 5.125rem 0
+  }
+  .moves__button-wrap:not(:last-child) {
+    margin-bottom: 5rem
+  }
+  .moves__bg-mob {
+    display: none
+  }
+  .moves__list {
+    gap: 2.25rem;
+    grid-template-columns: repeat(3,1fr)
+  }
+  .moves__list:not(:last-child) {
+    margin-bottom: 3.75rem
+  }
+  .item-moves {
+    padding: 1.5rem 2.125rem 2.25rem;
+    border-radius: 1.5rem
+  }
+  .item-moves__counter {
+    font-size: 3.375rem
+  }
+  .item-moves__counter:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .item-moves__text {
+    font-size: 2.25rem
+  }
 }
 @media (min-width:48.06125em)and (any-hover:hover) {
   .tabs__list:hover {
@@ -3284,9 +3584,6 @@ h3 span {
 @media (min-width:61.99875em) {
   [class*=__container] {
     padding-inline: 2.75rem
-  }
-  .menu__bg {
-    display: none
   }
   .menu__list {
     display: flex;
@@ -3327,6 +3624,9 @@ h3 span {
   .hero {
     padding: 2.75rem
   }
+  .insurance__title {
+    font-size: 3.375rem
+  }
 }
 @media (max-width:650px) {
   .header__button {
@@ -3334,6 +3634,21 @@ h3 span {
   }
 }
 @media (max-width:61.99875em) {
+  .wrapper::before {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: linear-gradient(180deg,#e8f8f6 0,#03c068 100%);
+    opacity: 0;
+    z-index: 30;
+    transition: opacity .5s ease;
+    pointer-events: none
+  }
+  .menu-open .wrapper::before {
+    opacity: .6
+  }
   .menu__body {
     position: absolute;
     width: 82%;
@@ -3358,15 +3673,6 @@ h3 span {
   .menu-open .menu__body {
     opacity: 1;
     pointer-events: all
-  }
-  .menu__bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    -o-object-fit: cover;
-    object-fit: cover;
-    opacity: .1
   }
   .menu__list {
     display: grid;
@@ -3645,6 +3951,70 @@ h3 span {
   }
   .slide-driver__photo:not(:last-child) {
     margin-bottom: 1rem
+  }
+  .insurance__media {
+    margin-block: -2.75rem -5.625rem;
+    z-index: -1
+  }
+  .insurance__content {
+    padding: 2.75rem 2.25rem
+  }
+  .item-tab {
+    padding: 1.5rem
+  }
+  .item-tab__text:not(:last-child) {
+    margin-bottom: 1rem
+  }
+  .advantages-review__list {
+    gap: 3.75rem;
+    padding: 3.75rem 5rem 5rem
+  }
+  .faq__bg-left,
+  .faq__bg-right {
+    width: 31.25rem;
+    height: 31.25rem
+  }
+  .faq__bg-left {
+    -webkit-transform: translateX(-23%);
+    transform: translateX(-23%);
+    top: -7.5rem
+  }
+  .faq__bg-right {
+    -webkit-transform: translateX(23%);
+    transform: translateX(23%);
+    bottom: -7.1875rem
+  }
+  .cta {
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2.25rem;
+    gap: 1.5rem;
+    padding: 2.25rem 1.5rem 2.75rem
+  }
+  .cta__title:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .moves__wrapper {
+    padding: 2.75rem 2.25rem 0
+  }
+  .moves__button-wrap:not(:last-child) {
+    margin-bottom: 2.25rem
+  }
+  .moves__bg {
+    display: none
+  }
+  .moves__list {
+    gap: 1.5rem
+  }
+  .moves__list:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .item-moves {
+    padding: 1.5rem 1.5rem 2.25rem;
+    border-radius: 1rem
+  }
+  .item-moves__counter:not(:last-child) {
+    margin-bottom: .25rem
   }
 }
 @media (max-width:29.99875em) {
@@ -4091,6 +4461,97 @@ h3 span {
     width: 2.25rem;
     height: 2.25rem
   }
+  .insurance__media {
+    margin-block: -1.625rem -1.25rem
+  }
+  .insurance__content {
+    border-radius: 1.5rem;
+    padding: 2.25rem 1rem
+  }
+  .insurance__content>:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .insurance__text {
+    font-size: 1.125rem
+  }
+  .media-insurance {
+    width: 15rem;
+    height: 15rem;
+    margin-inline: auto
+  }
+  .review__advantages {
+    margin-top: 2.75rem
+  }
+  .item-tab {
+    padding: 1rem
+  }
+  .item-tab__header {
+    gap: .5rem;
+    margin-bottom: .75rem
+  }
+  .item-tab__avatar {
+    flex-basis: 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem
+  }
+  .item-tab__text:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .item-tab__footer {
+    gap: .5rem
+  }
+  .advantages-review {
+    border-radius: 1.5rem
+  }
+  .advantages-review__list {
+    gap: 1.5rem;
+    padding: 2.25rem 1rem
+  }
+  .advantages-review__bg {
+    -o-object-position: bottom left;
+    object-position: bottom left
+  }
+  .faq__bg-left,
+  .faq__bg-right {
+    width: 16.1875rem;
+    height: 16.1875rem
+  }
+  .faq__bg-left {
+    -webkit-transform: translateX(-21%);
+    transform: translateX(-21%);
+    top: 10.5rem
+  }
+  .faq__bg-right {
+    -webkit-transform: translateX(21%);
+    transform: translateX(21%);
+    bottom: -4.1875rem
+  }
+  .cta {
+    margin-top: 1rem;
+    gap: .75rem;
+    padding: 1.5rem 1rem 2.25rem
+  }
+  .cta__bg {
+    -o-object-position: bottom right;
+    object-position: bottom right
+  }
+  .cta__title:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .moves__wrapper {
+    padding: 2.75rem 1rem 0;
+    border-radius: 1.5rem
+  }
+  .moves__list {
+    gap: .5rem
+  }
+  .item-moves {
+    padding: .75rem 1rem 1rem;
+    border-radius: .75rem
+  }
+  .item-moves__text {
+    font-size: 1.125rem
+  }
 }
 @media (max-width:22.5em) {
   body {
@@ -4114,6 +4575,21 @@ h3 span {
   .footer__logo {
     font-size: 2.25rem
   }
+  .insurance__title {
+    font-size: 1.125rem
+  }
+  .advantages-review__value {
+    font-size: 2.75rem
+  }
+  .advantages-review__description {
+    font-size: 1.125rem
+  }
+  .cta__title {
+    font-size: 1.125rem
+  }
+  .item-moves__counter {
+    font-size: 1.5rem
+  }
 }
 @media (min-width:22.5em)and (max-width:48.06125em) {
   body {
@@ -4121,6 +4597,18 @@ h3 span {
   }
   .footer__logo {
     font-size: clamp(2.25rem ,1.1497016969rem + 4.8902146804vw ,3.5rem)
+  }
+  .advantages-review__value {
+    font-size: clamp(2.75rem ,-.3308352487rem + 13.6926011052vw ,6.25rem)
+  }
+  .advantages-review__description {
+    font-size: clamp(1.125rem ,.1347315272rem + 4.4011932124vw ,2.25rem)
+  }
+  .cta__title {
+    font-size: clamp(1.125rem ,-.8555369456rem + 8.8023864248vw ,3.375rem)
+  }
+  .item-moves__counter {
+    font-size: clamp(1.5rem ,-.1504474546rem + 7.3353220206vw ,3.375rem)
   }
 }
 @media (min-width:29.99875em)and (max-width:61.99875em) {
@@ -4356,6 +4844,15 @@ h3 span {
   .item-driver__value {
     font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
   }
+  .insurance__content>:not(:last-child) {
+    margin-bottom: clamp(.5rem ,-1.1608304498rem + 5.5363321799vw ,1.5rem)
+  }
+  .insurance__text {
+    font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
+  }
+  .item-moves__text {
+    font-size: clamp(1.125rem ,-.7434342561rem + 6.2283737024vw ,2.25rem)
+  }
 }
 @media (min-width:22.5em)and (max-width:61.99875em) {
   .spollers__title {
@@ -4372,6 +4869,9 @@ h3 span {
   }
   .spollers__icon svg {
     height: clamp(.625rem ,-.1582526346rem + 3.4811228203vw ,2rem)
+  }
+  .insurance__title {
+    font-size: clamp(1.125rem ,-.1566861293rem + 5.6963827969vw ,3.375rem)
   }
 }
 @media (max-width:48.06125em)and (min-width:29.99875em) {

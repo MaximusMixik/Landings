@@ -247,8 +247,7 @@ body {
 .contacts__item {
   display: grid;
   grid-template-columns: 1.5rem 1fr;
-  gap: 1rem;
-  align-items: start
+  gap: 1rem
 }
 .contacts__icon {
   width: 1.5rem;
@@ -277,6 +276,9 @@ body {
   }
   .advantages__list {
     grid-template-columns: repeat(2,1fr)
+  }
+  .contacts__item {
+    align-items: start
   }
 }
 @media (min-width:47.99875em) {
@@ -399,6 +401,9 @@ body {
     max-height: 5.0625rem
   }
   .item-hero {
+    align-items: center
+  }
+  .contacts__item {
     align-items: center
   }
 }

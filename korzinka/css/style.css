@@ -1,29 +1,22 @@
 @font-face {
-  font-family: Poppins;
+  font-family: Manrope;
   font-display: swap;
-  src: url(../fonts/Poppins-Bold.woff2) format("woff2");
-  font-weight: 700;
-  font-style: normal
-}
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
-  src: url(../fonts/Poppins-Medium.woff2) format("woff2");
+  src: url(../fonts/Manrope-Medium.woff2) format("woff2");
   font-weight: 500;
   font-style: normal
 }
 @font-face {
-  font-family: Poppins;
+  font-family: Manrope;
   font-display: swap;
-  src: url(../fonts/Poppins-Regular.woff2) format("woff2");
-  font-weight: 400;
+  src: url(../fonts/Manrope-SemiBold.woff2) format("woff2");
+  font-weight: 600;
   font-style: normal
 }
 @font-face {
-  font-family: Poppins;
+  font-family: Manrope;
   font-display: swap;
-  src: url(../fonts/Poppins-SemiBold.woff2) format("woff2");
-  font-weight: 600;
+  src: url(../fonts/Manrope-Regular.woff2) format("woff2");
+  font-weight: 400;
   font-style: normal
 }
 * {
@@ -47,7 +40,7 @@ html {
 }
 body {
   line-height: 1;
-  font-family: Poppins;
+  font-family: Manrope;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,7 +49,7 @@ body {
 }
 button,
 textarea {
-  font-family: Poppins;
+  font-family: Manrope;
   font-size: inherit;
   line-height: inherit;
   color: inherit;
@@ -120,8 +113,27 @@ body {
 }
 .title {
   color: #063160;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1
+}
+.lang {
+  border-radius: .625rem;
+  background-color: #aad6f1;
+  display: flex;
+  padding: .25rem;
+  gap: .25rem;
+  text-transform: uppercase
+}
+.lang__link {
+  min-height: 2.1875rem;
+  min-width: 2.9375rem;
+  border-radius: .5rem;
+  padding: .625rem .75rem;
+  text-align: center;
+  font-size: .75rem
+}
+.lang__link--current {
+  background-color: #ebf4f9
 }
 .hero__container {
   display: flex;
@@ -132,6 +144,10 @@ body {
   max-height: 7.5625rem;
   -o-object-fit: contain;
   object-fit: contain
+}
+.hero__header {
+  display: flex;
+  align-items: flex-start
 }
 .hero__advantages {
   display: grid;
@@ -215,6 +231,9 @@ body {
 .advantages__icon svg {
   -o-object-fit: contain;
   object-fit: contain
+}
+.advantages__text {
+  font-weight: 500
 }
 .contacts {
   position: relative
@@ -328,8 +347,14 @@ body {
   .hero__content {
     max-width: 33.625rem
   }
-  .hero__logo:not(:last-child) {
+  .hero__header {
+    gap: 2.75rem
+  }
+  .hero__header:not(:last-child) {
     margin-bottom: 6.25rem
+  }
+  .hero__lang {
+    margin-top: 3.3125rem
   }
   .hero__media {
     width: 39.75rem;
@@ -348,7 +373,12 @@ body {
     margin-inline: auto;
     display: block
   }
-  .hero__logo:not(:last-child) {
+  .hero__header {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center
+  }
+  .hero__header:not(:last-child) {
     margin-bottom: 3.75rem
   }
   .hero__media {
@@ -365,9 +395,6 @@ body {
   }
   .hero {
     padding-block: 2.5rem
-  }
-  .hero__content {
-    align-self: start
   }
   .hero__title:not(:last-child) {
     margin-bottom: 1.5rem
